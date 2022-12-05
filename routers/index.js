@@ -6,7 +6,7 @@ const Products = require("../models/products");
 router.get("/", (requete, reponse) => {
   Products.find({}, (err, allProducts) => {
     if (err) throw err;
-    reponse.render("login", {
+    reponse.render("accueil", {
       allProducts: allProducts,
     });
   });
@@ -14,7 +14,7 @@ router.get("/", (requete, reponse) => {
 router.get("/index", (requete, reponse) => {
   Products.find({}, (err, allProducts) => {
     if (err) throw err;
-    reponse.render("login", {
+    reponse.render("accueil", {
       allProducts: allProducts,
     });
   });
@@ -22,7 +22,7 @@ router.get("/index", (requete, reponse) => {
 router.get("/index.html", (requete, reponse) => {
   Products.find({}, (err, allProducts) => {
     if (err) throw err;
-    reponse.render("login", {
+    reponse.render("accueil", {
       allProducts: allProducts,
     });
   });

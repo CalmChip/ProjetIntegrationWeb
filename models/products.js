@@ -64,3 +64,8 @@ module.exports.findProductByNameDescending = (filter, callback, limit) => {
     .limit(limit)
     .sort({ price: -1 });
 };
+
+// API to find product by category
+module.exports.findProductByCategorie = (filter, callback, limit) => {
+  Products.find({ type: filter }, callback).limit(limit);
+};

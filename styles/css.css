@@ -21,3 +21,19 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
     left: .5rem;
     padding-left: 4.5rem;
 }
+
+.navbar i {
+    float: left;
+    color: white;
+    margin: 6px;
+    
+  }
+  .container a:hover {
+    background-color: rgb(136, 127, 127);
+    color: black;
+  }
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }

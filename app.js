@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false })); //middlewear
 //creation de la session express
 app.use(
   session({
-    secret: "HelloThereObiwanKenobi1991", //phrase supplementaire secret pour bloquer les pirates
+    secret: "22HelloThereObiwanKenobi1991", //phrase supplementaire secret pour bloquer les pirates
     resave: true,
     saveUninitialized: true,
   })
@@ -66,7 +66,7 @@ app.set("view engine", "ejs");
 
 //connexion BD
 mongoose.connect(
-  "mongodb+srv://projetintegration:integrationWeb@cluster0.rzx3q1e.mongodb.net/projetIntegration"
+  "mongodb+srv://CalmChip:QAZplm123098@usagers.cxlqpfn.mongodb.net/BernardWebsite"
 );
 let db = mongoose.connection;
 db.on("error", (err) => {
