@@ -8,7 +8,7 @@
         <form action="/usagers/login" method="POST">
 
           <div class="form-floating">
-            <i class="fas fa-envelope fa-lg icon"></i>
+            
             <input
               type="email"
               name="_id"
@@ -17,11 +17,12 @@
               value="<%= typeof _id != 'undefined' ? _id : '' %>"
               placeholder="Entrez un courriel"
             />
+            <i class="fas fa-envelope fa-lg icon"></i>
             <label for="_id">Courriel</label>
           </div>
 
           <div class="form-floating">
-            <i class="fa fa-lock fa-lg icon"></i>
+            
             <input
               type="password"
               name="password"
@@ -30,6 +31,7 @@
               value="<%= typeof password != 'undefined' ? password : '' %>"
               placeholder="Entez un mot de passe"
             />
+            <i class="fa fa-lock fa-lg icon"></i>
             <label for="password">Mot de passe</label>
           </div>
 

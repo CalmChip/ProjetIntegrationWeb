@@ -7,10 +7,15 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
 }
 
 .form-control:focus {
-    border: 3px solid #00d4ff;
+    border: 3px solid #00D4FF;
+}
+.form-control:focus + .icon {
+    color: #0391d3;
 }
 
 .form-floating {
+    display: flex;
+    flex-direction: row-reverse;
     position: relative;
     margin-bottom: 1.5rem;
 }
