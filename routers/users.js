@@ -6,7 +6,7 @@ const Products = require("../models/products");
 
 // Router that renders login page
 router.get("/login", (request, response) => {
-  response.render(""); // login page
+  response.render("login");
 });
 
 // Router for login out
@@ -14,16 +14,16 @@ router.get("/logout", (requete, reponse) => {
   requete.logout((err) => {
     if (err) throw err;
     requete.flash("succes_msg", "Déconnection réeussis.");
-    reponse.redirect(""); // Redirect apres logout
+    reponse.redirect("login");
   });
 });
 
 // router that autenticate users upon request to login
 router.post("/login", (requete, reponse, next) => {
   passport.authenticate("local", {
-    successRedirect: "", // Page apres login?
+    successRedirect: "accueil",
     badRequestMessage: "Remplir tous les champs",
-    failureRedirect: "", // Page si fail login?
+    failureRedirect: "login",
     failureFlash: true,
   })(requete, reponse, next);
 });
