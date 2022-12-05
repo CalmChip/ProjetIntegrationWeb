@@ -23,6 +23,10 @@ let schemaProduct = mongoose.Schema({
     type: String,
     required: true,
   },
+  productPicture: {
+    type: String,
+    required: true,
+  },
 });
 
 //export
@@ -49,6 +53,7 @@ module.exports.modifyProduct = (query, product, callback) => {
     type: product.type,
     price: product.price,
     desc: product.desc,
+    productPicture: productPicture,
   };
   Products.findOneAndUpdate(filter, newProduct, options, callback);
 };

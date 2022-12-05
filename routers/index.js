@@ -39,6 +39,7 @@ router.get("/index.html", (request, response) => {
 });
 
 // Router to post product into the DB
+// To add Multer to keep picutres in MongoDB
 router.post("/products", isAuthorized, isSeller, (request, response) => {
   const { productName, type, price, desc } = request.body;
   let newProduct = {
