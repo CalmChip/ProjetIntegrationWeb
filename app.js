@@ -43,11 +43,11 @@ app.use(passport.session());
 //connection a flash
 app.use(flash());
 
-// quelques variabels globales pour le bon fonctionnement de l'authentification
+// quelques variables globales pour le bon fonctionnement de l'authentification
 app.use((requete, reponse, next) => {
-  reponse.locals.succes_msg = requete.flash("succes_msg");
+  reponse.locals.success_msg = requete.flash("success_msg");
   reponse.locals.erreur_msg = requete.flash("erreur_msg");
-  reponse.locals.erreur_passport = requete.flash("error");
+  reponse.locals.erreur_passport = requete.flash("erreurs");
   next();
 });
 

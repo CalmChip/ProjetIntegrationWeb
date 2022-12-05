@@ -49,7 +49,7 @@ router.post("/products", isAuthorized, isSeller, (request, response) => {
     desc: desc,
   };
   newProduct.save().then((product) => {
-    request.flash("succes_msg", "Product added successfully");
+    request.flash("success_msg", "Product added successfully");
     response.redirect("accueil").catch((err) => {
       console.log(err);
     });
