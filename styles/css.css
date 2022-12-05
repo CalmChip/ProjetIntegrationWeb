@@ -1,0 +1,23 @@
+.primaryColor{
+    color: #0a206b;
+}
+.backgroundGradient {
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.form-floating {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.icon {
+    position: absolute;
+    top: calc(22%);
+    padding: 10px;
+    min-width: 40px;
+    left: 1.25rem;
+}
+.form-floating label, .form-floating .form-control {
+    left: .5rem;
+    padding-left: 4.5rem;
+}
