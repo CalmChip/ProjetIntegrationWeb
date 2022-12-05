@@ -8,7 +8,6 @@
         <form action="/usagers/login" method="POST">
 
           <div class="form-floating">
-            
             <input
               type="email"
               name="_id"
@@ -22,7 +21,6 @@
           </div>
 
           <div class="form-floating">
-            
             <input
               type="password"
               name="password"
@@ -38,14 +36,16 @@
           <div style="display: flex; justify-content: center; align-items: center;">
           <button
             type="submit"
-            class="btn btn-primary btn-block btn-md"
-            style="margin-top: 10px;"
-          >
+            class="btn btn-primary btn-block"
+            style="margin-top: 0.5rem; font-size: larger;">
             Connexion
           </button>
           </div>
 
         </form>
+          <p class="lead mt-4 text-center">
+            Vous avez déjà un compte? <a href="/usagers/login">Se connecter</a>
+          </p>
       </div>
     </div>
   </div>

@@ -22,7 +22,7 @@ let schemaUsers = mongoose.Schema({
     roles: {
         type: Array,
         required: true,
-        defaultL: ["user"]
+        default: ["user"]
     },
     cart: {
         type: Array
@@ -30,6 +30,11 @@ let schemaUsers = mongoose.Schema({
 });
 
 let Users = module.exports = mongoose.model('users', schemaUsers);
+
+//Add user
+module.exports.addUser = (usager, callback) => {
+    Users.create(usager, callback);
+};
 
 // Delete user by _id
 module.exports.deleteUser = (idUser, callback) => {

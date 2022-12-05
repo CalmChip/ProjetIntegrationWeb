@@ -28,6 +28,8 @@ router.post("/login", (requete, reponse, next) => {
   })(requete, reponse, next);
 });
 
+
+
 // Router that gets a product by its ID and renders its info on the page
 router.get("/modify/:id", isAuthorized, isSeller, (request, response) => {
   Products.getProductByID(request.params._id, (err, product) => {
@@ -36,6 +38,11 @@ router.get("/modify/:id", isAuthorized, isSeller, (request, response) => {
       productInfo: product,
     });
   });
+});
+
+// Router that renders login page
+router.get("/register", (requete, response) => {
+  response.render("register");
 });
 
 module.exports = router;

@@ -31,6 +31,24 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
     padding-left: 4.5rem;
 }
 
+input[type='checkbox'] {
+    width:20px;
+    height:20px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+.checkbox {
+    align-items: center;
+    font-size: x-large;
+    font-weight: 400;
+}
+.roles {
+    font-weight: 600;
+    font-size: x-large;
+    margin-right: 10px;
+}
+
 .navbar i {
     float: left;
     color: white;
