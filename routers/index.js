@@ -1,7 +1,7 @@
 const express = require("express");
 const { Mongoose } = require("mongoose");
 const router = express.Router();
-// const Products = require("../models/products");
+const Products = require("../models/products");
 const { isAuthorized, isSeller } = require("../configs/auth");
 
 //Routers for main web page rendering
