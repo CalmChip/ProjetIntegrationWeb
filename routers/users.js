@@ -13,7 +13,7 @@ router.get("/login", (request, response) => {
 router.get("/logout", (requete, reponse) => {
   requete.logout((err) => {
     if (err) throw err;
-    requete.flash("succes_msg", "Déconnection réeussis.");
+    requete.flash("success_msg", "Déconnection réeussis.");
     reponse.redirect("login");
   });
 });
