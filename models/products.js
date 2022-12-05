@@ -65,7 +65,16 @@ module.exports.findProductByNameDescending = (filter, callback, limit) => {
     .sort({ price: -1 });
 };
 
-// API to find product by category
-module.exports.findProductByCategorie = (filter, callback, limit) => {
-  Products.find({ type: filter }, callback).limit(limit);
+// API to find product by category ascending
+module.exports.findProductByCategorieAscending = (filter, callback, limit) => {
+  Products.find({ type: { $regex: filter } }, callback)
+    .limit(limit)
+    .sort({ price: 1 });
+};
+
+// API to find product by category descending
+module.exports.findProductByCategorieDescending = (filter, callback, limit) => {
+  Products.find({ type: { $regex: filter } }, callback)
+    .limit(limit)
+    .sort({ price: -1 });
 };

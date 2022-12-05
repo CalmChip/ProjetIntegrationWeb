@@ -11,6 +11,14 @@ router.get("/", (requete, reponse) => {
     });
   });
 });
+router.get("/accueil", (requete, reponse) => {
+  Products.find({}, (err, allProducts) => {
+    if (err) throw err;
+    reponse.render("accueil", {
+      allProducts: allProducts,
+    });
+  });
+});
 router.get("/index", (requete, reponse) => {
   Products.find({}, (err, allProducts) => {
     if (err) throw err;
