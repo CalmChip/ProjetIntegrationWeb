@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <form method="POST" action="/products">
+            <p><a class="fa fa-file fa-2x"></a>Add product</p> 
+          <div class="form-group">
+              <label for="id">id</label>
+              <input type="id" name="id" id="id" class="form-control" 
+              value="<%=typeof products.id !='undefined' ? products.id :'' %>"> 
+          </div>
+          <div class="form-group">
+              <label for="titre">Product Name</label>
+              <input type= titre name="titre" id="productName" class="form-control"
+              value="<%=typeof products.productName!='undefined' ? products.productName:'' %>" placeholder="Entrez un nom">
+          </div>
+
+          <div class="form-group">
+              <label for="price">Price</label>
+              <input type=number name="price" id="price" class="form-control"
+              value="<%=typeof products.price!='undefined' ? products.price:'' %>" placeholder="Entrez un prix">
+          </div>
+
+          <div class="form-group">
+              <label for="desc">Description</label>
+              <input type=text name="desc" id="desc" class="form-control"
+              value="<%=typeof products.desc!='undefined' ? products.desc:'' %>" placeholder="Entrez une description">
+          </div>
+
+          <div class="form-group">
+              <label for="productPicture">Image</label>
+              <input type=text name="productPicture" id="productPicture" class="form-control"
+              value="<%=typeof products.productPicture !='undefined' ? products.productPicture: '' %>">
+          </div>
+        </form>
+  </div>
+</div>
