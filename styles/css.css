@@ -50,17 +50,16 @@ input[type='checkbox'] {
 }
 
 .navbar i {
-    float: left;
     color: white;
-    margin: 6px;
-    
+    margin: 6px;  
   }
-  .container a:hover {
+
+ .container a:hover {
     background-color: rgb(136, 127, 127);
     color: black;
   }
-  .container {
-    position: relative;
-    text-align: center;
-    color: white;
-  }
+
+  img{
+    width: 100px;
+    height: 100px;
+}
