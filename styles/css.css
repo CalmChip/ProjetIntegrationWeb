@@ -74,5 +74,5 @@ img {
   transform: translateX(-600px);
 }
 .allButFooter {
-  min-height: calc(100vh - 40px);
+  min-height: calc(100vh - 88px);
 }
