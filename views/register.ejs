@@ -1,87 +1,97 @@
 <div class="row mt-5">
-    <div class="col-md-6 m-auto">
-      <div class="card card-body text-center">
-        <h1 class="text-center mb-3">
-          <i class="fas fa-user-plus"></i> Créer un compte
-        </h1>
-        <p><%- include('./partiels/messages.ejs') %></p>
-        <form action="/usagers/register" method="post">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body text-center">
+      <h1 class="text-center mb-3">
+        <i class="fas fa-user-plus"></i> Créer un compte
+      </h1>
+      <p><%- include('./partiels/messages.ejs') %></p>
+      <form action="/users/register" method="post">
+        <div class="form-floating">
+          <input
+            type="text"
+            name="nom"
+            id="nom"
+            class="form-control"
+            value="<%= typeof nom != 'undefined' ? nom : '' %>"
+            placeholder="Entrez un courriel"
+          />
+          <i class="fas fa-user fa-lg icon"></i>
+          <label for="nom">Nom</label>
+        </div>
 
-          <div class="form-floating">
-            <input
-              type="text"
-              name="nom"
-              id="nom"
-              class="form-control"
-              value="<%= typeof nom != 'undefined' ? nom : '' %>"
-              placeholder="Entrez un courriel"/>
-              <i class="fas fa-user fa-lg icon"></i>
-            <label for="nom">Nom</label>
-          </div>
+        <div class="form-floating">
+          <input
+            type="email"
+            name="_id"
+            id="_id"
+            class="form-control"
+            value="<%= typeof _id != 'undefined' ? _id : '' %>"
+            placeholder="Entrez un courriel"
+          />
+          <i class="fas fa-envelope fa-lg icon"></i>
+          <label for="_id">Courriel</label>
+        </div>
 
-          <div class="form-floating">
-            <input
-              type="email"
-              name="_id"
-              id="_id"
-              class="form-control"
-              value="<%= typeof _id != 'undefined' ? _id : '' %>"
-              placeholder="Entrez un courriel"/>
-            <i class="fas fa-envelope fa-lg icon"></i>
-            <label for="_id">Courriel</label>
-          </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+            value="<%= typeof password != 'undefined' ? password : '' %>"
+            placeholder="Entez un mot de passe"
+          />
+          <i class="fa fa-lock fa-lg icon"></i>
+          <label for="password">Mot de passe</label>
+        </div>
 
-          <div class="form-floating">
-            
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="form-control"
-              value="<%= typeof password != 'undefined' ? password : '' %>"
-              placeholder="Entez un mot de passe"
-            />
-            <i class="fa fa-lock fa-lg icon"></i>
-            <label for="password">Mot de passe</label>
-          </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            name="password2"
+            id="password2"
+            class="form-control"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            placeholder="Entez un mot de passe"
+          />
+          <i class="fas fa-shield-alt fa-lg icon"></i>
+          <label for="password">Confirmez le mot de passe</label>
+        </div>
 
-          <div class="form-floating">
-            
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="form-control"
-              value="<%= typeof password != 'undefined' ? password : '' %>"
-              placeholder="Entez un mot de passe"
-            />
-            <i class="fas fa-shield-alt fa-lg icon"></i>
-            <label for="password">Confirmez le mot de passe</label>
-          </div>
-
-          <div class="form-group">
-            <div class="checkbox"> 
-               <span class="roles">Roles:</span>
+        <div class="form-group">
+          <div class="checkbox">
+            <span class="roles">Roles:</span>
             <label for="roleUser">Usager</label>
-            <input type="checkbox" name="roleUser" id="roleUser" checked disabled>
+            <input
+              type="checkbox"
+              name="roleUser"
+              id="roleUser"
+              checked
+              disabled
+            />
             <label for="roleAdmin">Admin</label>
-            <input type="checkbox" name="roleAdmin" id="roleAdmin"
-            <%= typeof roleAdmin != 'undefined' ? 'checkbox': '' %>   >
+            <input type="checkbox" name="roleAdmin" id="roleAdmin" <%= typeof
+            roleAdmin != 'undefined' ? 'checkbox': '' %> >
             <label for="roleVendeur">Vendeur</label>
-            <input type="checkbox" name="roleVendeur" id="roleVendeur"
-            <%= typeof roleVendeur != 'undefined' ? 'checkbox': '' %>   >
-            </div>
+            <input type="checkbox" name="roleVendeur" id="roleVendeur" <%=
+            typeof roleVendeur != 'undefined' ? 'checkbox': '' %> >
           </div>
-          <div style="display: flex; justify-content: center; align-items: center;">
-          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.2rem">
+        </div>
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <button
+            type="submit"
+            class="btn btn-primary btn-block btn-lg"
+            style="margin-top: 1.2rem"
+          >
             Enregistrer le compte
           </button>
-          </div>
-        </form>
-        <p class="lead mt-4">
-          Vous avez déjà un compte? <a href="/usagers/login">Se connecter</a>
-        </p>
-      </div>
+        </div>
+      </form>
+      <p class="lead mt-4">
+        Vous avez déjà un compte? <a href="/usagers/login">Se connecter</a>
+      </p>
     </div>
   </div>
-  
+</div>
