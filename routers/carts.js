@@ -81,9 +81,9 @@ router.post("/cart", async (req, res) => {
 
 //delete item in cart
 
-router.delete("/cart/", async (req, res) => {
+router.delete("/cart/:produtID", async (req, res) => {
   const owner = req.user._id;
-  const itemId = req.query.itemId;
+  const itemId = req.params.produtID;
   try {
     let cart = await Cart.findOne({ owner });
 
@@ -100,7 +100,6 @@ router.delete("/cart/", async (req, res) => {
         return acc + curr.quantity * curr.price;
       }, 0);
       cart = await cart.save();
-
       res.status(200).send(cart);
     } else {
       res.status(404).send("item not found");
