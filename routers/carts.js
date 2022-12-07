@@ -3,9 +3,13 @@ const Cart = require("../models/carts");
 const Products = require("../models/products");
 const router = express.Router();
 
-//get cart items
+//get cart items gotta add, isAuthorized
 router.get("/", async (req, res) => {
-  const owner = "6389395491bde8cf3455335d"; // To test, change to req.user._id
+  if (req.user._id) {
+    const owner = req.user._id;
+  } else {
+    const owner = "6389395491bde8cf3455335d"; // Add cookie cart functionality here
+  }
 
   try {
     const cart = await Cart.findOne({ owner });
