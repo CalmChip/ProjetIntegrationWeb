@@ -3,6 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 const { isAuthorized, isSeller } = require("../configs/auth");
 const Products = require("../models/products");
+const Users = require("../models/usagers");
 const Usagers = require("../models/usagers");
 const bcrypt = require("bcryptjs");
 
@@ -46,79 +47,58 @@ router.get("/register", (requete, response) => {
 });
 
 router.post("/register", (requete, reponse) => {
-  const { nom, _id, password, roleGestion, roleAdmin } = requete.body;
-  /*   const { originalname, destination, filename, size, path, mimetype } =
-    requete.files[0]; */
-  /*  const MAXFILESIZE = 2 * 1024 * 1024; //2mb = 2 * 1024mb * 1024 kilobytes */
-  //Image permise
-  /*   const mimetypePermis = [
-    "image/jpg",
-    "image/png",
-    "image/jpeg",
-    "image/gif",
-    "image/ico",
-    "image/webp",
-  ]; */
-
+  const { _id, name, password, password2, roleAdmin, roleSeller } =
+    requete.body;
   let erreurs = [];
-  /*   if (size > MAXFILESIZE) {
-    erreurs.push({ msg: "Image size exceeded" });
-  } else {
-    if (!mimetypePermis.includes(mimetype)) {
-      erreurs.push({ msg: "Filetype not allowed" });
-    }
-  } */
-  if (!nom || !_id || !password) {
-    erreurs.push({ msg: "Remplir tous les champs" });
-  }
-  console.log(password);
   if (password.length < 4) {
-    erreurs.push({ msg: "Le mots de passe doit etre de 4 car. minimum" });
+    erreurs.push({ msg: "Le mot de pass doit etre 4 car minimum" });
+  }
+  if (password !== password2) {
+    erreurs.push({ msg: "Les mots de passe doivent être identique" });
   }
   if (erreurs.length > 0) {
-    //supprimerFichier(path);
     reponse.render("register", {
       erreurs,
-      nom,
       _id,
+      name,
       password,
+      password2,
       roleAdmin,
-      roleGestion,
+      roleSeller,
     });
   } else {
-    Usagers.findById(_id).then((usager) => {
-      if (usager) {
-        //supprimerFichier(path);
+    //yes on met dans la BD
+    Users.findById(_id).then((user) => {
+      //traitement des courriels deja existant
+      if (user) {
         erreurs.push({ msg: "Ce courriel existe deja" });
         reponse.render("register", {
           erreurs,
-          nom,
+          name,
           _id,
           password,
-          roleAdmin,
-          roleGestion,
+          password2,
         });
       } else {
-        const nouveauUsager = new Usagers({ nom, _id, password });
-        // ici on hache le mot de passe
+        const newUser = new Users({ name, _id, password });
+        //ici on va Hacer mais on peut aussi chiffré
         bcrypt.genSalt(10, (err, salt) => {
           if (err) throw err;
           bcrypt.hash(password, salt, (err, hache) => {
-            nouveauUsager.password = hache;
-            /* nouveauUsager.fichierImage = conserverFichier(path, filename); */
-            let tabRoles = ["normal"];
-            if (roleAdmin) {
-              tabRoles.push("admin");
-            }
-            if (roleGestion) {
-              tabRoles.push("gestion");
-            }
-            nouveauUsager.roles = tabRoles;
-            nouveauUsager
-              .save()
+            newUser.password = hache;
+            let tabRoles = ["user"];
+            if (roleAdmin) tabRoles.push("admin");
+            if (roleSeller) tabRoles.push("seller");
+            //save dans les roles
+            newUser.roles = tabRoles;
+            newUser
+              .save() //ecrire dans la BD
               .then((user) => {
-                requete.flash("succes_msg", "Usager ajouté...");
-                reponse.redirect("/");
+                requete.flash(
+                  "success_msg",
+                  "Usager ajouté... Vous pouvez vous connecter"
+                );
+                reponse.redirect("../acceuil");
               })
               .catch((err) => console.log(err));
           });
@@ -127,5 +107,4 @@ router.post("/register", (requete, reponse) => {
     });
   }
 });
-
 module.exports = router;

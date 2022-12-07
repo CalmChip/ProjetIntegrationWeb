@@ -32,8 +32,8 @@ let schemaUsers = mongoose.Schema({
 let Users = (module.exports = mongoose.model("users", schemaUsers));
 
 //Add user
-module.exports.addUser = (usager, callback) => {
-  Users.create(usager, callback);
+module.exports.addUser = (user, callback) => {
+  Users.create(user, callback);
 };
 
 // Delete user by _id
