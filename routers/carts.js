@@ -5,12 +5,13 @@ const router = express.Router();
 
 //get cart items gotta add, isAuthorized
 router.get("/", async (req, res) => {
-  if (req.user._id) {
-    const owner = req.user._id;
+  let test = req.user;
+  let owner;
+  if (test) {
+    owner = req.user._id;
   } else {
-    const owner = "6389395491bde8cf3455335d"; // Add cookie cart functionality here
+    owner = "6389395491bde8cf3455335d"; // Add cookie cart functionality here
   }
-
   try {
     const cart = await Cart.findOne({ owner });
     if (cart && cart.items.length > 0) {
@@ -19,7 +20,7 @@ router.get("/", async (req, res) => {
       res.send(null);
     }
   } catch (error) {
-    res.status(500).send();
+    res.status(500).send("Test");
   }
 });
 
