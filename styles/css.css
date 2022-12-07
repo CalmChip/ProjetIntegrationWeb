@@ -71,5 +71,8 @@ img {
 }
 
 .positionToLeft {
-    transform: translateX(-600px);
-  }
+  transform: translateX(-600px);
+}
+.allButFooter {
+  min-height: calc(100vh - 40px);
+}
