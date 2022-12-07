@@ -3,10 +3,6 @@ const mongoose = require("mongoose");
 //Schema for the collection users
 
 let schemaUsers = mongoose.Schema({
-  _id: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
@@ -30,11 +26,6 @@ let schemaUsers = mongoose.Schema({
 });
 
 let Users = (module.exports = mongoose.model("users", schemaUsers));
-
-//Add user
-module.exports.addUser = (user, callback) => {
-  Users.create(user, callback);
-};
 
 // Delete user by _id
 module.exports.deleteUser = (idUser, callback) => {

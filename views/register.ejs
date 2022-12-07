@@ -10,26 +10,26 @@
           <div class="form-floating">
             <input
               type="text"
-              name="nom"
-              id="nom"
+              name="name"
+              id="name"
               class="form-control"
-              value="<%= typeof nom != 'undefined' ? nom : '' %>"
+              value="<%= typeof name != 'undefined' ? name : '' %>"
               placeholder="Entrez un courriel"/>
               <i class="fas fa-user fa-lg icon"></i>
-            <label for="nom">Nom</label>
+            <label for="name">Name</label>
           </div>
 
         <div class="form-floating">
           <input
             type="email"
-            name="_id"
-            id="_id"
+            name="email"
+            id="email"
             class="form-control"
-            value="<%= typeof _id != 'undefined' ? _id : '' %>"
+            value="<%= typeof email != 'undefined' ? email : '' %>"
             placeholder="Entrez un courriel"
           />
           <i class="fas fa-envelope fa-lg icon"></i>
-          <label for="_id">Courriel</label>
+          <label for="email">Courriel</label>
         </div>
 
           <div class="form-floating">
@@ -54,10 +54,10 @@
               id="password2"
               class="form-control"
               value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-              placeholder="Entez un mot de passe"
+              placeholder="Confirmez un mot de passe"
             />
             <i class="fas fa-shield-alt fa-lg icon"></i>
-            <label for="password">Confirmez le mot de passe</label>
+            <label for="password2">Confirmez le mot de passe</label>
           </div>
 
         <div class="form-group">
