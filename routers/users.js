@@ -59,6 +59,7 @@ router.post("/register", (requete, reponse) => {
     "image/ico",
     "image/webp",
   ]; */
+
   let erreurs = [];
   /*   if (size > MAXFILESIZE) {
     erreurs.push({ msg: "Image size exceeded" });
