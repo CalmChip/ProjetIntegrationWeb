@@ -4,7 +4,6 @@ const router = express.Router();
 const { isAuthorized, isSeller } = require("../configs/auth");
 const Products = require("../models/products");
 const Users = require("../models/usagers");
-const Usagers = require("../models/usagers");
 const bcrypt = require("bcryptjs");
 
 // Router that renders login page

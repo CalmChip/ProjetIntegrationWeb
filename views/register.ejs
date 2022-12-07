@@ -74,9 +74,9 @@
             <label for="roleAdmin">Admin</label>
             <input type="checkbox" name="roleAdmin" id="roleAdmin" <%= typeof
             roleAdmin != 'undefined' ? 'checkbox': '' %> >
-            <label for="roleVendeur">Vendeur</label>
-            <input type="checkbox" name="roleVendeur" id="roleVendeur" <%=
-            typeof roleVendeur != 'undefined' ? 'checkbox': '' %> >
+            <label for="roleSeller">Vendeur</label>
+            <input type="checkbox" name="roleSeller" id="roleSeller" <%=
+            typeof roleSeller != 'undefined' ? 'checkbox': '' %> >
           </div>
         </div>
         <div
@@ -92,7 +92,7 @@
           </div>
         </form>
         <p class="lead mt-4">
-          Vous avez déjà un compte? <a href="/usagers/login">Se connecter</a>
+          Vous avez déjà un compte? <a href="/users/login">Se connecter</a>
         </p>
       </div>
     </div>
