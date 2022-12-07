@@ -104,7 +104,7 @@ router.post("/register", (requete, reponse) => {
                   "success_msg",
                   "Usager ajouté... Vous pouvez vous connecter"
                 );
-                reponse.redirect("./acceuil");
+                reponse.redirect("/users/login");
               })
               .catch((err) => console.log(err));
           });
