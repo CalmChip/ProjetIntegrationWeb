@@ -16,17 +16,17 @@ let schemaProduct = mongoose.Schema({
     required: false,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   desc: {
     type: String,
     required: true,
   },
-  productPicture: {
+  /*   productPicture: {
     type: String,
     required: true,
-  },
+  }, */
 });
 
 //export
@@ -53,7 +53,7 @@ module.exports.modifyProduct = (query, product, callback) => {
     type: product.type,
     price: product.price,
     desc: product.desc,
-    productPicture: productPicture,
+    /*     productPicture: productPicture, */
   };
   Products.findOneAndUpdate(filter, newProduct, options, callback);
 };
@@ -82,4 +82,9 @@ module.exports.findProductByCategorieDescending = (filter, callback, limit) => {
   Products.find({ type: { $regex: filter } }, callback)
     .limit(limit)
     .sort({ price: -1 });
+};
+
+// API to create a new product
+module.exports.createProduct = (product, callback) => {
+  Products.create(product, callback);
 };

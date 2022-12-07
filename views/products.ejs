@@ -1,43 +1,66 @@
 <div class="row mt-5">
-    <div class="col-md-6 m-auto">
-      <div class="card card-body text-left">
-        <h1 class="text-center mb-3">
-          <i class=""></i> Ajouter un produit
-        </h1>
-        <form action="/products" method="POST" enctype="multipart/form-data">
-          <div class="form-group">
-              <label for="titre">Product Name</label>
-              <input type= titre name="titre" id="_id" class="form-control"
-              value="<%=typeof productName !='undefined' ? productName:'' %>" placeholder="Entrez le produit">
-          </div>
-         <br>
-         <div class="form-group">
-            <label for="type">Type</label>
-            <input type=text name="type" id="type" class="form-control"
-            value="<%=typeof type !='undefined' ? type:'' %>" placeholder="Entrez une catégorie">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body text-left">
+      <h1 class="text-center mb-3"><i class=""></i> Ajouter un produit</h1>
+      <form action="/products" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="titre">Product Name</label>
+          <input
+            type="text"
+            name="productName"
+            id="_id"
+            class="form-control"
+            value="<%=typeof productName !='undefined' ? productName:'' %>"
+            placeholder="Entrez le produit"
+          />
         </div>
-        <br>
-          <div class="form-group">
-              <label for="price">Price</label>
-              <input type=number name="price" id="price" class="form-control"
-              value="<%=typeof price !='undefined' ? price:'' %>" placeholder="Entrez un prix">
-          </div>
-          <br>
-          <div class="form-group">
-              <label for="desc">Description</label>
-              <textarea  name="desc" id="desc" class="form-control"
-              value="<%=typeof desc!='undefined' ? desc:'' %>" placeholder="Entrez une description"></textarea>
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="fichier">Teléverser une image</label>
-            <input type="file" name="file" id="file" required>
-          </div>
-          <br>
-          <p>
-            <button type="submit" class="btn btn-primary btn-block ">Add product</button>
-          </p>
-        </form>
+        <br />
+        <div class="form-group">
+          <label for="type">Type</label>
+          <input
+            type="text"
+            name="type"
+            id="type"
+            class="form-control"
+            value="<%=typeof type !='undefined' ? type:'' %>"
+            placeholder="Entrez une catégorie"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            class="form-control"
+            value="<%=typeof price !='undefined' ? price:'' %>"
+            placeholder="Entrez un prix"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea
+            name="desc"
+            id="desc"
+            class="form-control"
+            value="<%=typeof desc!='undefined' ? desc:'' %>"
+            placeholder="Entrez une description"
+          ></textarea>
+        </div>
+        <br />
+        <!--         <div class="form-group">
+          <label for="fichier">Teléverser une image</label>
+          <input type="file" name="file" id="file" required />
+        </div> -->
+        <br />
+        <p>
+          <button type="submit" class="btn btn-primary btn-block">
+            Add product
+          </button>
+        </p>
+      </form>
+    </div>
   </div>
-</div>
 </div>

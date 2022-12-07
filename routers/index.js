@@ -11,7 +11,7 @@ router.get("/", (request, response) => {
     response.render("accueil", {
       products: allProducts,
     });
-    console.log("voici la liste de produits", allProducts)
+    console.log("voici la liste de produits", allProducts);
   });
 });
 router.get("/accueil", (request, response) => {
@@ -51,26 +51,30 @@ router.get("/details", (request, response) => {
 */
 
 // Router to post product into the DB
-// To add Multer to keep picutres in MongoDB
-router.post("/products",isAuthorized, isSeller, (request, response) => {
-  const { productName, type, price, desc, productPicture } = request.body;
+// To add Multer to keep p.roundedicutres in MongoDB add isAuthorized, isSeller after testing
+router.post("/products", (request, response) => {
+  const { productName, type, price, desc } = request.body;
+  let id = `${Math.random() * 10}${Math.random() * 100}${Math.random() * 50}`;
   let newProduct = {
-    _id: new Mongoose.ObjectId(),
+    _id: id,
     productName: productName,
     type: type,
     price: price,
     desc: desc,
-    productPicture: productPicture, 
+    // productPicture: productPicture,
   };
-  newProduct.save().then((products) => {
-    request.flash("success_msg", "Product added successfully");
-    response.redirect("accueil").catch((err) => {
-      console.log(err);
+  Products.createProduct(newProduct, (err, product) => {
+    if (err) throw err;
+    Products.find({}, (err2, allProducts) => {
+      if (err2) throw err2;
+      response.render("accueil", {
+        products: allProducts,
+      });
     });
   });
 });
 
+// Router for add Products page
+router.get("/products", (requete, reponse) => reponse.render("products"));
 
-router.get('/products', (requete, reponse) => reponse.render('products'));
 module.exports = router;
-
