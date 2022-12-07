@@ -54,35 +54,18 @@
 </nav>
 
 <div class="container p-2 my-2 border text-white">
-  <% if(typeof products !='undefined' ) { %> <% products.forEach(
-  function(product) { %>
-  <h3>Product : <%= product.productName %></h3>
-  <p>id: <%= product._id %></p>
-  <p>Description : <%= product.desc %></p>
-  <p>Price : <%= product.price %></p>
+  <% if(typeof products !='undefined' ) { %>
+  <% products.forEach( function(product) { %>
+  <h3> Product : <%= product.productName %> </h3>
+  <p> id: <%= product._id %></p>
+  <p> Description : <%= product.desc %> </p>
+  <p> Price : <%= product.price %> </p>
+  <a href="/details/<%=products._id%>"class="btn btn-light" >Check</button></a>
+          <% }) %>
+              <% } %>
+</div>
 
-  <div>
-    <% if (typeof(product.productPicture) != 'undefined' &&
-    product.productPicture !=='') { %>
-    <img
-      class="imgProduit"
-      src="/static/pictures/product.productPicture %>"
-      alt="image Produit"
-    />
-    <% } else { %>
-    <img
-      class="imgDefault"
-      src="/static/pictures/logo.jpg"
-      alt="image default"
-    />
-    <% } %> <% }) %> <% } %>
+  <div class="mt-5 p-4 bg-dark text-white text-center">
+    <p>©Better Canada 2022
+      Site Web développé par : Jean-Bernard Le Blanc, Aliny Novais, Rémi Laframboise et Raphäel Duhamel. </p>
   </div>
-  <a href="/details/<%= products._id %>" class="btn btn-light">Check</a>
-</div>
-
-<div class="mt-5 p-4 bg-dark text-white text-center">
-  <p>
-    ©Better Canada 2022 Site Web développé par : Jean-Bernard Le Blanc, Aliny
-    Novais, Rémi Laframboise et Raphäel Duhamel.
-  </p>
-</div>
