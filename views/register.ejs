@@ -19,19 +19,21 @@
             <label for="nom">Nom</label>
           </div>
 
-          <div class="form-floating">
-            <input
-              type="email"
-              name="_id"
-              id="_id"
-              class="form-control"
-              value="<%= typeof _id != 'undefined' ? _id : '' %>"
-              placeholder="Entrez un courriel"/>
-            <i class="fas fa-envelope fa-lg icon"></i>
-            <label for="_id">Courriel</label>
-          </div>
+        <div class="form-floating">
+          <input
+            type="email"
+            name="_id"
+            id="_id"
+            class="form-control"
+            value="<%= typeof _id != 'undefined' ? _id : '' %>"
+            placeholder="Entrez un courriel"
+          />
+          <i class="fas fa-envelope fa-lg icon"></i>
+          <label for="_id">Courriel</label>
+        </div>
 
           <div class="form-floating">
+            
             <input
               type="password"
               name="password"
@@ -45,41 +47,54 @@
           </div>
 
           <div class="form-floating">
+            
             <input
               type="password"
-              name="password2"
-              id="password2"
+              name="password"
+              id="password"
               class="form-control"
-              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-              placeholder="Confirmez le mot de passe"
+              value="<%= typeof password != 'undefined' ? password : '' %>"
+              placeholder="Entez un mot de passe"
             />
             <i class="fas fa-shield-alt fa-lg icon"></i>
             <label for="password">Confirmez le mot de passe</label>
           </div>
 
-          <div class="form-group">
-            <div class="checkbox"> 
-               <span class="roles">Roles:</span>
+        <div class="form-group">
+          <div class="checkbox">
+            <span class="roles">Roles:</span>
             <label for="roleUser">Usager</label>
-            <input type="checkbox" name="roleUser" id="roleUser" checked disabled>
+            <input
+              type="checkbox"
+              name="roleUser"
+              id="roleUser"
+              checked
+              disabled
+            />
             <label for="roleAdmin">Admin</label>
-            <input type="checkbox" name="roleAdmin" id="roleAdmin"
-            <%= typeof roleAdmin != 'undefined' ? 'checkbox': '' %>   >
+            <input type="checkbox" name="roleAdmin" id="roleAdmin" <%= typeof
+            roleAdmin != 'undefined' ? 'checkbox': '' %> >
             <label for="roleVendeur">Vendeur</label>
-            <input type="checkbox" name="roleVendeur" id="roleVendeur"
-            <%= typeof roleVendeur != 'undefined' ? 'checkbox': '' %>   >
-            </div>
+            <input type="checkbox" name="roleVendeur" id="roleVendeur" <%=
+            typeof roleVendeur != 'undefined' ? 'checkbox': '' %> >
           </div>
-          <div style="display: flex; justify-content: center; align-items: center;">
-          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.2rem">
+        </div>
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <button
+            type="submit"
+            class="btn btn-primary btn-block btn-lg"
+            style="margin-top: 1.2rem"
+          >
             Enregistrer le compte
           </button>
           </div>
         </form>
         <p class="lead mt-4">
-          Vous avez déjà un compte? <a href="/users/login">Se connecter</a>
+          Vous avez déjà un compte? <a href="/usagers/login">Se connecter</a>
         </p>
       </div>
     </div>
   </div>
-  
+</div>
