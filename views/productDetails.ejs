@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 text-center">
+            <h3><%= product.productName%></h3>
+            <p> id: <%= product._id %></p>
+            <div>
+                <img src="<%= product.productPicture %>" class="img-fluid"/>
+            </div>
+            <div>Price:<strong>$<%= product.price %></strong></div>
+            <p>Description: <%= product.desc %> </p>
+        </div>
+    </div>
+  </div>
