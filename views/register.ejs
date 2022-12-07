@@ -5,7 +5,7 @@
           <i class="fas fa-user-plus"></i> Créer un compte
         </h1>
         <p><%- include('./partiels/messages.ejs') %></p>
-        <form action="/usagers/register" method="post">
+        <form action="/users/register" method="POST">
 
           <div class="form-floating">
             <input
@@ -32,7 +32,6 @@
           </div>
 
           <div class="form-floating">
-            
             <input
               type="password"
               name="password"
@@ -46,14 +45,13 @@
           </div>
 
           <div class="form-floating">
-            
             <input
               type="password"
-              name="password"
-              id="password"
+              name="password2"
+              id="password2"
               class="form-control"
-              value="<%= typeof password != 'undefined' ? password : '' %>"
-              placeholder="Entez un mot de passe"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+              placeholder="Confirmez le mot de passe"
             />
             <i class="fas fa-shield-alt fa-lg icon"></i>
             <label for="password">Confirmez le mot de passe</label>
@@ -79,7 +77,7 @@
           </div>
         </form>
         <p class="lead mt-4">
-          Vous avez déjà un compte? <a href="/usagers/login">Se connecter</a>
+          Vous avez déjà un compte? <a href="/users/login">Se connecter</a>
         </p>
       </div>
     </div>
