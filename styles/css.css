@@ -69,3 +69,7 @@ img {
   width: 100px;
   height: 100px;
 }
+
+.positionToLeft {
+    transform: translateX(-600px);
+  }
