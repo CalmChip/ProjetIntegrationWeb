@@ -39,16 +39,14 @@ router.get("/index.html", (request, response) => {
   });
 });
 
-/**page details produit 
-router.get("/details", (request, response) => {
-  Products.findById({}, (err,products) => {
+// page details produit
+router.get("/details/:id", (request, response) => {
+  Products.findById(request.params.id, (err, products) => {
     if (err) throw err;
-    response.render("productDetails", {
-    });
-    console.log("voici le produit", products)
+    response.render("productDetails", { products });
+    console.log("voici le produit", products);
   });
 });
-*/
 
 // Router to post product into the DB
 // To add Multer to keep p.roundedicutres in MongoDB add isAuthorized, isSeller after testing
