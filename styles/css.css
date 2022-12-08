@@ -70,9 +70,6 @@ img {
   height: 100px;
 }
 
-.positionToLeft {
-  transform: translateX(-600px);
-}
 .allButFooter {
   min-height: calc(100vh - 88px);
 }
