@@ -46,7 +46,7 @@ app.use(flash());
 // quelques variables globales pour le bon fonctionnement de l'authentification
 app.use((requete, reponse, next) => {
   reponse.locals.success_msg = requete.flash("success_msg");
-  reponse.locals.erreur_msg = requete.flash("erreurs_msg");
+  reponse.locals.erreur_msg = requete.flash("erreur_msg");
   reponse.locals.erreur_passport = requete.flash("erreurs");
   next();
 });
