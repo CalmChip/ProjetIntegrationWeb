@@ -5,7 +5,6 @@ const Products = require("../models/products");
 const { isAuthorized, isSeller } = require("../configs/auth");
 const fs = require("fs");
 const nodeJSPath = require("path");
-const { response } = require("express");
 
 //Routers for main web page rendering
 router.get("/", (request, response) => {
