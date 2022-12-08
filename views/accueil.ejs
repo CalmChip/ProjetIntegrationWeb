@@ -62,19 +62,33 @@
   ></a>
   <br />
 </nav>
-<% if(typeof products !='undefined' ) { %> <% products.forEach(
+<section class="productsList text-center ctn">
+  <% if(typeof products !='undefined' ) { %> <% products.forEach(
 function(product) { %>
-<div class="listsProducts">
-  <div class="container">
-    <div class="col-sm-5">
-      <div class="ctn">
-        <h3>Product : <%= product.productName %></h3>
-        <p>id: <%= product._id %></p>
-        <p>Description : <%= product.desc %></p>
-        <p>Price : <%= product.price %></p>
-        <a href="/details/<%=product._id%>" class="btn btn-dark">Check</a>
-      </div>
-    </div>
+  <div style="width: 310px; height: 215px; margin: 20px">
+     <a href="/details/<%=product._id%>" style="text-decoration: none; color: black;">
+        <div class="product-card" style="background-color: white; justify-content: center; ">
+        
+          <div>
+            <h5 class="text-center"><%= product.productName %></h5>
+            <img src="https://imgs.search.brave.com/MfQZz3aZ4KFDPGSbIMVnn0iueqSPN1XIh-ZiO5Ag1G4/rs:fit:1000:1000:1/g:ce/aHR0cHM6Ly93d3cu/ZS1yZXRhaWwuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIw/LzEyLzcxOTAtMHFB/REhMLl9BQ19TTDE1/MDBfLmpwZw" alt="razer keyboard">
+            <!-- <img src="product.productPicture" alt="Product Picture"> -->
+          
+            <div class="product-info">
+            
+            <h6> <%= product.price %> $</h6>
+          <!--  <p class="text-start">Description : <%= product.desc %></p> -->
+          </div>
+          </div>
+          
+        </div>
+      </a>
   </div>
-</div>
+ 
+  
+
+  
+
 <% }) %> <% } %>
+
+</section>
