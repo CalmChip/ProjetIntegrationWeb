@@ -118,7 +118,7 @@ router.post("/products", (request, response) => {
 });
 
 // Router for add Products page
-router.get("/products", (requete, reponse) => reponse.render("products"));
+router.get("/products", (request, response) => response.render("products"));
 
 /**
  * @param {string} path le nom du fichier a supprimer
