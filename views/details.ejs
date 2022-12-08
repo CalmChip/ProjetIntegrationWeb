@@ -1,0 +1,28 @@
+ 
+ <div class="card container" style="display: flex; margin-top: 20px; font-size: x-large;">
+    <p class="text-end" style="margin: 1%;"><a class="btn btn-dark btn-block btn-lg" href="/products/" style="margin-top:10px;">Retour</a></p> 
+
+   
+   <div class="d-flex">
+           <div style="margin-bottom: 2.5%;  margin-left: 20px;"><h1 class="text-start" style="position: absolute; margin-top: -56px;"><%= product.productName %></h1>
+               <% if (typeof product.url_image != "undefined") { %>
+                   <img
+                       style="width: 15rem;"
+                       src="<%= product.url_image %>"
+                       alt="Product Picture"
+                   />
+               <% } %>
+       
+           </div>
+           
+           <div style="position: relative; margin-top: 50px; margin-left: 45px;">
+              <!--<p><strong>Seller: </strong><%= product.seller %></p>-->
+               <p><strong>Date: </strong> <%= (product.date).toLocaleDateString() %></p>
+               <p><strong>Langue: </strong> <%= product.langue %></p>
+               <p><strong>Prix: </strong> <%= product.price %> $</p>
+               <p><strong>Type: </strong> <%= product.type %></p>
+           </div></div>
+           <p class="container" style="margin-left: 10px;"><strong>Description:</strong><br> <%= product.desc %></p>
+   </div>
+         
+</div>
