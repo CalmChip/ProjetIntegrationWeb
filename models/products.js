@@ -27,10 +27,10 @@ let schemaProduct = mongoose.Schema({
     type: String,
     required: true,
   },
-  /*   productPicture: {
+  productPicture: {
     type: String,
     required: true,
-  }, */
+  },
 });
 
 //export
