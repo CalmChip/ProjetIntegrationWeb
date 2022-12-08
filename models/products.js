@@ -23,6 +23,10 @@ let schemaProduct = mongoose.Schema({
     type: String,
     required: true,
   },
+  owner: {
+    type: String,
+    required: true,
+  },
   /*   productPicture: {
     type: String,
     required: true,
@@ -53,6 +57,7 @@ module.exports.modifyProduct = (query, product, callback) => {
     type: product.type,
     price: product.price,
     desc: product.desc,
+    owner: product.owner,
     /*     productPicture: productPicture, */
   };
   Products.findOneAndUpdate(filter, newProduct, options, callback);
