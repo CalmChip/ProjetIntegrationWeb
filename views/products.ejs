@@ -1,22 +1,26 @@
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
-    <div class="card card-body text-left">
-      <h1 class="text-center mb-3"><i class=""></i> Ajouter un produit</h1>
+    <div class="card card-body text-center">
+      <h1 class="text-center mb-3">
+        <i class="fa fa-plus"></i> Add a product 
+      </h1>
+        <br>
       <form action="/products" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="titre">Product Name</label>
+        <div class="form-floating">
           <input
             type="text"
             name="productName"
             id="_id"
             class="form-control"
             value="<%=typeof productName !='undefined' ? productName:'' %>"
-            placeholder="Entrez le produit"
-          />
+            placeholder="Entrez le produit"/>   
+            <i class="fa fa-plus fa-lg icon"></i> 
+            <label for="titre">Product Name</label>
         </div>
         <br />
-        <div class="form-group">
-          <label for="type">Type</label>
+
+        <div class="form-floating">
+          
           <input
             type="text"
             name="type"
@@ -25,10 +29,12 @@
             value="<%=typeof type !='undefined' ? type:'' %>"
             placeholder="Entrez une catégorie"
           />
+          <i class="fa fa-plus fa-lg icon"></i> 
+          <label for="type">Type</label>
         </div>
+
         <br />
-        <div class="form-group">
-          <label for="price">Price</label>
+        <div class="form-floating">
           <input
             type="text"
             name="price"
@@ -37,9 +43,13 @@
             value="<%=typeof price !='undefined' ? price:'' %>"
             placeholder="Entrez un prix"
           />
-        </div>
+          <i class="fa fa-plus fa-lg icon"></i> 
+          <label for="price">Price</label>
+         </div>
+
         <br />
-        <div class="form-group">
+
+        <div class="form-floating">
           <label for="desc">Description</label>
           <textarea
             name="desc"
@@ -50,14 +60,13 @@
           ></textarea>
         </div>
         <br />
-        <!--         <div class="form-group">
+        <!-- <div class="form-group">
           <label for="fichier">Teléverser une image</label>
           <input type="file" name="file" id="file" required />
         </div> -->
         <br />
         <p>
-          <button type="submit" class="btn btn-primary btn-block">
-            Add product
+          <button type="submit" class="btn btn-primary btn-block center">Add product
           </button>
         </p>
       </form>
