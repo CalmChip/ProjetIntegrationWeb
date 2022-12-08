@@ -1,0 +1,29 @@
+ 
+ <div class="card container" style="display: flex; margin-top: 20px; font-size: x-large;">
+    <p class="text-end" style="margin: 1%;"><a class="btn btn-dark btn-block btn-lg" href="/" style="margin-top:10px;">Retour</a></p> 
+
+   
+   <div class="d-flex">
+           <div style="margin-bottom: 2.5%;  margin-left: 20px;"><h1 class="text-start" style="position: absolute; margin-top: -56px;"><%= product.productName %></h1>
+               <!-- <% if (typeof product.productPicture != "undefined") { %>
+                   <img
+                       style="width: 15rem;"
+                       src="<%= product.productPicture %>"
+                       alt="Product Picture"
+                   />
+               <% } %> -->
+               <img src="https://assets2.razerzone.com/images/pnx.assets/a54bdf79abdfc0d42a0fff19047725a3/deathstalker-v2-pro_500x500.png" alt="Razer keyboard"   style="min-height: 12rem; min-width: 12rem;">
+       
+           </div>
+           
+           <div style="position: relative; margin-top: 50px; margin-left: 45px;">
+               <p><strong>Prix: </strong> <%= product.price %> $</p>
+               <p><strong>Type: </strong> <%= product.type %></p>
+               <p><strong>Seller: </strong><%= product.owner %></p>
+           </div></div>
+           <p class="container" style="margin-left: 10px;"><strong>Description:</strong><br> <%= product.desc %></p>
+           <!-- Boutton qui redirect pour communiquer avec le vendeur -->
+           <p class="text-center" style="margin-top: 2%; font-size: 20px;"><strong >Support: </strong><a href="#" style="margin-top:10px; color: rgb(9, 9, 138);">Contact seller about this product</a></p> 
+   </div>
+         
+</div>
