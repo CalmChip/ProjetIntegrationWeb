@@ -76,3 +76,14 @@ img {
 .allButFooter {
   min-height: calc(100vh - 88px);
 }
+  .listsProducts {
+    margin: 15px;
+    padding: 15px;
+   text-align: center;
+   color: rgb(21, 21, 22);
+  }
+
+ .ctn{
+    height: 250px;
+    background: rgb(248, 248, 248);
+  }
