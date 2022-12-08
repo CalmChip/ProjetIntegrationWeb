@@ -5,13 +5,14 @@
    
    <div class="d-flex">
            <div style="margin-bottom: 2.5%;  margin-left: 20px;"><h1 class="text-start" style="position: absolute; margin-top: -56px;"><%= product.productName %></h1>
-               <% if (typeof product.productPicture != "undefined") { %>
+               <!-- <% if (typeof product.productPicture != "undefined") { %>
                    <img
                        style="width: 15rem;"
                        src="<%= product.productPicture %>"
                        alt="Product Picture"
                    />
-               <% } %>
+               <% } %> -->
+               <img src="https://assets2.razerzone.com/images/pnx.assets/a54bdf79abdfc0d42a0fff19047725a3/deathstalker-v2-pro_500x500.png" alt="Razer keyboard"   style="min-height: 12rem; min-width: 12rem;">
        
            </div>
            
@@ -22,6 +23,7 @@
            </div></div>
            <p class="container" style="margin-left: 10px;"><strong>Description:</strong><br> <%= product.desc %></p>
            <!-- Boutton qui redirect pour communiquer avec le vendeur -->
+           <p class="text-center" style="margin-top: 2%; font-size: 20px;"><strong >Support: </strong><a href="#" style="margin-top:10px; color: rgb(9, 9, 138);">Contact seller about this product</a></p> 
    </div>
          
 </div>
