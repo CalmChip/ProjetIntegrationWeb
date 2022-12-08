@@ -2,7 +2,6 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const { isAuthorized, isSeller } = require("../configs/auth");
-const Products = require("../models/products");
 const Users = require("../models/usagers");
 const bcrypt = require("bcryptjs");
 
@@ -23,21 +22,76 @@ router.get("/logout", (requete, reponse) => {
 // router that autenticate users upon request to login
 router.post("/login", (requete, reponse, next) => {
   passport.authenticate("local", {
-    successRedirect: "accueil",
+    successRedirect: "/",
     badRequestMessage: "Remplir tous les champs",
-    failureRedirect: "login",
+    failureRedirect: "/users/login",
     failureFlash: true,
   })(requete, reponse, next);
 });
 
 // Router that gets a product by its ID and renders its info on the page
-router.get("/modify/:id", isAuthorized, isSeller, (request, response) => {
-  Products.getProductByID(request.params._id, (err, product) => {
+router.get("/modify/:_id", (request, response) => {
+  Users.getUserById(request.params._id, (err, userInfo) => {
     if (err) throw err;
-    response.render("PageModifierProduitIci", {
-      productInfo: product,
+    response.render("modifyUser", {
+      user: userInfo,
     });
   });
+});
+
+// Router that modifyUser
+router.post("/modify/:_id", (request, response) => {
+  const { _id, name, email, password, password2, roleAdmin, roleSeller } =
+    request.body;
+  let newUser = {
+    _id: _id,
+    name: name,
+    email: email,
+    password: password,
+    roles: [],
+  };
+  let rolesTab = ["user"];
+  let errors = [];
+  if (roleAdmin) {
+    rolesTab.push("admin");
+  }
+  if (roleSeller) {
+    rolesTab.push("seller");
+  }
+  newUser.roles = rolesTab;
+  if (password.length < 4) {
+    errors.push({ msg: "Le mot de pass doit etre 4 car minimum" });
+  }
+  if (password !== password2) {
+    errors.push({ msg: "Les mots de passe doivent être identique" });
+  }
+  if (errors.length > 0) {
+    response.render("modifyUser", {
+      errors,
+      _id,
+      name,
+      email,
+      password,
+      password2,
+      roleAdmin,
+      roleSeller,
+    });
+  } else {
+    bcrypt.genSalt(10, (err, salt) => {
+      if (err) throw err;
+      bcrypt.hash(newUser.password, salt, (err, hash) => {
+        newUser.password = hash;
+        Users.modifyUser(request.params._id, newUser, (err, msg) => {
+          if (err) throw err;
+          request.flash(
+            "succes_msg",
+            "Usager modifier avec succes. Connectez vous pour continuer."
+          );
+          response.redirect("/users/login");
+        });
+      });
+    });
+  }
 });
 
 // Router that renders login page
@@ -46,7 +100,8 @@ router.get("/register", (requete, response) => {
 });
 
 router.post("/register", (requete, reponse) => {
-  const { _id, name, email, password, password2, roleAdmin, roleSeller } = requete.body; //pour aller les cherchers
+  const { _id, name, email, password, password2, roleAdmin, roleSeller } =
+    requete.body; //pour aller les cherchers
   let erreurs = [];
   console.log("I was here");
   if (!name || !email || !password || !password2) {
@@ -71,7 +126,7 @@ router.post("/register", (requete, reponse) => {
     });
   } else {
     //yes on met dans la BD
-    Users.findById(_id).then((user) => {
+    Users.findById(email).then((user) => {
       //traitement des courriels deja existant
       if (user) {
         erreurs.push({ msg: "Ce courriel existe deja" });
@@ -90,14 +145,13 @@ router.post("/register", (requete, reponse) => {
           if (err) throw err;
           bcrypt.hash(password, salt, (err, hache) => {
             newUser.password = hache;
-            let tabRoles = ['user']
-            if (roleAdmin)
-              tabRoles.push('admin')
-            if (roleSeller)
-              tabRoles.push('seller')
+            let tabRoles = ["user"];
+            if (roleAdmin) tabRoles.push("admin");
+            if (roleSeller) tabRoles.push("seller");
             //save dans les roles
-            newUser.roles = tabRoles
-            newUser.save() //ecrire dans la BD
+            newUser.roles = tabRoles;
+            newUser
+              .save() //ecrire dans la BD
               .then((user) => {
                 requete.flash(
                   "success_msg",

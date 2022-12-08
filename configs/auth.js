@@ -7,7 +7,7 @@ module.exports = {
         "erreur_msg",
         "Authentification requise pour consulter cette page..."
       );
-      reponse.redirect("");
+      reponse.redirect("/");
     }
   },
   isAdmin: function (requete, reponse, next) {
@@ -21,14 +21,14 @@ module.exports = {
           "erreur_msg",
           "Authentication failed, only admin can access this page"
         );
-        reponse.redirect("");
+        reponse.redirect("/");
       }
     } else {
       requete.flash(
         "erreur_msg",
         "Authentification requise pour consulter cette page..."
       );
-      reponse.redirect("");
+      reponse.redirect("/");
     }
   },
   isSeller: function (requete, reponse, next) {
@@ -42,14 +42,14 @@ module.exports = {
           "erreur_msg",
           "Authentication failed, only sellers can access this page"
         );
-        reponse.redirect("");
+        reponse.redirect("/");
       }
     } else {
       requete.flash(
         "erreur_msg",
         "Authentification requise pour consulter cette page..."
       );
-      reponse.redirect(""); // Vers login ou autre
+      reponse.redirect("/"); // Vers login ou autre
     }
   },
 };

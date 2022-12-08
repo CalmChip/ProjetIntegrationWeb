@@ -1,0 +1,97 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body text-center">
+        <h1 class="text-center mb-3">
+          <i class="fas fa-user-plus"></i> Modifier un compte
+        </h1>
+        <p><%- include('./partiels/messages.ejs') %></p>
+        <form action="/users/modify/<%= user._id %>" method="POST">
+
+          <div class="form-floating">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              value="<%= typeof user != 'undefined' ? user.name : '' %>"
+              placeholder="Entrez un courriel"/>
+              <i class="fas fa-user fa-lg icon"></i>
+            <label for="name">Name</label>
+          </div>
+
+        <div class="form-floating">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            value="<%= typeof user != 'undefined' ? user.email : '' %>"
+            placeholder="Entrez un courriel"
+          />
+          <i class="fas fa-envelope fa-lg icon"></i>
+          <label for="email">Courriel</label>
+        </div>
+
+          <div class="form-floating">
+            
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              value="<%= typeof password != 'undefined' ? password : '' %>"
+              placeholder="Entez un mot de passe"
+            />
+            <i class="fa fa-lock fa-lg icon"></i>
+            <label for="password">Mot de passe</label>
+          </div>
+
+          <div class="form-floating">
+            
+            <input
+              type="password"
+              name="password2"
+              id="password2"
+              class="form-control"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+              placeholder="Confirmez un mot de passe"
+            />
+            <i class="fas fa-shield-alt fa-lg icon"></i>
+            <label for="password2">Confirmez le mot de passe</label>
+          </div>
+
+        <div class="form-group">
+          <div class="checkbox">
+            <span class="roles">Roles:</span>
+            <label for="roleUser">Usager</label>
+            <input
+              type="checkbox"
+              name="roleUser"
+              id="roleUser"
+              checked
+              disabled
+            />
+            <label for="roleAdmin">Admin</label>
+            <input type="checkbox" name="roleAdmin" id="roleAdmin" <%= typeof
+            roleAdmin != 'undefined' ? 'checkbox': '' %> >
+            <label for="roleSeller">Vendeur</label>
+            <input type="checkbox" name="roleSeller" id="roleSeller" <%=
+            typeof roleSeller != 'undefined' ? 'checkbox': '' %> >
+          </div>
+        </div>
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <button
+            type="submit"
+            class="btn btn-primary btn-block btn-lg"
+            style="margin-top: 1.2rem"
+          >
+            Modifier le compte
+          </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

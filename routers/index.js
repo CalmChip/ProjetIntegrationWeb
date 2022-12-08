@@ -50,6 +50,15 @@ router.get("/details/:id", (request, response) => {
   });
 });
 
+// Router that gets a product by its ID and renders its info on the page
+router.get("/modify/:id", isAuthorized, isSeller, (request, response) => {
+  Products.getProductByID(request.params._id, (err, product) => {
+    if (err) throw err;
+    response.render("PageModifierProduitIci", {
+      productInfo: product,
+    });
+  });
+});
 // Router to post product into the DB
 // To add Multer to keep p.roundedicutres in MongoDB add isAuthorized, isSeller after testing
 router.post("/products", (request, response) => {

@@ -10,9 +10,9 @@ module.exports = function (passport) {
   //passport use
   passport.use(
     //on lui passe sur le id
-    new LocalStrategy({ usernameField: "_id" }, (_id, password, done) => {
+    new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
       //trouver notre utilisateur
-      Users.findOne({ _id: _id }).then((usager) => {
+      Users.findOne({ email: email }).then((usager) => {
         if (!usager) {
           return done(null, false, { message: "Ce courriel n'existe pas!" });
         }
@@ -32,8 +32,8 @@ module.exports = function (passport) {
     done(null, usager._id);
   });
   //passport deserialize
-  passport.deserializeUser(function (id, done) {
-    Users.findById(id, function (err, usager) {
+  passport.deserializeUser(function (email, done) {
+    Users.findById(email, function (err, usager) {
       done(err, usager);
     });
   });
