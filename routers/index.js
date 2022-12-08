@@ -52,7 +52,7 @@ router.get("/details/:id", (request, response) => {
 });
 
 // Router that gets a product by its ID and renders its info on the page
-router.get("/modify/:id", isAuthorized, isSeller, (request, response) => {
+router.get("/modify/:id", (request, response) => {
   Products.getProductByID(request.params._id, (err, product) => {
     if (err) throw err;
     response.render("PageModifierProduitIci", {
