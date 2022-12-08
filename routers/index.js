@@ -5,6 +5,7 @@ const Products = require("../models/products");
 const { isAuthorized, isSeller } = require("../configs/auth");
 const fs = require("fs");
 const nodeJSPath = require("path");
+const { response } = require("express");
 
 //Routers for main web page rendering
 router.get("/", (request, response) => {
@@ -43,10 +44,10 @@ router.get("/index.html", (request, response) => {
 
 // page details produit
 router.get("/details/:id", (request, response) => {
-  Products.findById(request.params.id, (err, products) => {
+  Products.findById(request.params.id, (err, product) => {
     if (err) throw err;
-    response.render("productDetails", { products });
-    console.log("voici le produit", products);
+    response.render("details.ejs", { product });
+    console.log("voici le produit", product);
   });
 });
 
