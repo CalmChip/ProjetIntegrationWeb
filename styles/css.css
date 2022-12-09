@@ -102,3 +102,11 @@ img {
   .product-info {
     margin-top: 10px;
   }
+
+  .overflow {
+    white-space: nowrap;
+    max-width: auto; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    text-align: center;
+}

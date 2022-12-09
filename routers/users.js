@@ -167,4 +167,8 @@ router.post("/register", (request, response) => {
   }
 });
 
+router.get('/admin', (request, response) => {
+  response.render("admin")
+})
+
 module.exports = router;
