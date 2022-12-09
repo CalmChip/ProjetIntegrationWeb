@@ -104,6 +104,11 @@ img {
   }
 
 /***************** page about us **************/
+
+ .imgAboutUs{
+    align-self: center;
+ }
+
 body {
   font-family: Arial;
   margin: 0;
