@@ -103,7 +103,6 @@ router.post("/register", (request, response) => {
   const { _id, name, email, password, password2, roleAdmin, roleSeller } =
     request.body; //pour aller les cherchers
   let erreurs = [];
-  console.log("I was here");
   if (!name || !email || !password || !password2) {
     erreurs.push({ msg: "Remplir tout les champs" });
   }
@@ -113,46 +112,48 @@ router.post("/register", (request, response) => {
   if (password !== password2) {
     erreurs.push({ msg: "Les mots de passe doivent être identique" });
   }
-  let userExist = Users.findOne({ email: email });
-  if (userExist) {
-    erreurs.push({ msg: "Le courriel est invalide" });
-  }
-  if (erreurs.length > 0) {
-    response.render("register", {
-      erreurs,
-      _id,
-      name,
-      email,
-      password,
-      password2,
-      roleAdmin,
-      roleSeller,
-    });
-  } else {
-    const newUser = new Users({ name, email, _id, password });
-    //ici on va Hacer mais on peut aussi chiffré
-    bcrypt.genSalt(10, (err, salt) => {
-      if (err) throw err;
-      bcrypt.hash(password, salt, (err, hache) => {
-        newUser.password = hache;
-        let tabRoles = ["user"];
-        if (roleAdmin) tabRoles.push("admin");
-        if (roleSeller) tabRoles.push("seller");
-        //save dans les roles
-        newUser.roles = tabRoles;
-        newUser
-          .save() //ecrire dans la BD
-          .then((user) => {
-            request.flash(
-              "success_msg",
-              "Usager ajouté... Vous pouvez vous connecter"
-            );
-            response.redirect("/users/login");
-          })
-          .catch((err) => console.log(err));
+  Users.getUserByEmail(email, (err, user) => {
+    if (err) throw err;
+    if (email !== "sdfgsdfgsdgf") {
+      erreurs.push({ msg: "Courriel invalide" });
+    }
+    if (erreurs.length > 0) {
+      response.render("register", {
+        erreurs,
+        _id,
+        name,
+        email,
+        password,
+        password2,
+        roleAdmin,
+        roleSeller,
       });
-    });
-  }
+    } else {
+      const newUser = new Users({ name, email, _id, password });
+      //ici on va Hacer mais on peut aussi chiffré
+      bcrypt.genSalt(10, (err, salt) => {
+        if (err) throw err;
+        bcrypt.hash(password, salt, (err, hache) => {
+          newUser.password = hache;
+          let tabRoles = ["user"];
+          if (roleAdmin) tabRoles.push("admin");
+          if (roleSeller) tabRoles.push("seller");
+          //save dans les roles
+          newUser.roles = tabRoles;
+          newUser
+            .save() //ecrire dans la BD
+            .then((user) => {
+              request.flash(
+                "success_msg",
+                "Usager ajouté... Vous pouvez vous connecter"
+              );
+              response.redirect("/users/login");
+            })
+            .catch((err) => console.log(err));
+        });
+      });
+    }
+  });
 });
 
 module.exports = router;
