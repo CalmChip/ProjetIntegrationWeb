@@ -120,6 +120,10 @@ router.post("/products", (request, response) => {
 // Router for add Products page
 router.get("/products", (request, response) => response.render("products"));
 
+//Router for page about us 
+router.get("/aboutUs", (request, response) => response.render("aboutUs"));
+
+
 /**
  * @param {string} path le nom du fichier a supprimer
  * Cette function supprime un fichier utilisant la librairy fs

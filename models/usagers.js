@@ -38,6 +38,11 @@ module.exports.getUserById = (idUser, callback) => {
   Users.findById(idUser, callback);
 };
 
+// Find user by email
+module.exports.getUserByEmail = (filter, callback) => {
+  Users.find({ email: { $regex: filter } }, callback).limit(1);
+};
+
 // Modify User by _id
 module.exports.modifyUser = (idUSer, newUser, callback) => {
   let filtre = { _id: idUSer };

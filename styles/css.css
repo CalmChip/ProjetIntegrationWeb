@@ -103,6 +103,7 @@ img {
     margin-top: 10px;
   }
 
+/***************** page admin **************/
   .overflow {
     white-space: nowrap;
     max-width: auto; 
@@ -110,3 +111,65 @@ img {
     text-overflow: ellipsis; 
     text-align: center;
 }
+
+/***************** page about us **************/
+
+ .imgAboutUs{
+    align-self: center;
+ }
+
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+.card {
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0);
+  margin: 30px;
+  padding: 10px;
+  display: flex; 
+  
+}
+
+.text {
+  color: rgb(245, 237, 237);
+  text-align: center;
+  padding: 10px;
+}
+
+.title {
+  color: rgb(15, 14, 14);
+}
+
+.button {
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 30%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.containerGroup1{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+ }
+ 
+ .containerGroup2{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+ }
+
