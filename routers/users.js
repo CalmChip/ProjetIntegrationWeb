@@ -11,22 +11,22 @@ router.get("/login", (request, response) => {
 });
 
 // Router for login out
-router.get("/logout", (requete, reponse) => {
-  requete.logout((err) => {
+router.get("/logout", (request, response) => {
+  request.logout((err) => {
     if (err) throw err;
-    requete.flash("success_msg", "Déconnection réeussis.");
-    reponse.redirect("/users/login");
+    request.flash("success_msg", "Déconnection réeussis.");
+    response.redirect("/users/login");
   });
 });
 
 // router that autenticate users upon request to login
-router.post("/login", (requete, reponse, next) => {
+router.post("/login", (request, response, next) => {
   passport.authenticate("local", {
     successRedirect: "/",
     badRequestMessage: "Remplir tous les champs",
     failureRedirect: "/users/login",
     failureFlash: true,
-  })(requete, reponse, next);
+  })(request, response, next);
 });
 
 // Router that gets a product by its ID and renders its info on the page
@@ -95,13 +95,13 @@ router.post("/modify/:_id", (request, response) => {
 });
 
 // Router that renders login page
-router.get("/register", (requete, response) => {
+router.get("/register", (request, response) => {
   response.render("register");
 });
 
-router.post("/register", (requete, reponse) => {
+router.post("/register", (request, response) => {
   const { _id, name, email, password, password2, roleAdmin, roleSeller } =
-    requete.body; //pour aller les cherchers
+    request.body; //pour aller les cherchers
   let erreurs = [];
   console.log("I was here");
   if (!name || !email || !password || !password2) {
@@ -114,7 +114,7 @@ router.post("/register", (requete, reponse) => {
     erreurs.push({ msg: "Les mots de passe doivent être identique" });
   }
   if (erreurs.length > 0) {
-    reponse.render("register", {
+    response.render("register", {
       erreurs,
       _id,
       name,
@@ -130,7 +130,7 @@ router.post("/register", (requete, reponse) => {
       //traitement des courriels deja existant
       if (user) {
         erreurs.push({ msg: "Ce courriel existe deja" });
-        reponse.render("register", {
+        response.render("register", {
           erreurs,
           name,
           _id,
@@ -153,11 +153,11 @@ router.post("/register", (requete, reponse) => {
             newUser
               .save() //ecrire dans la BD
               .then((user) => {
-                requete.flash(
+                request.flash(
                   "success_msg",
                   "Usager ajouté... Vous pouvez vous connecter"
                 );
-                reponse.redirect("/users/login");
+                response.redirect("/users/login");
               })
               .catch((err) => console.log(err));
           });
