@@ -172,4 +172,23 @@ router.get("/admin", (request, response) => {
   });
 });
 
+router.post("/admin/:id", (request, response) => {
+  Users.verifyUsers(request.params.id, (err, users) => {
+    if (err) throw err;
+    Users.find({}, (err, users) => {
+      if (err) throw err;
+      let userToVerify = [];
+      users.forEach((user) => {
+        if (user.verified === false) {
+          userToVerify.push(user);
+        }
+      });
+      response.render("admin", {
+        allUsers: userToVerify,
+      });
+      console.log(userToVerify);
+    });
+  });
+});
+
 module.exports = router;

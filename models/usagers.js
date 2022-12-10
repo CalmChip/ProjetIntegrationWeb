@@ -60,3 +60,13 @@ module.exports.modifyUser = (idUSer, newUser, callback) => {
   };
   Users.findOneAndUpdate(filtre, user, options, callback);
 };
+
+// API to verify users
+module.exports.verifyUsers = (idUser, callback) => {
+  let filter = { _id: idUser };
+  let options = {};
+  let user = {
+    verified: true,
+  };
+  Users.findOneAndUpdate(filter, user, options, callback);
+};
