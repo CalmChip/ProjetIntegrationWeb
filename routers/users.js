@@ -114,7 +114,7 @@ router.post("/register", (request, response) => {
   }
   Users.getUserByEmail(email, (err, user) => {
     if (err) throw err;
-    if (email !== "sdfgsdfgsdgf") {
+    if (email === user.email) {
       erreurs.push({ msg: "Courriel invalide" });
     }
     if (erreurs.length > 0) {
@@ -156,8 +156,8 @@ router.post("/register", (request, response) => {
   });
 });
 
-router.get('/admin', (request, response) => {
-  response.render("admin")
-})
+router.get("/admin", (request, response) => {
+  response.render("admin");
+});
 
 module.exports = router;
