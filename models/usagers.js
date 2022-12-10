@@ -23,6 +23,11 @@ let schemaUsers = mongoose.Schema({
   cart: {
     type: Array,
   },
+  verified: {
+    type: Boolean,
+    default: false,
+    required: false,
+  },
 });
 
 let Users = (module.exports = mongoose.model("users", schemaUsers));

@@ -157,7 +157,19 @@ router.post("/register", (request, response) => {
 });
 
 router.get("/admin", (request, response) => {
-  response.render("admin");
+  Users.find({}, (err, users) => {
+    if (err) throw err;
+    let userToVerify = [];
+    users.forEach((user) => {
+      if (user.verified === false) {
+        userToVerify.push(user);
+      }
+    });
+    response.render("admin", {
+      allUsers: userToVerify,
+    });
+    console.log(userToVerify);
+  });
 });
 
 module.exports = router;
