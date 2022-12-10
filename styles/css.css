@@ -103,15 +103,6 @@ img {
     margin-top: 10px;
   }
 
-/***************** page admin **************/
-  .overflow {
-    white-space: nowrap;
-    max-width: auto; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    text-align: center;
-}
-
 /***************** page about us **************/
 
  .imgAboutUs{
