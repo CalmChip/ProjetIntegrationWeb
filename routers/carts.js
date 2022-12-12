@@ -17,22 +17,22 @@ router.get("/", async (req, res) => {
     if (cart && cart.items.length > 0) {
       res.render("cart", { cart: cart });
     } else {
-      res.send(null);
+      res.render("cart");
     }
   } catch (error) {
-    res.status(500).send("Test");
+    res.status(500).send("Oops! something went wrong...");
   }
 });
 
 //add cart
 router.post("/cart", async (req, res) => {
-  const owner = req.user._id;
-  const { itemId, quantity } = req.body;
-
-  try {
-    const cart = await Cart.findOne({ owner });
-    const item = await Products.findOne({ _id: itemId });
-
+  // const owner = req.user._id;
+  const owner = "6389395491bde8cf3455335d";
+  const { quantity } = req.body;
+  let itemId = "1235468945";
+  const cart = await Cart.findOne({ owner });
+  console.log(cart);
+  Products.getProductByID(itemId, (err, item) => {
     if (!item) {
       res.status(404).send({ message: "item not found" });
       return;
@@ -53,37 +53,36 @@ router.post("/cart", async (req, res) => {
         }, 0);
 
         cart.items[itemIndex] = product;
-        await cart.save();
-        res.status(200).send(cart);
+        cart.save().then(() => {
+          res.render("cart", { cart: cart });
+        });
       } else {
         cart.items.push({ itemId, name, quantity, price });
         cart.bill = cart.items.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
         }, 0);
-
-        await cart.save();
-        res.status(200).send(cart);
+        cart.save().then(() => {
+          res.render("cart", { cart: cart });
+        });
       }
     } else {
       //no cart exists, create one
-      const newCart = await Cart.create({
+      const newCart = Cart.create({
         owner,
         items: [{ itemId, name, quantity, price }],
         bill: quantity * price,
+      }).then(() => {
+        res.render("cart", { cart: newCart });
       });
-      return res.status(201).send(newCart);
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("something went wrong");
-  }
+  });
 });
 
 //delete item in cart
 
-router.delete("/cart/:produtID", async (req, res) => {
+router.delete("/cart/:productID", async (req, res) => {
   const owner = req.user._id;
-  const itemId = req.params.produtID;
+  const itemId = req.params.productID;
   try {
     let cart = await Cart.findOne({ owner });
 
