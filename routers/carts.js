@@ -16,6 +16,7 @@ router.get("/", async (req, res) => {
     const cart = await Cart.findOne({ owner });
     if (cart && cart.items.length > 0) {
       res.render("cart", { cart: cart });
+      console.log(cart);
     } else {
       res.render("cart");
     }

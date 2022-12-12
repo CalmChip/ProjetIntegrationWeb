@@ -13,7 +13,7 @@ router.get("/", (request, response) => {
     response.render("accueil", {
       products: allProducts,
     });
-    console.log("voici la liste de produits", allProducts);
+    /* console.log("voici la liste de produits", allProducts); */
   });
 });
 router.get("/accueil", (request, response) => {
@@ -46,7 +46,7 @@ router.get("/details/:id", (request, response) => {
   Products.findById(request.params.id, (err, product) => {
     if (err) throw err;
     response.render("details.ejs", { product });
-    console.log("voici le produit", product);
+    /* console.log("voici le produit", product); */
   });
 });
 
@@ -120,9 +120,8 @@ router.post("/products", (request, response) => {
 // Router for add Products page
 router.get("/products", (request, response) => response.render("products"));
 
-//Router for page about us 
+//Router for page about us
 router.get("/aboutUs", (request, response) => response.render("aboutUs"));
-
 
 /**
  * @param {string} path le nom du fichier a supprimer

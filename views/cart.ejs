@@ -1,138 +1,162 @@
 <!--header -->
 <div class="bg-primary text-white text-center">
-    <div class="d-flex justify-content-between">
-      <img
-        src="/pictures/logo.jpg"
-        alt="Logo"
-        style="border-radius: 15px; padding: 6px"
-      />
-      <span
-        ><h1>Better Canada Computers</h1>
-        <p style="font-size: 20px">Une entreprise canadienne depuis 1866</p></span
-      >
-      <img
-        src="/pictures/proudly_canadian.png"
-        alt="proudly_canadian"
-        style="
-          min-width: 180px;
-          max-height: 50px;
-          align-self: center;
-          margin-right: 10px;
-        "
-      />
-    </div>
+  <div class="d-flex justify-content-between">
+    <img
+      src="/pictures/logo.jpg"
+      alt="Logo"
+      style="border-radius: 15px; padding: 6px"
+    />
+    <span
+      ><h1>Better Canada Computers</h1>
+      <p style="font-size: 20px">Une entreprise canadienne depuis 1866</p></span
+    >
+    <img
+      src="/pictures/proudly_canadian.png"
+      alt="proudly_canadian"
+      style="
+        min-width: 180px;
+        max-height: 50px;
+        align-self: center;
+        margin-right: 10px;
+      "
+    />
   </div>
-  
+</div>
 
-  <!--nav -->
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Categories</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/">Profile</a>
-        </li>
-         <li class="nav-item">
-            <a class="nav-link" href="/aboutUs">About Us</a>
-          </li>
-      </ul>
-    </div>
-  
-    <a href="/cart"
-      ><i
-        class="bi bi-cart-plus-fill"
-        style="font-size: 2rem; color: rgb(249, 250, 252)"
-        ;
-      ></i
-      >Cart</a
-    >
-    <br /><br />
-    <a href="/users/login"
-      ><i
-        class="bi bi-person-add"
-        style="font-size: 2rem; color: rgb(249, 250, 252)"
-      ></i
-      >Login</a
-    >
-    <br />
-  
-    <a href="/products" class="btn btn-light"> Seller </a>
-  
-    <a href="/users/logout">
-      <i
-        class="bi bi-box-arrow-in-right"
-        style="font-size: 2rem; color: rgb(249, 250, 252)"
-      ></i
-    ></a>
-    <br />
-  </nav>
+<!--nav -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Categories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/aboutUs">About Us</a>
+      </li>
+    </ul>
+  </div>
 
-  
-   <!--cart  -->
-    <div class="card container">
-        <div class="row">
-            <div class="col-md-6 cart">
-                    <div class="row">
-                        <div class="col"><h5><strong>Your cart :</strong></h5></div>
-                        <div class="col align-self-center text-right">items = {}</div>
-<hr>
-                        
- <!-- name Item and quantity -->
+  <a href="/carts/"
+    ><i
+      class="bi bi-cart-plus-fill"
+      style="font-size: 2rem; color: rgb(249, 250, 252)"
+      ;
+    ></i
+    >Cart</a
+  >
+  <br /><br />
+  <a href="/users/login"
+    ><i
+      class="bi bi-person-add"
+      style="font-size: 2rem; color: rgb(249, 250, 252)"
+    ></i
+    >Login</a
+  >
+  <br />
+
+  <a href="/products" class="btn btn-light"> Seller </a>
+
+  <a href="/users/logout">
+    <i
+      class="bi bi-box-arrow-in-right"
+      style="font-size: 2rem; color: rgb(249, 250, 252)"
+    ></i
+  ></a>
+  <br />
+</nav>
+
+<!--cart  -->
+<div class="card container">
   <div class="row">
-    <div class="row main align-items-center">
-        <div class="col-2"><img class="img-fluid" 
-        src="https://imgs.search.brave.com/MfQZz3aZ4KFDPGSbIMVnn0iueqSPN1XIh-ZiO5Ag1G4/rs:fit:1000:1000:1/g:ce/aHR0cHM6Ly93d3cu/ZS1yZXRhaWwuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIw/LzEyLzcxOTAtMHFB/REhMLl9BQ19TTDE1/MDBfLmpwZw" ></div>
-        <div class="col"> 
-            <div class="row text-muted">Product name</div>
-            <br><br>
-         <!-- add j-query click -->
-            <i class="fas fa-heart" style="color: red;"></i>
-            <br>
-            <i class="fas fa-trash"></i>
+    <div class="col-md-6 cart">
+      <div class="row">
+        <div class="col">
+          <h5><strong>Your cart :</strong></h5>
+        </div>
+        <div class="col align-self-center text-right">items = {}</div>
+        <hr />
+
+        <!-- name Item and quantity -->
+        <div class="row">
+          <div class="row main align-items-center">
+            <div class="col-2">
+              <img
+                class="img-fluid"
+                src="https://imgs.search.brave.com/MfQZz3aZ4KFDPGSbIMVnn0iueqSPN1XIh-ZiO5Ag1G4/rs:fit:1000:1000:1/g:ce/aHR0cHM6Ly93d3cu/ZS1yZXRhaWwuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIw/LzEyLzcxOTAtMHFB/REhMLl9BQ19TTDE1/MDBfLmpwZw"
+              />
+            </div>
+            <div class="col">
+              <div class="row text-muted">Product name</div>
+              <br /><br />
+              <!-- add j-query click -->
+              <i class="fas fa-heart" style="color: red"></i>
+              <br />
+              <i class="fas fa-trash"></i>
+            </div>
+
+            <div class="form-group mb-4" style="width: 150px; margin: 10px">
+              <label for="quantity">Quantity : </label>
+              <br />
+              <br />
+              <input
+                class="form-control"
+                type="number"
+                id="quantity"
+                value="1"
+              />
+
+              <br />
+              <div class="col">&dollar;<span> Price : </span></div>
+            </div>
+          </div>
         </div>
 
-        <div class="form-group mb-4" style="width: 150px; margin: 10px;">
-            <label for="quantity">Quantity : </label>
-            <br/> <br/>
-            <input class="form-control" type="number" id="quantity" value="1">
-         
-         <br>
-        <div class="col">&dollar;<span> Price : </span></div>
+        <!--button retour accueil-->
+        <a class="btn btn-dark" style="width: 100px; margin: 20px" href="/">
+          Back
+        </a>
+
+        <hr />
+        <!--summary-->
+        <div class="card container">
+          <div>
+            <h5><b>Summary</b></h5>
+          </div>
+          <hr />
+          <div class="col">{items} :</div>
+          <div style="color: black">&dollar; 0.00</div>
+          <br />
+          <!--form -->
+          <form>
+            <p>
+              Shipping :
+              <select>
+                <option class="text-muted col text">
+                  Standard-Delivery- &dollar;5.00
+                </option>
+                <option class="text-muted col text">
+                  Fast-Delivery- &dollar;10.00
+                </option>
+                <option class="text-muted col text">
+                  Two days-Delivery- &dollar;20.00
+                </option>
+              </select>
+            </p>
+          </form>
+          <br />
+          <div class="col">Estimated total :</div>
+          <div style="color: black">&dollar; 0.00</div>
+          <br />
+          <!--button checkout-->
+          <button class="btn btn-dark" style="width: 100px">Checkout</button>
+        </div>
+      </div>
     </div>
-    </div>
-</div>
-
-
-<!--button retour accueil-->
-<a class="btn btn-dark" style="width: 100px; margin: 20px;" href="/"> Back </a>
-
-<hr>
-<!--summary-->
-<div class="card container">
-            <div><h5><b>Summary</b></h5></div>
-            <hr>
-            <div class="col">{items} : </div>
-                <div style="color:black;">&dollar; 0.00</div> 
-            <br>
-             <!--form -->
-            <form>
-                <p>Shipping : <select><option class="text-muted col text">Standard-Delivery- &dollar;5.00</option>
-                <option class="text-muted col text">Fast-Delivery- &dollar;10.00</option>
-                <option class="text-muted col text">Two days-Delivery- &dollar;20.00</option></select></p>
-            </form>
-            <br>
-            <div class="col">Estimated total : </div>
-                <div style="color:black">&dollar; 0.00</div>
-            <br>
-     <!--button checkout-->
-     <button class="btn btn-dark"style="width: 100px;">Checkout</button>    
-</div>
-</div>
-</div>
-</div>
+  </div>
 </div>
