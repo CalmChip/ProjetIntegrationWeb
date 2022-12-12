@@ -24,6 +24,7 @@ const cartSchema = new mongoose.Schema({
       productPicture: String,
     },
   ],
+  bill: Number,
 });
 
 let Carts = (module.exports = mongoose.model("carts", cartSchema));

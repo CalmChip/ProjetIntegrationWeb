@@ -27,9 +27,11 @@ router.get("/", async (req, res) => {
 
 //add cart
 router.post("/cart", async (req, res) => {
-  const owner = req.user._id;
+  // const owner = req.user._id;
+  const owner = "6389395491bde8cf3455335d";
   const { _id, quantity } = req.body;
-  let itemId = _id;
+  let itemId = "1235468945";
+  //let itemId = _id;
   const cart = await Cart.findOne({ owner });
   Products.getProductByID(itemId, (err, item) => {
     if (!item) {
