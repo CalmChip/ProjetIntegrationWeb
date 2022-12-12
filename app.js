@@ -47,7 +47,7 @@ app.use(flash());
 app.use((requete, reponse, next) => {
   reponse.locals.success_msg = requete.flash("success_msg");
   reponse.locals.erreur_msg = requete.flash("erreur_msg");
-  reponse.locals.erreur_passport = requete.flash("erreurs");
+  reponse.locals.erreur_passport = requete.flash("error");
   next();
 });
 

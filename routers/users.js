@@ -168,7 +168,7 @@ router.get("/admin", (request, response) => {
     response.render("admin", {
       allUsers: userToVerify,
     });
-    console.log(userToVerify);
+    console.log("Admin:", userToVerify);
   });
 });
 

@@ -14,14 +14,14 @@ module.exports = function (passport) {
       //trouver notre utilisateur
       Users.findOne({ email: email }).then((usager) => {
         if (!usager) {
-          return done(null, false, { messages: "Ce courriel n'existe pas!" });
+          return done(null, false, { message: "Ce courriel n'existe pas!" });
         }
         bcrypt.compare(password, usager.password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
             return done(null, usager);
           } else {
-            return done(null, false, { messages: "Mot de passe invalide" });
+            return done(null, false, { message: "Mot de passe invalide" });
           }
         });
       });
