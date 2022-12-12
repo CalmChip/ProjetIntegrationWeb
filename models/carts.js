@@ -3,14 +3,14 @@ const ObjectID = mongoose.Schema.Types.ObjectId;
 
 const cartSchema = new mongoose.Schema({
   owner: {
-    type: ObjectID,
+    type: String,
     required: true,
     ref: "usagers",
   },
   items: [
     {
       itemId: {
-        type: ObjectID,
+        type: String,
         ref: "products",
         required: true,
       },
@@ -24,11 +24,6 @@ const cartSchema = new mongoose.Schema({
       price: Number,
     },
   ],
-  bill: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
 });
 
 let Carts = (module.exports = mongoose.model("carts", cartSchema));
