@@ -32,14 +32,14 @@ router.post("/cart", async (req, res) => {
   const { quantity } = req.body;
   let itemId = "1235468945";
   const cart = await Cart.findOne({ owner });
-  console.log(cart);
   Products.getProductByID(itemId, (err, item) => {
     if (!item) {
       res.status(404).send({ message: "item not found" });
       return;
     }
+    console.log(item);
     const price = item.price;
-    const name = item.name;
+    const name = item.productName;
     //If cart already exists for user,
     if (cart) {
       const itemIndex = cart.items.findIndex((item) => item.itemId == itemId);
