@@ -39,6 +39,7 @@ router.post("/cart", async (req, res) => {
     console.log(item);
     const price = item.price;
     const name = item.productName;
+    const productPicture = item.productPicture;
     //If cart already exists for user,
     if (cart) {
       const itemIndex = cart.items.findIndex((item) => item.itemId == itemId);
@@ -57,7 +58,7 @@ router.post("/cart", async (req, res) => {
           res.render("cart", { cart: cart });
         });
       } else {
-        cart.items.push({ itemId, name, quantity, price });
+        cart.items.push({ itemId, name, quantity, price, productPicture });
         cart.bill = cart.items.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
         }, 0);

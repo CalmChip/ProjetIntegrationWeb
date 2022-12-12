@@ -16,7 +16,7 @@ let schemaProduct = mongoose.Schema({
     required: false,
   },
   price: {
-    type: String,
+    type: Number,
     required: true,
   },
   desc: {
