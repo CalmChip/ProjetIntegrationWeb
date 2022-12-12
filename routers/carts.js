@@ -27,10 +27,9 @@ router.get("/", async (req, res) => {
 
 //add cart
 router.post("/cart", async (req, res) => {
-  // const owner = req.user._id;
-  const owner = "6389395491bde8cf3455335d";
-  const { quantity } = req.body;
-  let itemId = "1235468945";
+  const owner = req.user._id;
+  const { _id, quantity } = req.body;
+  let itemId = _id;
   const cart = await Cart.findOne({ owner });
   Products.getProductByID(itemId, (err, item) => {
     if (!item) {
@@ -47,7 +46,7 @@ router.post("/cart", async (req, res) => {
 
       if (itemIndex > -1) {
         let product = cart.items[itemIndex];
-        product.quantity += quantity;
+        product.quantity += 1;
 
         cart.bill = cart.items.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
