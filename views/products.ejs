@@ -1,7 +1,9 @@
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
     <div class="card card-body text-center">
-      <h1 class="text-center mb-3"><i class="fa fa-plus"></i> Add a product</h1>
+      <h1 class="text-center mb-3">
+        <i class="bi bi-plus-square-fill"></i> Add a product
+      </h1>
       <br />
       <form action="/products" method="POST" enctype="multipart/form-data">
         <div class="form-floating">
@@ -13,7 +15,7 @@
             value="<%=typeof productName !='undefined' ? productName:'' %>"
             placeholder="Entrez le produit"
           />
-          <i class="fa fa-plus fa-lg icon"></i>
+          <i class="bi bi-plus-square-fill fa-lg icon"></i>
           <label for="titre">Product Name</label>
         </div>
         <br />
@@ -27,7 +29,7 @@
             value="<%=typeof type !='undefined' ? type:'' %>"
             placeholder="Entrez une catégorie"
           />
-          <i class="fa fa-plus fa-lg icon"></i>
+          <i class="bi bi-tags-fill fa-lg icon"></i>
           <label for="type">Type</label>
         </div>
 
@@ -41,14 +43,13 @@
             value="<%=typeof price !='undefined' ? price:'' %>"
             placeholder="Entrez un prix"
           />
-          <i class="fa fa-plus fa-lg icon"></i>
+          <i class="bi bi-currency-dollar fa-lg icon"></i>
           <label for="price">Price</label>
         </div>
 
         <br />
 
         <div class="form-floating">
-          <label for="desc">Description</label>
           <textarea
             name="desc"
             id="desc"
@@ -56,6 +57,8 @@
             value="<%=typeof desc!='undefined' ? desc:'' %>"
             placeholder="Entrez une description"
           ></textarea>
+          <i class="bi bi-envelope-plus-fill fa-lg icon"></i>
+          <label for="desc">Description</label>
         </div>
         <br />
         <div class="form-group">
