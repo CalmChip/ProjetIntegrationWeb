@@ -26,10 +26,9 @@ router.get("/", async (req, res) => {
 });
 
 //add cart
-router.post("/cart/", async (req, res) => {
+router.post("/cart/:id", async (req, res) => {
   const owner = req.user._id;
-  const { _id } = req.body;
-  let itemId = _id;
+  let itemId = req.params.id;
   const cart = await Cart.findOne({ owner });
   Products.getProductByID(itemId, (err, item) => {
     if (!item) {

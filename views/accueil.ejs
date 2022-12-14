@@ -92,10 +92,9 @@
             <h6><%= product.price %> $</h6>
             <p>
               <a
-                href="#"
                 class="btn btn-default"
                 role="button"
-                onclick="addToCart('<%= product._id %>')"
+                onclick="addToCart('<%=product._id%>')"
                 >Cart</a
               >
             </p>
@@ -109,19 +108,15 @@
   <% }) %> <% } %>
 </section>
 <script>
-  function addToCart(_id) {
-    fetch(`http://127.0.0.1:8000/carts/cart/`, {
+  function addToCart(id) {
+    console.log(id);
+    fetch(`http://127.0.0.1:8000/carts/cart/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(_id),
-    })
-      .then((response) => {
-        response.json();
-      })
-      .catch((error) => {
-        if (error) throw error;
-      });
+    }).catch((error) => {
+      if (error) throw error;
+    });
   }
 </script>
