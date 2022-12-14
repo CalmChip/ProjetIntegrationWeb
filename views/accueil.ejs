@@ -49,6 +49,7 @@
     >Cart</a
   >
   <br /><br />
+  <% if (typeof user == 'undefined') { %>
   <a href="/users/login"
     ><i
       class="bi bi-person-add"
@@ -56,10 +57,7 @@
     ></i
     >Login</a
   >
-  <br />
-
-  <a href="/products" class="btn btn-light"> Seller </a>
-
+  <% } else { %>
   <a href="/users/logout">
     <i
       class="bi bi-box-arrow-in-right"
@@ -67,6 +65,10 @@
     ></i
   ></a>
   <br />
+  <% } %>
+  <br />
+
+  <a href="/products" class="btn btn-light"> Seller </a>
 </nav>
 <section class="productsList text-center ctn">
   <% if(typeof products !='undefined' ) { %> <% products.forEach(
