@@ -81,9 +81,9 @@ router.post("/cart/:id", async (req, res) => {
 
 //delete item in cart
 
-router.delete("/cart/:productID", async (req, res) => {
+router.delete("/cart/:id", async (req, res) => {
   const owner = req.user._id;
-  const itemId = req.params.productID;
+  const itemId = req.params.id;
   try {
     let cart = await Cart.findOne({ owner });
 
