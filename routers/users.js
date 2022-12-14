@@ -99,6 +99,14 @@ router.get("/register", (request, response) => {
   response.render("register");
 });
 
+router.post("/test", (request, response) => {
+  let { email } = request.body;
+  console.log(request);
+  Users.getUserByEmail(email, (err, user) => {
+    console.log(user);
+  });
+});
+
 router.post("/register", (request, response) => {
   const { _id, name, email, password, password2, roleAdmin, roleSeller } =
     request.body; //pour aller les cherchers
@@ -114,6 +122,7 @@ router.post("/register", (request, response) => {
   }
   Users.getUserByEmail(email, (err, user) => {
     if (err) throw err;
+    console.log(user.email);
     if (email === user.email) {
       erreurs.push({ msg: "Courriel invalide" });
     }

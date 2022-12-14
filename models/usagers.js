@@ -45,7 +45,10 @@ module.exports.getUserById = (idUser, callback) => {
 
 // Find user by email
 module.exports.getUserByEmail = (filter, callback) => {
-  Users.find({ email: { $regex: filter } }, callback).limit(1);
+  let query = {
+    email: { $regex: filter },
+  };
+  Users.find(query, callback);
 };
 
 // Modify User by _id

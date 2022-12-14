@@ -26,9 +26,9 @@ router.get("/", async (req, res) => {
 });
 
 //add cart
-router.post("/cart", async (req, res) => {
+router.post("/cart/", async (req, res) => {
   const owner = req.user._id;
-  const { _id, quantity } = req.body;
+  const { _id } = req.body;
   let itemId = _id;
   const cart = await Cart.findOne({ owner });
   Products.getProductByID(itemId, (err, item) => {
@@ -40,6 +40,7 @@ router.post("/cart", async (req, res) => {
     const price = item.price;
     const name = item.productName;
     const productPicture = item.productPicture;
+    const quantity = 1;
     //If cart already exists for user,
     if (cart) {
       const itemIndex = cart.items.findIndex((item) => item.itemId == itemId);
@@ -47,7 +48,7 @@ router.post("/cart", async (req, res) => {
 
       if (itemIndex > -1) {
         let product = cart.items[itemIndex];
-        product.quantity += 1;
+        product.quantity += quantity;
 
         cart.bill = cart.items.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
@@ -100,7 +101,7 @@ router.delete("/cart/:productID", async (req, res) => {
         return acc + curr.quantity * curr.price;
       }, 0);
       cart = await cart.save();
-      res.status(200).send(cart);
+      res.render("cart", { cart: cart });
     } else {
       res.status(404).send("item not found");
     }
