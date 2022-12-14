@@ -91,7 +91,13 @@
           <div class="product-info">
             <h6><%= product.price %> $</h6>
             <p>
-              <a href="/cart" class="btn btn-default" role="button">Cart</a>
+              <a
+                href="#"
+                class="btn btn-default"
+                role="button"
+                onclick="addToCart('<%= product._id %>')"
+                >Cart</a
+              >
             </p>
             <!--  <p class="text-start">Description : <%= product.desc %></p> -->
           </div>
@@ -102,3 +108,20 @@
 
   <% }) %> <% } %>
 </section>
+<script>
+  function addToCart(_id) {
+    fetch(`http://127.0.0.1:8000/carts/cart/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(_id),
+    })
+      .then((response) => {
+        response.json();
+      })
+      .catch((error) => {
+        if (error) throw error;
+      });
+  }
+</script>
