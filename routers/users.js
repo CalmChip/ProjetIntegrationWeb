@@ -99,11 +99,12 @@ router.get("/register", (request, response) => {
   response.render("register");
 });
 
-router.post("/test", (request, response) => {
-  let { email } = request.body;
-  console.log(request);
-  Users.getUserByEmail(email, (err, user) => {
-    console.log(user);
+router.get("/checkout", (req, res) => {
+  res.render("checkout");
+});
+router.post("/checkout", (req, res) => {
+  res.render("checkout", {
+    msg: "Checkout completed successfully, your parcel will arrive in 2999 years.",
   });
 });
 
@@ -122,7 +123,7 @@ router.post("/register", (request, response) => {
   }
   Users.getUserByEmail(email, (err, user) => {
     if (err) throw err;
-    console.log(user.email);
+    console.log(user);
     if (email === user.email) {
       erreurs.push({ msg: "Courriel invalide" });
     }

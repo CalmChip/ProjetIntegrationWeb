@@ -12,6 +12,7 @@ router.get("/", (request, response) => {
     if (err) throw err;
     response.render("accueil", {
       products: allProducts,
+      user: request.user,
     });
     /* console.log("voici la liste de produits", allProducts); */
   });

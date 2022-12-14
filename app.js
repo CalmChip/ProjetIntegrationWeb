@@ -26,6 +26,7 @@ require("./configs/passport")(passport);
 app.use(expressLayouts);
 // récupérer les posts (dans les requete.body)
 app.use(express.urlencoded({ extended: false })); //middlewear
+app.use(express.json()); // encore le body en json. Used for Fetch()
 
 //creation de la session express
 app.use(
