@@ -221,18 +221,6 @@ p[class^="from-"] {
   margin: 0.5rem 0;
 }
 
-p.from-me ~ p.from-me {
-  margin: 0.25rem 0 0;
-}
-
-p.from-me ~ p.from-me:not(:last-child) {
-  margin: 0.25rem 0 0;
-}
-
-p.from-me ~ p.from-me:last-child {
-  margin-bottom: 0.5rem;
-}
-
 p.from-them {
   align-items: flex-start;
   background-color: #e5e5ea;
