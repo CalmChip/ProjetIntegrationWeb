@@ -219,7 +219,6 @@ p.from-me::after {
 
 p[class^="from-"] {
   margin: 0.5rem 0;
-  width: fit-content;
 }
 
 p.from-me ~ p.from-me {
