@@ -200,4 +200,8 @@ router.post("/admin/:id", (request, response) => {
   });
 });
 
+router.get("/chatSeller", (request, response) => {
+  response.render("chatSeller");
+});
+
 module.exports = router;
