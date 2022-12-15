@@ -6,20 +6,29 @@ const cookie = require("cookie");
 
 //get cart items gotta add, isAuthorized
 router.get("/", async (req, res) => {
-  let test = req.user;
+  let testUser = req.user;
   let owner;
-  if (test) {
+  if (testUser) {
     owner = req.user._id;
   } else {
-    res.setHeader(
-      "Set-Cookie",
-      cookie.serialize("name", "kenobiObiwan", {
-        httpOnly: true,
-        maxAge: 60 * 60 * 24 * 7, // = 1 week.
-      })
-    );
-    const cookies = cookie.parse(req.headers.cookie || "");
-    owner = cookies.name;
+    let testCookie = cookie.parse(req.headers.cookie);
+    if (testCookie.name) {
+      const cookies = cookie.parse(req.headers.cookie || "");
+      owner = cookies.name;
+      console.log("Test Cookie: " + owner);
+    } else {
+      const uniqueCookie = `${Math.random() * 10}${Math.random() * 20}`;
+      res.setHeader(
+        "Set-Cookie",
+        cookie.serialize("name", uniqueCookie, {
+          httpOnly: true,
+          maxAge: 60 * 60 * 24 * 7, // = 1 week.
+        })
+      );
+      const cookies = cookie.parse(req.headers.cookie || "");
+      owner = cookies.name;
+      console.log("Not tested cookie:", owner);
+    }
   }
   try {
     const cart = await Cart.findOne({ owner });
@@ -41,15 +50,24 @@ router.post("/cart/:id", async (req, res) => {
   if (test) {
     owner = req.user._id;
   } else {
-    res.setHeader(
-      "Set-Cookie",
-      cookie.serialize("name", "kenobiObiwan", {
-        httpOnly: true,
-        maxAge: 60 * 60 * 24 * 7, // = 1 week.
-      })
-    );
-    const cookies = cookie.parse(req.headers.cookie || "");
-    owner = cookies.name;
+    let testCookie = cookie.parse(req.headers.cookie);
+    if (testCookie) {
+      const cookies = cookie.parse(req.headers.cookie || "");
+      owner = cookies.name;
+      console.log("Test Cookie: " + owner);
+    } else {
+      const uniqueCookie = `${math.Random() * 10}${math.Random() * 20}`;
+      res.setHeader(
+        "Set-Cookie",
+        cookie.serialize("name", uniqueCookie, {
+          httpOnly: true,
+          maxAge: 60 * 60 * 24 * 7, // = 1 week.
+        })
+      );
+      const cookies = cookie.parse(req.headers.cookie || "");
+      owner = cookies.name;
+      console.log("Not tested cookie:", owner);
+    }
   }
   let itemId = req.params.id;
   const cart = await Cart.findOne({ owner });
@@ -110,15 +128,24 @@ router.delete("/cart/:id", async (req, res) => {
   if (test) {
     owner = req.user._id;
   } else {
-    res.setHeader(
-      "Set-Cookie",
-      cookie.serialize("name", "kenobiObiwan", {
-        httpOnly: true,
-        maxAge: 60 * 60 * 24 * 7, // = 1 week.
-      })
-    );
-    const cookies = cookie.parse(req.headers.cookie || "");
-    owner = cookies.name;
+    let testCookie = cookie.parse(req.headers.cookie);
+    if (testCookie) {
+      const cookies = cookie.parse(req.headers.cookie || "");
+      owner = cookies.name;
+      console.log("Test Cookie: " + owner);
+    } else {
+      const uniqueCookie = `${math.Random() * 10}${math.Random() * 20}`;
+      res.setHeader(
+        "Set-Cookie",
+        cookie.serialize("name", uniqueCookie, {
+          httpOnly: true,
+          maxAge: 60 * 60 * 24 * 7, // = 1 week.
+        })
+      );
+      const cookies = cookie.parse(req.headers.cookie || "");
+      owner = cookies.name;
+      console.log("Not tested cookie:", owner);
+    }
   }
   const itemId = req.params.id;
   try {
