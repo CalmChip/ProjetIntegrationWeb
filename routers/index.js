@@ -103,7 +103,7 @@ router.post("/products", (request, response) => {
       type: type,
       price: price,
       desc: desc,
-      owner: "TestingPhasePlaceholder",
+      owner: request.user._id,
       productPicture: keepPicture(path, filename),
     };
     Products.createProduct(newProduct, (err, product) => {

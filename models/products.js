@@ -58,7 +58,7 @@ module.exports.modifyProduct = (query, product, callback) => {
     price: product.price,
     desc: product.desc,
     owner: product.owner,
-    /*     productPicture: productPicture, */
+    productPicture: productPicture,
   };
   Products.findOneAndUpdate(filter, newProduct, options, callback);
 };
@@ -92,4 +92,9 @@ module.exports.findProductByCategorieDescending = (filter, callback, limit) => {
 // API to create a new product
 module.exports.createProduct = (product, callback) => {
   Products.create(product, callback);
+};
+
+// API to find product by owner
+module.exports.findProductByOwner = (findOwner, callback) => {
+  Products.find({ owner: findOwner }, callback);
 };

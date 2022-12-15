@@ -4,6 +4,7 @@ const router = express.Router();
 const { isAuthorized, isSeller } = require("../configs/auth");
 const Users = require("../models/usagers");
 const bcrypt = require("bcryptjs");
+const Products = require("../models/products");
 
 // Router that renders login page
 router.get("/login", (request, response) => {
@@ -197,6 +198,20 @@ router.post("/admin/:id", (request, response) => {
         allUsers: userToVerify,
       });
       console.log(userToVerify);
+    });
+  });
+});
+
+router.get("/profile", (request, response) => {
+  const _id = request.user._id;
+  Users.findById(_id, (err, user) => {
+    if (err) throw err;
+    Products.findProductByOwner(_id, (err, product) => {
+      if (err) throw err;
+      response.render("profile", {
+        userInfo: user,
+        productInfo: product,
+      });
     });
   });
 });
