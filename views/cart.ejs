@@ -1,5 +1,7 @@
+
 <!--header -->
 <div class="bg-primary text-white text-center">
+
   <div class="d-flex justify-content-between">
     <img
       src="/pictures/logo.jpg"
@@ -36,12 +38,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Profile</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/aboutUs">About Us</a>
-      </li>
+       <li class="nav-item">
+          <a class="nav-link" href="/aboutUs">About Us</a>
+        </li>
     </ul>
   </div>
-
   <a href="/carts/"
     ><i
       class="bi bi-cart-plus-fill"
@@ -50,17 +51,10 @@
     ></i
     >Cart</a
   >
-  <br /><br />
-  <a href="/users/login"
-    ><i
-      class="bi bi-person-add"
-      style="font-size: 2rem; color: rgb(249, 250, 252)"
-    ></i
-    >Login</a
-  >
-  <br />
-
+  <br/><br />
+  
   <a href="/products" class="btn btn-light"> Seller </a>
+
 
   <a href="/users/logout">
     <i
@@ -71,105 +65,81 @@
   <br />
 </nav>
 
-<!--cart  -->
-<div class="card container">
-  <div class="row">
-    <div class="col-md-6 cart">
-      <div class="row">
-        <div class="col">
-          <h5><strong>Your cart :</strong></h5>
-        </div>
-        <div class="col align-self-center text-right">items = {}</div>
-        <hr />
+<!--fin nav -->
 
-        <!-- name Item and quantity -->
-        <div class="row">
-          <div class="row main align-items-center">
-            <div class="col-2">
-              <img
-                class="img-fluid"
-                src="https://imgs.search.brave.com/MfQZz3aZ4KFDPGSbIMVnn0iueqSPN1XIh-ZiO5Ag1G4/rs:fit:1000:1000:1/g:ce/aHR0cHM6Ly93d3cu/ZS1yZXRhaWwuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIw/LzEyLzcxOTAtMHFB/REhMLl9BQ19TTDE1/MDBfLmpwZw"
-              />
-            </div>
-            <div class="col">
-              <div class="row text-muted">Product name</div>
-              <br /><br />
-              <!-- add j-query click -->
-              <i class="fas fa-heart" style="color: red"></i>
-              <br />
-              <i class="fas fa-trash"></i>
-            </div>
-
-            <div class="form-group mb-4" style="width: 150px; margin: 10px">
-              <label for="quantity">Quantity : </label>
-              <br />
-              <br />
-              <input
-                class="form-control"
-                type="number"
-                id="quantity"
-                value="1"
-              />
-
-              <br />
-              <div class="col">&dollar;<span> Price : </span></div>
-            </div>
+<!--cart-->
+<div class="card container pagecard">
+  <div class="d-flex"> 
+    <div class="row">
+      <div class="col"><h5><strong>Your cart:</strong></h5></div>
+<hr>
+  <% if(typeof cart !='undefined' ) { %> 
+    <% let items = cart.items %>
+    <%  items.forEach(function(items) {%>
+  <div style="width: 400px; height: 250px; margin: 10px">
+      <div class="cart-product"
+        style="background-color: rgb(250, 250, 252); justify-content: center">
+        <div>
+          <h5 class="text-center"><%= items.name %></h5>
+          <!--ajuster image-->
+          <img src="/pictures/<%=items.productPicture%>"
+          style="min-height: 10px; min-width: 10px; "
+            alt="imgProduct"/>
+          <div class="product-info">
+            <h6> <strong> Price: <%= items.price %>$ </strong></h6>
+            <h6> <strong>  Quantity: <%= items.quantity %> </strong></h6>
+            <a class="btn btn-danger" role="button" onclick="deleteFromCart('<%=items._id%>')">Delete</a>
           </div>
-        </div>
-
-        <!--button retour accueil-->
-        <a class="btn btn-dark" style="width: 100px; margin: 20px" href="/">
-          Back
-        </a>
-
-        <hr />
-        <!--summary-->
-        <div class="card container">
-          <div>
-            <h5><b>Summary</b></h5>
-          </div>
-          <hr />
-          <div class="col">{items} :</div>
-          <div style="color: black">&dollar; 0.00</div>
-          <br />
-          <!--form -->
-          <form>
-            <p>
-              Shipping :
-              <select>
-                <option class="text-muted col text">
-                  Standard-Delivery- &dollar;5.00
-                </option>
-                <option class="text-muted col text">
-                  Fast-Delivery- &dollar;10.00
-                </option>
-                <option class="text-muted col text">
-                  Two days-Delivery- &dollar;20.00
-                </option>
-              </select>
-            </p>
-          </form>
-          <br />
-          <div class="col">Estimated total :</div>
-          <div style="color: black">&dollar; 0.00</div>
-          <br />
-          <!--button checkout-->
-          <button class="btn btn-dark" style="width: 100px">Checkout</button>
         </div>
       </div>
-    </div>
   </div>
+  <%})%> <%}%>
+ <br>
+
+
+<!--summary-->
+<div class="col-md-4">
+  <div class="card mb-4">
+    <div class="card-header py-3">
+    <div><h5><b>Summary</b></h5></div>
+  <hr>
+   <!--form -->
+  <form>
+      <p>Shipping : <select><option class="text-muted col text">Standard-Delivery- &dollar;.00</option>
+      <option class="text-muted col text">Fast-Delivery- &dollar;0.00</option>
+      <option class="text-muted col text">Two days-Delivery- &dollar;0.00</option></select></p>
+  </form>
+
+  <br>
+
+<div class="col">
+  <h5><strong> Total: $ <%= cart.bill%> </strong></h5>
+ </div>
+<!--button checkout-->
+<button class="btn btn-success" style="width: 100px;">Checkout</button>  
+<br>
+        </div>
+       </div>
+      </div>
+    </div>
+ </div>
 </div>
+
+ <!--button retour accueil-->
+ <a class="btn btn-dark" style="width: 100px; margin: 20px;" href="/"> Back </a>
+
+
+<!--script-->
 <script>
-  function deleteFromCart(id) {
-    console.log(id);
-    fetch(`http://127.0.0.1:8000/carts/cart/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).catch((error) => {
-      if (error) throw error;
-    });
-  }
+function deleteFromCart(id) {
+  console.log(id);
+  fetch(`http://127.0.0.1:8000/carts/cart/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).catch((error) => {
+    if (error) throw error;
+  });
+}
 </script>
