@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const ObjectID = mongoose.Schema.Types.ObjectId;
 
 const cartSchema = new mongoose.Schema({
   owner: {

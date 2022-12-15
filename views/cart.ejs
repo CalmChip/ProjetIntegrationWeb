@@ -1,22 +1,20 @@
 <style>
-.card {
-  font-weight: Arial, Helvet;
-  flex: 1;
-  border-bottom: 4px solid;
-  padding: 40px 0px;
-}
+  .card {
+    font-weight: Arial, Helvet;
+    flex: 1;
+    border-bottom: 4px solid;
+    padding: 40px 0px;
+  }
 
-.cart-product > div {
-  flex: 1;
-  text-align: left;
-  border-bottom: 1px solid;
-  padding: 10px 0px;
-
-}
+  .cart-product > div {
+    flex: 1;
+    text-align: left;
+    border-bottom: 1px solid;
+    padding: 10px 0px;
+  }
 </style>
 <!--header -->
 <div class="bg-primary text-white text-center">
-
   <div class="d-flex justify-content-between">
     <img
       src="/pictures/logo.jpg"
@@ -53,9 +51,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Profile</a>
       </li>
-       <li class="nav-item">
-          <a class="nav-link" href="/aboutUs">About Us</a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/aboutUs">About Us</a>
+      </li>
     </ul>
   </div>
   <a href="/carts/"
@@ -66,10 +64,9 @@
     ></i
     >Cart</a
   >
-  <br/><br />
-  
-  <a href="/products" class="btn btn-light"> Seller </a>
+  <br /><br />
 
+  <a href="/products" class="btn btn-light"> Seller </a>
 
   <a href="/users/logout">
     <i
@@ -84,77 +81,100 @@
 
 <!--cart-->
 <div class="card container pagecard">
-  <div class="d-flex"> 
+  <div class="d-flex">
     <div class="row">
-      <div class="col"><h5><strong>Your cart:</strong></h5></div>
-<hr>
-  <% if(typeof cart !='undefined' ) { %> 
-    <% let items = cart.items %>
-    <%  items.forEach(function(items) {%>
-  <div style="width: 400px; height: 250px; margin: 10px">
-      <div class="cart-product"
-        style="background-color: rgb(250, 250, 252); justify-content: center">
-        <div>
-          <h5 class="text-center"><%= items.name %></h5>
-          <!--ajuster image-->
-          <img src="/pictures/<%=items.productPicture%>"
-          style="min-height: 10px; min-width: 10px; "
-            alt="imgProduct"/>
-          <div class="product-info">
-            <h6> <strong> Price: <%= items.price %>$ </strong></h6>
-            <h6> <strong>  Quantity: <%= items.quantity %> </strong></h6>
-            <a class="btn btn-danger" role="button" onclick="deleteFromCart('<%=items._id%>')">Delete</a>
+      <div class="col">
+        <h5><strong>Your cart:</strong></h5>
+      </div>
+      <hr />
+      <% if(typeof cart !='undefined' ) { %> <% let items = cart.items %> <%
+      items.forEach(function(items) {%>
+      <div style="width: 400px; height: 250px; margin: 10px">
+        <div
+          class="cart-product"
+          style="background-color: rgb(250, 250, 252); justify-content: center"
+        >
+          <div>
+            <h5 class="text-center"><%= items.name %></h5>
+            <!--ajuster image-->
+            <img
+              src="/pictures/<%=items.productPicture%>"
+              style="min-height: 10px; min-width: 10px"
+              alt="imgProduct"
+            />
+            <div class="product-info">
+              <h6><strong> Price: <%= items.price %>$ </strong></h6>
+              <h6><strong> Quantity: <%= items.quantity %> </strong></h6>
+              <a
+                class="btn btn-danger"
+                role="button"
+                onclick="deleteFromCart('<%=items.itemId%>')"
+                >Delete</a
+              >
+            </div>
           </div>
         </div>
       </div>
-  </div>
-  <%})%> <%}%>
- <br>
+      <%})%> <%}%>
+      <br />
 
+      <!--summary-->
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <div>
+              <h5><b>Summary</b></h5>
+            </div>
+            <hr />
+            <!--form -->
+            <form>
+              <p>
+                Shipping :
+                <select>
+                  <option class="text-muted col text">
+                    Standard-Delivery- &dollar;.00
+                  </option>
+                  <option class="text-muted col text">
+                    Fast-Delivery- &dollar;0.00
+                  </option>
+                  <option class="text-muted col text">
+                    Two days-Delivery- &dollar;0.00
+                  </option>
+                </select>
+              </p>
+            </form>
 
-<!--summary-->
-<div class="col-md-4">
-  <div class="card mb-4">
-    <div class="card-header py-3">
-    <div><h5><b>Summary</b></h5></div>
-  <hr>
-   <!--form -->
-  <form>
-      <p>Shipping : <select><option class="text-muted col text">Standard-Delivery- &dollar;.00</option>
-      <option class="text-muted col text">Fast-Delivery- &dollar;0.00</option>
-      <option class="text-muted col text">Two days-Delivery- &dollar;0.00</option></select></p>
-  </form>
+            <br />
 
-  <br>
-
-<div class="col">
-  <h5><strong> Total: $ <%= cart.bill%> </strong></h5>
- </div>
-<!--button checkout-->
-<button class="btn btn-success" style="width: 100px;">Checkout</button>  
-<br>
+            <div class="col">
+              <h5><strong> Total: $ <%= cart.bill%> </strong></h5>
+            </div>
+            <!--button checkout-->
+            <button class="btn btn-success" style="width: 100px">
+              Checkout
+            </button>
+            <br />
+          </div>
         </div>
-       </div>
       </div>
     </div>
- </div>
+  </div>
 </div>
 
- <!--button retour accueil-->
- <a class="btn btn-dark" style="width: 100px; margin: 20px;" href="/"> Back </a>
-
+<!--button retour accueil-->
+<a class="btn btn-dark" style="width: 100px; margin: 20px" href="/"> Back </a>
 
 <!--script-->
 <script>
-function deleteFromCart(id) {
-  console.log(id);
-  fetch(`http://127.0.0.1:8000/carts/cart/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).catch((error) => {
-    if (error) throw error;
-  });
-}
+  function deleteFromCart(id) {
+    console.log("Console Test: ", id);
+    fetch(`http://127.0.0.1:8000/carts/cart/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).catch((error) => {
+      if (error) throw error;
+    });
+  }
 </script>

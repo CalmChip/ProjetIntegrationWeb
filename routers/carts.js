@@ -85,10 +85,8 @@ router.delete("/cart/:id", async (req, res) => {
   const owner = req.user._id;
   const itemId = req.params.id;
   try {
-    let cart = await Cart.findOne({ owner });
-
+    let cart = await Cart.findOne({ owner: owner });
     const itemIndex = cart.items.findIndex((item) => item.itemId == itemId);
-
     if (itemIndex > -1) {
       let item = cart.items[itemIndex];
       cart.bill -= item.quantity * item.price;
