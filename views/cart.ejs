@@ -98,7 +98,7 @@
             <h5 class="text-center"><%= items.name %></h5>
             <!--ajuster image-->
             <img
-              src="/pictures/<%=items.productPicture%>"
+              src="/pictures/<%= items.productPicture %>"
               style="min-height: 10px; min-width: 10px"
               alt="imgProduct"
             />
@@ -147,7 +147,12 @@
             <br />
 
             <div class="col">
-              <h5><strong> Total: $ <%= cart.bill%> </strong></h5>
+              <h5>
+                <strong>
+                  Total: $ <% if (typeof cart != "undefined") { %> <%=
+                  cart.bill%> <% } else { %> 0 <% } %></strong
+                >
+              </h5>
             </div>
             <!--button checkout-->
             <button class="btn btn-success" style="width: 100px">

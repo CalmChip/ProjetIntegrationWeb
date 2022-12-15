@@ -2,6 +2,7 @@ const express = require("express");
 const Cart = require("../models/carts");
 const Products = require("../models/products");
 const router = express.Router();
+const cookie = require("cookie");
 
 //get cart items gotta add, isAuthorized
 router.get("/", async (req, res) => {
@@ -10,7 +11,15 @@ router.get("/", async (req, res) => {
   if (test) {
     owner = req.user._id;
   } else {
-    owner = "6389395491bde8cf3455335d"; // Add cookie cart functionality here
+    res.setHeader(
+      "Set-Cookie",
+      cookie.serialize("name", "kenobiObiwan", {
+        httpOnly: true,
+        maxAge: 60 * 60 * 24 * 7, // = 1 week.
+      })
+    );
+    const cookies = cookie.parse(req.headers.cookie || "");
+    owner = cookies.name;
   }
   try {
     const cart = await Cart.findOne({ owner });
@@ -27,7 +36,21 @@ router.get("/", async (req, res) => {
 
 //add cart
 router.post("/cart/:id", async (req, res) => {
-  const owner = req.user._id;
+  let test = req.user;
+  let owner;
+  if (test) {
+    owner = req.user._id;
+  } else {
+    res.setHeader(
+      "Set-Cookie",
+      cookie.serialize("name", "kenobiObiwan", {
+        httpOnly: true,
+        maxAge: 60 * 60 * 24 * 7, // = 1 week.
+      })
+    );
+    const cookies = cookie.parse(req.headers.cookie || "");
+    owner = cookies.name;
+  }
   let itemId = req.params.id;
   const cart = await Cart.findOne({ owner });
   Products.getProductByID(itemId, (err, item) => {
@@ -35,7 +58,7 @@ router.post("/cart/:id", async (req, res) => {
       res.status(404).send({ message: "item not found" });
       return;
     }
-    console.log(item);
+    console.log("Test create cart: ", item);
     const price = item.price;
     const name = item.productName;
     const productPicture = item.productPicture;
@@ -82,7 +105,21 @@ router.post("/cart/:id", async (req, res) => {
 //delete item in cart
 
 router.delete("/cart/:id", async (req, res) => {
-  const owner = req.user._id;
+  let test = req.user;
+  let owner;
+  if (test) {
+    owner = req.user._id;
+  } else {
+    res.setHeader(
+      "Set-Cookie",
+      cookie.serialize("name", "kenobiObiwan", {
+        httpOnly: true,
+        maxAge: 60 * 60 * 24 * 7, // = 1 week.
+      })
+    );
+    const cookies = cookie.parse(req.headers.cookie || "");
+    owner = cookies.name;
+  }
   const itemId = req.params.id;
   try {
     let cart = await Cart.findOne({ owner: owner });
