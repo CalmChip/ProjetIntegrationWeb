@@ -1,3 +1,15 @@
+<style>
+.categories {
+  min-width: fit-content;
+  min-height: fit-content;
+  background-color: rgb(255, 255, 255,0.85);
+  border-radius: 10px;
+  margin: 15px;
+  padding: 10px;
+  position: sticky;
+  font-size: larger;
+}
+</style>
 <div class="bg-primary text-white text-center">
   <div class="d-flex justify-content-between">
     <img
@@ -58,7 +70,7 @@
     >Login</a
   >
   <% } else { %>
-  <p style="color: white">Compte: <%= user.name%></p>
+  <p style="color: white;">Compte: <%= user.name %></p>
   <a href="/users/logout">
     <i
       class="bi bi-box-arrow-in-right"
@@ -72,35 +84,38 @@
   <a href="/products" class="btn btn-light"> Seller </a>
 </nav>
 
-<!--categories-->
-   <div class="form-container">
-<div>
-  <p><b>Product categories :</b></p>
-  <hr>
-  <% if(typeof products !='undefined' ) { %> <% products.forEach(
-    function(product) { %>
-      <div style="align-items: left"> 
-      <form>
-        <input class="checkboxes" type="checkbox" id="product" name="product" value="type">
-        <label for="product"> <%= product.type%></label><br>
-      </form>
+  
+ 
+
+<section class="container-fluid d-flex" style="margin: auto;">
+   <!--categories-->
+   <div class="categories h-100">
+    <div>
+      <p class="text-center"><b>Product categories :</b></p>
+      <hr>
+      <% if(typeof products !='undefined' ) { %> <% products.forEach(
+        function(product) { %>
+          <div style="align-items: left"> 
+          <form>
+            <input class="checkboxes" type="checkbox" id="product" name="product" value="type">
+            <label for="product"> <%= product.type%></label><br>
+          </form>
+        </div>
+        <% }) %> <% } %>
+      </div>
     </div>
-    <% }) %> <% } %>
-  </div>
-</div>
 
-
-<section class="productsList text-center ctn">
+  <section class="productsList text-center">
   <% if(typeof products !='undefined' ) { %> <% products.forEach(
   function(product) { %>
-  <div style="width: 310px; height: 215px; margin: 20px">
+  <div style="min-width: 310px; height: 230px; margin: 20px">
     <a
       href="/details/<%=product._id%>"
       style="text-decoration: none; color: black"
     >
       <div
         class="product-card"
-        style="background-color: white; justify-content: center"
+        style="background-color: white; justify-content: center; min-height: 235px;"
       >
         <div>
           <h5 class="text-center"><%= product.productName %></h5>
@@ -113,7 +128,7 @@
             <h6><%= product.price %> $</h6>
             <p>
               <a
-                class="btn btn-default"
+                class="btn btn-default bg-dark text-white"
                 role="button"
                 onclick="addToCart('<%=product._id%>')"
                 >Cart</a
@@ -127,7 +142,7 @@
   </div>
 
   <% }) %> <% } %>
-</section>
+</section></section>
 <script>
   function addToCart(id) {
     console.log(id);
