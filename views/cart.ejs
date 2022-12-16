@@ -155,14 +155,14 @@
 <script>
   function deleteFromCart(id) {
     console.log("Console Test: ", id);
-    location = "http://127.0.0.1:8000/carts/"
     fetch(`http://127.0.0.1:8000/carts/cart/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     }).then(() => {
-      location.reload()
+      alert("itemns deleted from cart successfully");
+      window.location.reload();
     }).catch((error) => {
       if (error) throw error;
     });
