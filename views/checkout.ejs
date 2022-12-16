@@ -1,0 +1,81 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body text-center">
+        <h1 class="text-center mb-3">
+          <i class="fas fa-user-plus"></i> Checkout
+        </h1>
+        <form action="#" method="POST">
+
+          <div class="form-floating">
+            <input
+              type="text"
+              name="card"
+              id="card"
+              class="form-control"
+              value="<%= typeof card != 'undefined' ? card : '' %>"
+              placeholder="Entrez un courriel"/>
+              <i class="fas fa-user fa-lg icon"></i>
+            <label for="card">Credit Card:</label>
+          </div>
+
+        <div class="form-floating">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            value="<%= typeof name != 'undefined' ? name : '' %>"
+            placeholder="Entrez un courriel"
+          />
+          <i class="fas fa-envelope fa-lg icon"></i>
+          <label for="name">Name on Card:</label>
+        </div>
+
+          <div class="form-floating">
+            
+            <input
+              type="text"
+              name="pin"
+              id="pin"
+              class="form-control"
+              value="<%= typeof pin != 'undefined' ? pin : '' %>"
+              placeholder="Entez un mot de passe"
+            />
+            <i class="fa fa-lock fa-lg icon"></i>
+            <label for="pin">PIN</label>
+          </div>
+
+          <div class="form-floating">
+            
+            <input
+              type="text"
+              name="Address"
+              id="Address"
+              class="form-control"
+              value="<%= typeof Address != 'undefined' ? Address : '' %>"
+              placeholder="Enter your address"
+            />
+            <i class="fas fa-shield-alt fa-lg icon"></i>
+            <label for="Address">Address</label>
+          </div>
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <button
+            onclick="checkout()"
+            class="btn btn-primary btn-block btn-lg"
+            style="margin-top: 1.2rem"
+          >
+            Checkout
+          </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    function checkout() {
+        alert("Payment successfull, your parcel will arive within the next 9999 years.")
+    }
+</script>
