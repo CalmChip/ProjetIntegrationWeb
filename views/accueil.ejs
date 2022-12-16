@@ -85,7 +85,10 @@
       >
         <div>
           <h5 class="text-center"><%= product.productName %></h5>
-          <img src="/pictures/<%= product.productPicture %>" alt="Product Picture">
+          <img
+            src="/pictures/<%= product.productPicture %>"
+            alt="Product Picture"
+          />
 
           <div class="product-info">
             <h6><%= product.price %> $</h6>
@@ -114,8 +117,12 @@
       headers: {
         "Content-Type": "application/json",
       },
-    }).catch((error) => {
-      if (error) throw error;
-    });
+    })
+      .then(() => {
+        alert("Item added successfully to the cart");
+      })
+      .catch((error) => {
+        if (error) throw error;
+      });
   }
 </script>
