@@ -71,6 +71,22 @@
 
   <a href="/products" class="btn btn-light"> Seller </a>
 </nav>
+
+<!--product categories-->
+   <div class="form-container">
+<div>
+  <p><b>Product categories : </b></p>
+  <hr>
+  <% if(typeof products !='undefined' ) { %> <% products.forEach(
+    function(product) { %>
+      <form>
+        <input class="checkboxes" type="checkbox" id="product" name="product" value="type">
+        <label for="product"> <%= product.type%></label><br>
+      </form>
+    </div>
+    <% }) %> <% } %>
+</div>
+
 <section class="productsList text-center ctn">
   <% if(typeof products !='undefined' ) { %> <% products.forEach(
   function(product) { %>
