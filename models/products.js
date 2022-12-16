@@ -58,7 +58,7 @@ module.exports.modifyProduct = (query, product, callback) => {
     price: product.price,
     desc: product.desc,
     owner: product.owner,
-    productPicture: productPicture,
+    productPicture: product.productPicture,
   };
   Products.findOneAndUpdate(filter, newProduct, options, callback);
 };

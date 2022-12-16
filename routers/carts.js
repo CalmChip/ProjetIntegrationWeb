@@ -111,7 +111,7 @@ router.post("/cart/:id", async (req, res) => {
       //no cart exists, create one
       const newCart = Cart.create({
         owner,
-        items: [{ itemId, name, quantity, price }],
+        items: [{ itemId, name, quantity, price, productPicture }],
         bill: quantity * price,
       }).then(() => {
         res.render("cart", { cart: newCart });
