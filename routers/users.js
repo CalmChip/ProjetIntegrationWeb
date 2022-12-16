@@ -104,9 +104,7 @@ router.get("/checkout", (req, res) => {
   res.render("checkout");
 });
 router.post("/checkout", (req, res) => {
-  res.render("checkout", {
-    msg: "Checkout completed successfully, your parcel will arrive in 2999 years.",
-  });
+  res.render("checkout");
 });
 
 router.post("/register", (request, response) => {
