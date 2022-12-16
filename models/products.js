@@ -3,10 +3,6 @@ const mongoose = require("mongoose");
 //Schema for the collection products
 
 let schemaProduct = mongoose.Schema({
-  _id: {
-    type: String,
-    required: true,
-  },
   productName: {
     type: String,
     required: true,

@@ -96,9 +96,7 @@ router.post("/products", (request, response) => {
       desc,
     });
   } else {
-    let id = `${Math.random() * 10}${Math.random() * 100}${Math.random() * 50}`;
     let newProduct = {
-      _id: id,
       productName: productName,
       type: type,
       price: price,
