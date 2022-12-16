@@ -1,3 +1,13 @@
+<style>
+  .Testing {
+    display: flex;
+    flex-direction: row;
+  }
+  .cardNumber {
+    min-width: 600px;
+    margin-right: 10px;
+  }
+</style>
 <div class="row mt-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body text-center">
@@ -5,8 +15,8 @@
           <i class="fas fa-user-plus"></i> Checkout
         </h1>
         <form action="#" method="POST">
-
-          <div class="form-floating">
+          <div class="Testing">
+          <div class="form-floating cardNumber">
             <input
               type="text"
               name="card"
@@ -17,6 +27,20 @@
               <i class="fas fa-user fa-lg icon"></i>
             <label for="card">Credit Card:</label>
           </div>
+         <div class="form-floating">
+            
+            <input
+              type="text"
+              name="pin"
+              id="pin"
+              class="form-control"
+              value="<%= typeof pin != 'undefined' ? pin : '' %>"
+              placeholder="Entez un mot de passe"
+            />
+            <i class="fa fa-lock fa-lg icon"></i>
+            <label for="pin">PIN</label>
+          </div>
+        </div>
 
         <div class="form-floating">
           <input
@@ -31,22 +55,9 @@
           <label for="name">Name on Card:</label>
         </div>
 
-          <div class="form-floating">
-            
-            <input
-              type="text"
-              name="pin"
-              id="pin"
-              class="form-control"
-              value="<%= typeof pin != 'undefined' ? pin : '' %>"
-              placeholder="Entez un mot de passe"
-            />
-            <i class="fa fa-lock fa-lg icon"></i>
-            <label for="pin">PIN</label>
-          </div>
-
-          <div class="form-floating">
-            
+         
+<div class="Testing">
+          <div class="form-floating cardNumber">
             <input
               type="text"
               name="Address"
@@ -58,6 +69,20 @@
             <i class="fas fa-shield-alt fa-lg icon"></i>
             <label for="Address">Address</label>
           </div>
+          <div class="form-floating">
+            
+            <input
+              type="text"
+              name="postal"
+              id="postal"
+              class="form-control"
+              value="<%= typeof postal != 'undefined' ? postal : '' %>"
+              placeholder="Enter your area code"
+            />
+            <i class="fas fa-shield-alt fa-lg icon"></i>
+            <label for="postal">Area code</label>
+          </div>
+        </div>
         <div
           style="display: flex; justify-content: center; align-items: center"
         >

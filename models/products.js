@@ -27,6 +27,10 @@ let schemaProduct = mongoose.Schema({
     type: String,
     required: true,
   },
+  seller: {
+    type: String,
+    required: true,
+  },
   productPicture: {
     type: String,
     required: true,

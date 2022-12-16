@@ -104,6 +104,7 @@ router.post("/products", (request, response) => {
       price: price,
       desc: desc,
       owner: request.user._id,
+      seller: request.user.name,
       productPicture: keepPicture(path, filename),
     };
     Products.createProduct(newProduct, (err, product) => {
