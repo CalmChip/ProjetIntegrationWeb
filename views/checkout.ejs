@@ -4,8 +4,12 @@
     flex-direction: row;
   }
   .cardNumber {
-    min-width: 600px;
+    width: 43rem;
     margin-right: 10px;
+  }
+  .smallBox {
+    max-width: 40em;
+    width: 12rem;
   }
 </style>
 <div class="row mt-5">
@@ -23,7 +27,7 @@
               id="card"
               class="form-control"
               value="<%= typeof card != 'undefined' ? card : '' %>"
-              placeholder="Entrez un courriel"/>
+              />
               <i class="fas fa-user fa-lg icon"></i>
             <label for="card">Credit Card:</label>
           </div>
@@ -33,9 +37,9 @@
               type="text"
               name="pin"
               id="pin"
-              class="form-control"
+              class="form-control smallBox"
               value="<%= typeof pin != 'undefined' ? pin : '' %>"
-              placeholder="Entez un mot de passe"
+
             />
             <i class="fa fa-lock fa-lg icon"></i>
             <label for="pin">PIN</label>
@@ -49,7 +53,7 @@
             id="name"
             class="form-control"
             value="<%= typeof name != 'undefined' ? name : '' %>"
-            placeholder="Entrez un courriel"
+          
           />
           <i class="fas fa-envelope fa-lg icon"></i>
           <label for="name">Name on Card:</label>
@@ -64,7 +68,7 @@
               id="Address"
               class="form-control"
               value="<%= typeof Address != 'undefined' ? Address : '' %>"
-              placeholder="Enter your address"
+           
             />
             <i class="fas fa-shield-alt fa-lg icon"></i>
             <label for="Address">Address</label>
@@ -75,9 +79,9 @@
               type="text"
               name="postal"
               id="postal"
-              class="form-control"
+              class="form-control smallBox"
               value="<%= typeof postal != 'undefined' ? postal : '' %>"
-              placeholder="Enter your area code"
+            
             />
             <i class="fas fa-shield-alt fa-lg icon"></i>
             <label for="postal">Area code</label>
@@ -101,6 +105,6 @@
 </div>
 <script>
     function checkout() {
-        alert("Payment successfull, your parcel will arive within the next 9999 years.")
+        alert("Payment successfull, your parcel will arive within the next 9999 years.");
     }
 </script>

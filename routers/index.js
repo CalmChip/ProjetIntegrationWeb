@@ -108,12 +108,6 @@ router.post("/products", (request, response) => {
     Products.createProduct(newProduct, (err, product) => {
       if (err) throw err;
       response.redirect("/");
-      /*  Products.find({}, (err2, allProducts) => {
-        if (err2) throw err2;
-        response.render("accueil", {
-          products: allProducts,
-        });
-      }); */
     });
   }
 });
