@@ -43,7 +43,7 @@
   <div class="container-fluid">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="/">Accueil</a>
+        <a class="nav-link" href="/">Accueil</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Categories</a>
@@ -80,7 +80,10 @@
 <!--fin nav -->
 
 <!--cart-->
-<div class="card container pagecard cardCheckout">
+<div class="container" style="margin-top: 15px; margin-bottom: 15px;">
+
+
+<div class="card  pagecard cardCheckout text-center">
   <div class="d-flex">
     <div class="row">
       <div class="col">
@@ -89,28 +92,31 @@
       <hr />
       <% if(typeof cart !='undefined' ) { %> <% let items = cart.items %> <%
       items.forEach(function(items) {%>
-      <div style="width: 400px; height: 250px; margin: 10px">
-        <div
-          class="cart-product"
-          style="background-color: rgb(250, 250, 252); justify-content: center"
-        >
-          <div>
-            <h5 class="text-center"><%= items.name %></h5>
-            <!--ajuster image-->
-            <img
-              src="/pictures/<%= items.productPicture %>"
-              style="min-height: 10px; min-width: 10px"
-              alt="imgProduct"
-            />
-            <div class="product-info">
-              <h6><strong> Price: <%= items.price %>$ </strong></h6>
-              <h6><strong> Quantity: <%= items.quantity %> </strong></h6>
-              <a
-                class="btn btn-danger"
-                role="button"
-                onclick="deleteFromCart('<%=items.itemId%>')"
-                >Delete</a
-              >
+      <div class="product-card justify-content-center" style="justify-content: center; min-height: 235px;">
+
+        <div class="justify-content-center" style="width: 400px; height: 250px;">
+          <div
+            class="cart-product "
+            style="background-color: rgb(250, 250, 252); justify-content: center"
+          >
+            <div class="text-center">
+              <h5><%= items.name %></h5>
+              <!--ajuster image-->
+              <img
+                src="/pictures/<%= items.productPicture %>"
+                style="min-height: 10px; min-width: 10px"
+                alt="imgProduct"
+              />
+              <div class="product-info">
+                <h6><strong> Price: <%= items.price %>$ </strong></h6>
+                <h6><strong> Quantity: <%= items.quantity %> </strong></h6>
+                <a
+                  class="btn btn-danger btn-sm"
+                  role="button"
+                  onclick="deleteFromCart('<%=items.itemId%>')"
+                  >Delete</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -128,18 +134,18 @@
       <option class="text-muted col text">Two days-Delivery- &dollar;0.00</option></select></p>
   </form>
   <br>
-            <div class="col">
+            <div class="">
               <h5>
                 <strong>
                   Total: $ <% if (typeof cart != "undefined") { %> <%=
-                  cart.bill%> <% } else { %> 0 <% } %></strong
+                  cart.bill.toFixed(2) %> <% } else { %> 0 <% } %></strong
                 >
+              <!--button checkout-->
+                <a style="margin-left: 20px;" href="/users/checkout" class="btn btn-success btn-sm" style="width: 100px">
+                  Checkout
+                </a>
               </h5>
-            </div>
-            <!--button checkout-->
-            <a href="/users/checkout" class="btn btn-success" style="width: 100px">
-              Checkout
-            </a>
+          </div>
             <br />
           </div>
         </div>
@@ -147,10 +153,7 @@
     </div>
   </div>
 </div>
-
-<!--button retour accueil-->
-<a class="btn btn-dark" style="width: 100px; margin: 20px" href="/"> Back </a>
-
+</div>
 <!--script-->
 <script>
   function deleteFromCart(id) {
