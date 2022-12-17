@@ -6,6 +6,7 @@ const expressLayouts = require("express-ejs-layouts");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
+const bodyParser = require("body-parser");
 const multer = require("multer");
 const upload = multer({ dest: "./uploads/" });
 const storage = multer.diskStorage({
@@ -27,6 +28,7 @@ app.use(expressLayouts);
 // récupérer les posts (dans les requete.body)
 app.use(express.urlencoded({ extended: false })); //middlewear
 app.use(express.json()); // encore le body en json. Used for Fetch()
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //creation de la session express
 app.use(

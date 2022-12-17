@@ -113,7 +113,7 @@ router.post("/products", (request, response) => {
 });
 
 // Router to filter by search bar
-router.post("/search", (req, res) => {
+router.get("/search", (req, res) => {
   const search = req.body;
   console.log("Test search bar: ", search);
   Products.findProductByNameAscending(
@@ -128,12 +128,12 @@ router.post("/search", (req, res) => {
   );
 });
 
-router.post("/filters", (req, res) => {
-  const type = req.body;
-  console.log("Test type filter: ", type);
+router.get("/filters/:filter", (req, res) => {
+  const filter = req.params.filter;
   Products.findProductByCategorieAscending(
-    type,
+    filter,
     (err, allProducts) => {
+      console.log("Test type filter: ", allProducts);
       if (err) throw err;
       res.render("accueil", {
         products: allProducts,

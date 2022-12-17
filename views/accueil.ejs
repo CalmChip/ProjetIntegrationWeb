@@ -101,7 +101,7 @@
             name="product"
             value="type"
           />
-          <label for="product" class="filter"> <%= product.type%></label><br />
+          <label for="product" class="filter"><%= product.type%></label><br />
         </form>
       </div>
       <% }) %> <% } %>
@@ -168,26 +168,23 @@
       });
   }
   function searchBar(search) {
-    fetch(`http://127.0.0.1:8000/search`, {
-      method: "POST",
+    fetch(`http://127.0.0.1:8000/search/${search}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(search),
     });
   }
   function filterByCategory(filter) {
-    fetch(`http://127.0.0.1:8000/filters`, {
-      method: "POST",
+    fetch(`http://127.0.0.1:8000/filters/${filter}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(filter),
     });
   }
   $(".filter").click(function () {
     let filter = $(".filter").html();
-    console.log(filter);
     filterByCategory(filter);
   });
 </script>
