@@ -112,6 +112,37 @@ router.post("/products", (request, response) => {
   }
 });
 
+// Router to filter by search bar
+router.post("/search", (req, res) => {
+  const search = req.body;
+  console.log("Test search bar: ", search);
+  Products.findProductByNameAscending(
+    search,
+    (err, allProducts) => {
+      if (err) throw err;
+      res.render("accueil", {
+        products: allProducts,
+      });
+    },
+    25
+  );
+});
+
+router.post("/filters", (req, res) => {
+  const type = req.body;
+  console.log("Test type filter: ", type);
+  Products.findProductByCategorieAscending(
+    type,
+    (err, allProducts) => {
+      if (err) throw err;
+      res.render("accueil", {
+        products: allProducts,
+      });
+    },
+    25
+  );
+});
+
 // Router for add Products page
 router.get("/products", (request, response) => response.render("products"));
 

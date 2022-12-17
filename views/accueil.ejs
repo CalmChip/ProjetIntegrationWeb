@@ -1,14 +1,14 @@
 <style>
-.categories {
-  min-width: fit-content;
-  min-height: fit-content;
-  background-color: rgb(255, 255, 255,0.85);
-  border-radius: 10px;
-  margin: 15px;
-  padding: 10px;
-  position: sticky;
-  font-size: larger;
-}
+  .categories {
+    min-width: fit-content;
+    min-height: fit-content;
+    background-color: rgb(255, 255, 255, 0.85);
+    border-radius: 10px;
+    margin: 15px;
+    padding: 10px;
+    position: sticky;
+    font-size: larger;
+  }
 </style>
 <div class="bg-primary text-white text-center">
   <div class="d-flex justify-content-between">
@@ -70,7 +70,7 @@
     >Login</a
   >
   <% } else { %>
-  <p style="color: white;">Compte: <%= user.name %></p>
+  <p style="color: white">Compte: <%= user.name %></p>
   <a href="/users/logout">
     <i
       class="bi bi-box-arrow-in-right"
@@ -84,65 +84,73 @@
   <a href="/products" class="btn btn-light"> Seller </a>
 </nav>
 
-  
- 
-
-<section class="container-fluid d-flex" style="margin: auto;">
-   <!--categories-->
-   <div class="categories h-100">
+<section class="container-fluid d-flex" style="margin: auto">
+  <!--categories-->
+  <div class="categories h-100">
     <div>
       <p class="text-center"><b>Product categories :</b></p>
-      <hr>
+      <hr />
       <% if(typeof products !='undefined' ) { %> <% products.forEach(
-        function(product) { %>
-          <div style="align-items: left"> 
-          <form>
-            <input class="checkboxes" type="checkbox" id="product" name="product" value="type">
-            <label for="product"> <%= product.type%></label><br>
-          </form>
-        </div>
-        <% }) %> <% } %>
-      </div>
-    </div>
-
-  <section class="productsList text-center">
-  <% if(typeof products !='undefined' ) { %> <% products.forEach(
-  function(product) { %>
-  <div style="min-width: 310px; height: 230px; margin: 20px">
-    <a
-      href="/details/<%=product._id%>"
-      style="text-decoration: none; color: black"
-    >
-      <div
-        class="product-card"
-        style="background-color: white; justify-content: center; min-height: 235px;"
-      >
-        <div>
-          <h5 class="text-center"><%= product.productName %></h5>
-          <img
-            src="/pictures/<%= product.productPicture %>"
-            alt="Product Picture"
+      function(product) { %>
+      <div style="align-items: left">
+        <form>
+          <input
+            class="checkboxes"
+            type="checkbox"
+            id="product"
+            name="product"
+            value="type"
           />
-
-          <div class="product-info">
-            <h6><%= product.price %> $</h6>
-            <p>
-              <a
-                class="btn btn-default bg-dark text-white"
-                role="button"
-                onclick="addToCart('<%=product._id%>')"
-                >Cart</a
-              >
-            </p>
-            <!--  <p class="text-start">Description : <%= product.desc %></p> -->
-          </div>
-        </div>
+          <label for="product" class="filter"> <%= product.type%></label><br />
+        </form>
       </div>
-    </a>
+      <% }) %> <% } %>
+    </div>
   </div>
 
-  <% }) %> <% } %>
-</section></section>
+  <section class="productsList text-center">
+    <% if(typeof products !='undefined' ) { %> <% products.forEach(
+    function(product) { %>
+    <div style="min-width: 310px; height: 230px; margin: 20px">
+      <a
+        href="/details/<%=product._id%>"
+        style="text-decoration: none; color: black"
+      >
+        <div
+          class="product-card"
+          style="
+            background-color: white;
+            justify-content: center;
+            min-height: 235px;
+          "
+        >
+          <div>
+            <h5 class="text-center"><%= product.productName %></h5>
+            <img
+              src="/pictures/<%= product.productPicture %>"
+              alt="Product Picture"
+            />
+
+            <div class="product-info">
+              <h6><%= product.price %> $</h6>
+              <p>
+                <a
+                  class="btn btn-default bg-dark text-white"
+                  role="button"
+                  onclick="addToCart('<%=product._id%>')"
+                  >Cart</a
+                >
+              </p>
+              <!--  <p class="text-start">Description : <%= product.desc %></p> -->
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <% }) %> <% } %>
+  </section>
+</section>
 <script>
   function addToCart(id) {
     console.log(id);
@@ -159,4 +167,27 @@
         if (error) throw error;
       });
   }
+  function searchBar(search) {
+    fetch(`http://127.0.0.1:8000/search`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(search),
+    });
+  }
+  function filterByCategory(filter) {
+    fetch(`http://127.0.0.1:8000/filters`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(filter),
+    });
+  }
+  $(".filter").click(function () {
+    let filter = $(".filter").html();
+    console.log(filter);
+    filterByCategory(filter);
+  });
 </script>
