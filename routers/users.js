@@ -30,6 +30,15 @@ router.post("/login", (request, response, next) => {
   })(request, response, next);
 });
 
+// Router Page de profile Usager
+router.get("/profile", isAuthorized, (request, response) => {
+  console.log(request.user)
+  response.render("profile", {
+    user: request.user
+  });
+});
+
+
 // Router that gets a product by its ID and renders its info on the page
 router.get("/modify/:_id", (request, response) => {
   Users.getUserById(request.params._id, (err, userInfo) => {
@@ -215,7 +224,9 @@ router.get("/profile", (request, response) => {
 });
 
 router.get("/chatSeller", (request, response) => {
-  response.render("chatSeller");
+  response.render("chatSeller", {
+    user: request.user
+  });
 });
 
 module.exports = router;

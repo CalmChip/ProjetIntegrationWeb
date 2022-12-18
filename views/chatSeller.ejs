@@ -26,7 +26,7 @@
     <div class="container-fluid">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="/accueil">Accueil</a>
+          <a class="nav-link" href="/accueil">Accueil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Categories</a>
@@ -49,13 +49,14 @@
       >Cart</a
     >
     <br /><br />
-    <a href="/users/login"
-      ><i
-        class="bi bi-person-add"
+    <p style="color: white">Compte: <%= user.name %></p>
+    <a href="/users/logout">
+      <i
+        class="bi bi-box-arrow-in-right"
         style="font-size: 2rem; color: rgb(249, 250, 252)"
       ></i
-      >Login</a>
-      <br>
+    ></a>
+    <br />
   
     <a href="/users/logout">
       <i
