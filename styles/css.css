@@ -269,21 +269,21 @@ p.from-them::after {
 /***************** end Chat with seller **************/
 
 
-/*Product categories*/
-.form-container {
-  background: rgba(255, 255, 255, 0.8);
-  margin: 0 auto;
-  max-width: 400px;
-  padding: 10px;
-  text-align: left;
-  border-radius: 5px;
-  transform: translate(-650px, -20px);
-  display: flex;
-}
-
+/*page accueil Product categories*/
 label {
   color: rgb(17, 16, 16);
   margin-bottom: 0px;
+}
+
+.categories {
+  min-width: fit-content;
+  min-height: fit-content;
+  background-color: rgb(255, 255, 255, 0.85);
+  border-radius: 10px;
+  margin: 15px;
+  padding: 10px;
+  position: sticky;
+  font-size: larger;
 }
 /**end product categories*/
 
@@ -306,3 +306,5 @@ label {
 }
 
 /**end page cart**/
+
+
