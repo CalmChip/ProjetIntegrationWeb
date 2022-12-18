@@ -223,7 +223,7 @@ router.get("/profile", (request, response) => {
   });
 });
 
-router.get("/chatSeller", (request, response) => {
+router.get("/chatSeller", isAuthorized, (request, response) => {
   response.render("chatSeller", {
     user: request.user
   });
