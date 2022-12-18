@@ -1,18 +1,4 @@
-<style>
-  .cardCheckout {
-    font-weight: Arial, Helvet;
-    flex: 1;
-    border-bottom: 4px solid;
-    padding: 40px 0px;
-  }
 
-  .cart-product > div {
-    flex: 1;
-    text-align: left;
-    border-bottom: 1px solid;
-    padding: 10px 0px;
-  }
-</style>
 <!--header -->
 <div class="bg-primary text-white text-center">
   <div class="d-flex justify-content-between">
@@ -87,7 +73,7 @@
   <div class="d-flex">
     <div class="row">
       <div class="col">
-        <h5><strong>Your cart:</strong></h5>
+        <h5><strong>Shopping cart:</strong></h5>
       </div>
       <hr />
       <% if(typeof cart !='undefined' ) { %> <% let items = cart.items %> <%
@@ -123,10 +109,10 @@
       </div>
       <%})%> <%}%>
       <br />
-
+ <hr>
      <!--summary-->
     <div><h5><b>Summary</b></h5></div>
-  <hr>
+ <br>
    <!--form -->
   <form>
       <p>Shipping : <select><option class="text-muted col text">Standard-Delivery- &dollar;0.00</option>
@@ -134,7 +120,6 @@
       <option class="text-muted col text">Two days-Delivery- &dollar;0.00</option></select></p>
   </form>
   <br>
-            <div class="">
               <h5>
                 <strong>
                   Total: $ <% if (typeof cart != "undefined") { %> <%=
@@ -145,7 +130,6 @@
                   Checkout
                 </a>
               </h5>
-          </div>
             <br />
           </div>
         </div>
