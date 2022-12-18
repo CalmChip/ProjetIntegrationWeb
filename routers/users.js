@@ -31,7 +31,7 @@ router.post("/login", (request, response, next) => {
 });
 
 // Router that gets a product by its ID and renders its info on the page
-router.get("/modify/:_id", (request, response) => {
+router.get("/modify/:_id", isAuthorized, (request, response) => {
   Users.getUserById(request.params._id, (err, userInfo) => {
     if (err) throw err;
     response.render("modifyUser", {
@@ -41,7 +41,7 @@ router.get("/modify/:_id", (request, response) => {
 });
 
 // Router that modifyUser
-router.post("/modify/:_id", (request, response) => {
+router.post("/modify/:_id", isAuthorized, (request, response) => {
   const { _id, name, email, password, password2, roleAdmin, roleSeller } =
     request.body;
   let newUser = {
@@ -165,7 +165,7 @@ router.post("/register", (request, response) => {
   });
 });
 
-router.get("/admin", (request, response) => {
+router.get("/admin", isAuthorized, (request, response) => {
   Users.find({}, (err, users) => {
     if (err) throw err;
     let userToVerify = [];
@@ -181,7 +181,7 @@ router.get("/admin", (request, response) => {
   });
 });
 
-router.post("/admin/:id", (request, response) => {
+router.post("/admin/:id", isAuthorized, (request, response) => {
   Users.verifyUsers(request.params.id, (err, users) => {
     if (err) throw err;
     Users.find({}, (err, users) => {
@@ -200,7 +200,7 @@ router.post("/admin/:id", (request, response) => {
   });
 });
 
-router.get("/profile", (request, response) => {
+router.get("/profile", isAuthorized, (request, response) => {
   const _id = request.user._id;
   Users.findById(_id, (err, user) => {
     if (err) throw err;
@@ -214,7 +214,7 @@ router.get("/profile", (request, response) => {
   });
 });
 
-router.get("/chatSeller", (request, response) => {
+router.get("/chatSeller", isAuthorized, (request, response) => {
   response.render("chatSeller");
 });
 
