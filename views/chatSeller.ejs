@@ -37,24 +37,13 @@
       </ul>
     </div>
   
-    <a href="/carts/"
-      ><i
-        class="bi bi-cart-plus-fill"
-        style="font-size: 2rem; color: rgb(249, 250, 252)"
-        ;
-      ></i
-      >Cart</a
-    >
-    <br /><br />
-    <p style="color: white">Compte: <%= user.name %></p>
-    <a href="/users/logout">
-      <i
-        class="bi bi-box-arrow-in-right"
-        style="font-size: 2rem; color: rgb(249, 250, 252)"
-      ></i
-    ></a>
+    <a href="/carts/">
+      <i class="bi bi-cart-plus-fill"
+        style="font-size: 2rem; color: rgb(249, 250, 252);">
+      </i>Cart</a>
     <br />
-  
+    <div style="color: white; margin-right: 10px;">Compte: <br><span style="white-space:nowrap;"><%= user.name %></span></div>
+    <br />
     <a href="/users/logout">
       <i
         class="bi bi-box-arrow-in-right"
