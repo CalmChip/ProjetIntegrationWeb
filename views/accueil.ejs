@@ -41,7 +41,7 @@
       </li>
     </ul>
   </div>
-  
+
   <% if (typeof user !== 'undefined') { %>
     <a href="/products" class="btn btn-light btn-sm"> Sell </a>
   <% } %>
@@ -75,6 +75,18 @@
 
  
 </nav>
+
+  <!--search bar-->
+
+<div class="input-group justify-content-center w-50 mx-auto" style="margin-top: 15px;">
+    <div id="navbar-search-autocomplete" class="form-floating">
+      <button style="border-top-left-radius: 0px ; border-bottom-left-radius: 0px;" type="button" class="btn btn-primary"><i class="fas fa-search"></i></button>
+      <input style="border-top-right-radius: 0px ; border-bottom-right-radius: 0px;" type="search" id="form1" class="form-control" />
+      <label class="form-label" for="form1">Search</label>
+    </div>
+</div>
+
+  
 
 <section class="container-fluid d-flex" style="margin: auto">
   <!--categories-->
