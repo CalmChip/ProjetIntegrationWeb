@@ -37,32 +37,34 @@
     </ul>
   </div>
 
-  <a href="/carts/"
+  <a href="/carts/" class="text-center"
     ><i
       class="bi bi-cart-plus-fill"
-      style="font-size: 2rem; color: rgb(249, 250, 252)"
-      ;
-    ></i
-    >Cart</a
-  >
-  <br /><br />
-  <a href="/users/login"
-    ><i
+      style="font-size: 2rem; color: rgb(249, 250, 252);"
+    ></i>
+    <span>Cart</span>
+  </a>
+  <% if (typeof user !== 'undefined') { %>
+    <a href="/products" class="btn btn-light btn-sm"> Sell </a>
+  <% } %>
+  <% if (typeof user == 'undefined') { %>
+  <a href="/users/login" class="text-center">
+    <i
       class="bi bi-person-add"
       style="font-size: 2rem; color: rgb(249, 250, 252)"
-    ></i
-    >Login</a
-  >
-  <br />
-
-  <a href="/products" class="btn btn-light"> Seller </a>
-  <a href="/users/logout">
+    ></i>
+    <span>Login</span></a>
+  <% } else { %>
+    <div style="color: white; margin-right: 10px; margin-left: 15px;">Compte: <br><span style="white-space:nowrap;"><%= user.name %></span></div>
+    <a href="/users/logout">
     <i
       class="bi bi-box-arrow-in-right"
       style="font-size: 2rem; color: rgb(249, 250, 252)"
     ></i
   ></a>
-  <br/>
+  <br />
+  <% } %>
+  <br />
 </nav>
 
 <h2 class="text">Our team</h2>

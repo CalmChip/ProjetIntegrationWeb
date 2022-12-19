@@ -149,7 +149,8 @@ router.get("/products", isAuthorized, isSeller, (request, response) =>
 );
 
 //Router for page about us
-router.get("/aboutUs", (request, response) => response.render("aboutUs"));
+router.get("/aboutUs", (request, response) =>
+  response.render("aboutUs", { user: request.user }));
 
 /**
  * @param {string} path le nom du fichier a supprimer
