@@ -67,12 +67,17 @@
 
 
 <div class="card  pagecard cardCheckout text-center">
-  <div class="d-flex">
+  <div class="d-flex justify-content-center">
     <div class="row">
       <div class="col">
         <h5><strong>Shopping cart:</strong></h5>
       </div>
       <hr />
+      <% if(typeof cart == 'undefined' ) { %>
+        <div class="product-card justify-content-center" style="justify-content: center;">
+        <h3>YOUR CART IS EMPTY</h3>
+        </div>
+      <% } %>
       <% if(typeof cart !='undefined' ) { %> <% let items = cart.items %> <%
       items.forEach(function(items) {%>
       <div class="product-card justify-content-center" style="justify-content: center; min-height: 235px;">
