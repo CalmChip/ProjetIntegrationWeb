@@ -80,9 +80,9 @@
 
 <div class="input-group justify-content-center w-50 mx-auto" style="margin-top: 15px;">
     <div id="navbar-search-autocomplete" class="form-floating">
-      <button style="border-top-left-radius: 0px ; border-bottom-left-radius: 0px;" type="button" class="btn btn-primary"><i class="fas fa-search"></i></button>
-      <input style="border-top-right-radius: 0px ; border-bottom-right-radius: 0px;" type="search" id="form1" class="form-control" />
-      <label class="form-label" for="form1">Search</label>
+      <button style="border-top-left-radius: 0px ; border-bottom-left-radius: 0px;" type="button" class="btn btn-primary" onclick="searchBar()"><i class="fas fa-search"></i></button>
+      <input style="border-top-right-radius: 0px ; border-bottom-right-radius: 0px;" type="text" id="search" class="form-control" onkeyup="searchBar()" />
+      <label class="form-label" for="search">Search</label>
     </div>
 </div>
 
@@ -170,7 +170,10 @@
         if (error) throw error;
       });
   }
-  function searchBar(search) {
+  function searchBar() {
+    console.log("I GOT CALLED")
+    search = document.getElementById("search").value;
+    console.log("Searched:",search);
     fetch(`http://127.0.0.1:8000/search/${search}`, {
       method: "GET",
       headers: {
