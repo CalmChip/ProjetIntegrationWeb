@@ -30,15 +30,21 @@
         <a class="nav-link active" href="/accueil">
           <i class="fa fa-home"></i>Accueil</a>
       </li>
+      <% if (typeof user !== 'undefined') { %>
       <li class="nav-item">
         <a class="nav-link" href="/users/profile">
         <i class="bi bi-person-circle"></i>Profile</a>
       </li>
+      <% } %>
       <li class="nav-item">
         <a class="nav-link" href="/aboutUs"><i class="bi bi-people-fill"></i>About Us </a>
       </li>
     </ul>
   </div>
+  
+  <% if (typeof user !== 'undefined') { %>
+    <a href="/products" class="btn btn-light btn-sm"> Sell </a>
+  <% } %>
 
   <a href="/carts/" class="text-center"
     ><i
@@ -47,9 +53,7 @@
     ></i>
     <span>Cart</span>
   </a>
-  <% if (typeof user !== 'undefined') { %>
-    <a href="/products" class="btn btn-light btn-sm"> Sell </a>
-  <% } %>
+ 
   <% if (typeof user == 'undefined') { %>
   <a href="/users/login" class="text-center">
     <i

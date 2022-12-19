@@ -21,6 +21,7 @@ router.get("/accueil", (request, response) => {
   Products.find({}, (err, allProducts) => {
     if (err) throw err;
     response.render("accueil", {
+      user: request.user,
       products: allProducts,
     });
   });
@@ -29,6 +30,7 @@ router.get("/index", (request, response) => {
   Products.find({}, (err, allProducts) => {
     if (err) throw err;
     response.render("accueil", {
+      user: request.user,
       products: allProducts,
     });
   });
@@ -37,6 +39,7 @@ router.get("/index.html", (request, response) => {
   Products.find({}, (err, allProducts) => {
     if (err) throw err;
     response.render("accueil", {
+      user: request.user,
       products: allProducts,
     });
   });
