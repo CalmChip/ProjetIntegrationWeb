@@ -132,20 +132,22 @@ router.post("/register", (request, response) => {
   Users.getUserByEmail(email, (err, user) => {
     if (err) throw err;
     console.log(user);
-    if (email === user.email) {
-      erreurs.push({ msg: "Courriel invalide" });
-    }
-    if (erreurs.length > 0) {
-      response.render("register", {
-        erreurs,
-        _id,
-        name,
-        email,
-        password,
-        password2,
-        roleAdmin,
-        roleSeller,
-      });
+    if (user) {
+      if (email === user.email) {
+        erreurs.push({ msg: "Courriel invalide" });
+      }
+      if (erreurs.length > 0) {
+        response.render("register", {
+          erreurs,
+          _id,
+          name,
+          email,
+          password,
+          password2,
+          roleAdmin,
+          roleSeller,
+        });
+      }
     } else {
       const newUser = new Users({ name, email, _id, password });
       //ici on va Hacer mais on peut aussi chiffré
