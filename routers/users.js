@@ -32,12 +32,11 @@ router.post("/login", (request, response, next) => {
 
 // Router Page de profile Usager
 router.get("/profile", isAuthorized, (request, response) => {
-  console.log(request.user)
+  console.log(request.user);
   response.render("profile", {
-    user: request.user
+    user: request.user,
   });
 });
-
 
 // Router that gets a product by its ID and renders its info on the page
 router.get("/modify/:_id", isAuthorized, (request, response) => {
@@ -131,9 +130,10 @@ router.post("/register", (request, response) => {
   }
   Users.getUserByEmail(email, (err, user) => {
     if (err) throw err;
-    console.log(user);
-    if (email === user.email) {
-      erreurs.push({ msg: "Courriel invalide" });
+    if (user) {
+      if (email === user.email) {
+        erreurs.push({ msg: "Courriel invalide" });
+      }
     }
     if (erreurs.length > 0) {
       response.render("register", {
@@ -225,7 +225,7 @@ router.get("/profile", isAuthorized, (request, response) => {
 
 router.get("/chatSeller", isAuthorized, (request, response) => {
   response.render("chatSeller", {
-    user: request.user
+    user: request.user,
   });
 });
 
