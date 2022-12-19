@@ -45,17 +45,16 @@
     ></i>
     <span>Cart</span>
   </a>
-
+  <% if (typeof user !== 'undefined') { %>
     <a href="/products" class="btn btn-light btn-sm"> Seller </a>
-
+  <% } %>
   <% if (typeof user == 'undefined') { %>
-  <a href="/users/login"
-    ><i
+  <a href="/users/login" class="text-center">
+    <i
       class="bi bi-person-add"
       style="font-size: 2rem; color: rgb(249, 250, 252)"
-    ></i
-    >Login</a
-  >
+    ></i>
+    <span>Login</span></a>
   <% } else { %>
     <div style="color: white; margin-right: 10px; margin-left: 15px;">Compte: <br><span style="white-space:nowrap;"><%= user.name %></span></div>
     <a href="/users/logout">
