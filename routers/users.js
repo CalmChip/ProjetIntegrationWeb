@@ -15,7 +15,7 @@ router.get("/login", (request, response) => {
 router.get("/logout", (request, response) => {
   request.logout((err) => {
     if (err) throw err;
-    request.flash("success_msg", "Déconnection réeussis.");
+    request.flash("success_msg", "Déconnexion réussie");
     response.redirect("/users/login");
   });
 });
