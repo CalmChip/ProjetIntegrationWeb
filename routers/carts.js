@@ -3,6 +3,7 @@ const Cart = require("../models/carts");
 const Products = require("../models/products");
 const router = express.Router();
 const cookie = require("cookie");
+const { request } = require("express");
 
 //get cart items gotta add, isAuthorized
 router.get("/", async (req, res) => {
@@ -33,10 +34,10 @@ router.get("/", async (req, res) => {
   try {
     const cart = await Cart.findOne({ owner });
     if (cart && cart.items.length > 0) {
-      res.render("cart", { cart: cart });
+      res.render("cart", { cart: cart, user: req.user, });
       console.log("Objet Cart: ", cart);
     } else {
-      res.render("cart");
+      res.render("cart", { user: req.user });
     }
   } catch (error) {
     res.status(500).send("Oops! something went wrong...");
@@ -96,7 +97,7 @@ router.post("/cart/:id", async (req, res) => {
 
         cart.items[itemIndex] = product;
         cart.save().then(() => {
-          res.render("cart", { cart: cart });
+          res.render("cart", { cart: cart, user: req.user });
         });
       } else {
         cart.items.push({ itemId, name, quantity, price, productPicture });
@@ -104,7 +105,7 @@ router.post("/cart/:id", async (req, res) => {
           return acc + curr.quantity * curr.price;
         }, 0);
         cart.save().then(() => {
-          res.render("cart", { cart: cart });
+          res.render("cart", { cart: cart, user: req.user, });
         });
       }
     } else {
@@ -114,7 +115,7 @@ router.post("/cart/:id", async (req, res) => {
         items: [{ itemId, name, quantity, price, productPicture }],
         bill: quantity * price,
       }).then(() => {
-        res.render("cart", { cart: newCart });
+        res.render("cart", { cart: newCart, user: req.user });
       });
     }
   });
@@ -162,7 +163,7 @@ router.delete("/cart/:id", async (req, res) => {
         return acc + curr.quantity * curr.price;
       }, 0);
       cart = await cart.save();
-      res.render("cart", { cart: cart });
+      res.render("cart", { cart: cart, user: req.user });
     } else {
       res.status(404).send("item not found");
     }
