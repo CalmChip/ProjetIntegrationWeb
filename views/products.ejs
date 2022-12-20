@@ -1,9 +1,16 @@
 <div class="row mt-5">
-  <div class="col-md-8 w-100 m-auto">
+  <div class="w-75 m-auto" style="max-width: 1000px;">
     <div class="card card-body text-center">
-      <h1 class="text-center mb-3">
-        <i class="bi bi-plus-square-fill"></i> Add a product
-      </h1>
+
+      <div class="d-flex justify-content-between">
+        <p><a class="btn btn-dark bt-lg" href="/">Back</a></p>
+        <h1 class="text-center mb-3">
+          <i class="bi bi-plus-square-fill"></i> Add a product
+        </h1>
+        <p style="width: 8%;"></p>
+      </div>
+
+      
       <br />
       <form action="/products" method="POST" enctype="multipart/form-data">
         <div class="form-floating">
