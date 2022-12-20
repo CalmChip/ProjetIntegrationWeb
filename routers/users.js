@@ -203,15 +203,30 @@ router.post("/admin/:id", isAuthorized, (request, response) => {
 
 router.get("/profile", isAuthorized, (request, response) => {
   const _id = request.user._id;
+  //est Gestion Bool
+
   Users.findById(_id, (err, userInfo) => {
     console.log(userInfo);
     if (err) throw err;
+    //Find if he is Seller
+    let isSeller;
+    const seller = request.user.roles.find((role) => role == "seller");
+    if (seller) {
+      isSeller = true
+      console.log("I AM TRUE")
+    } else {
+      isSeller = false
+      console.log("I AM FALSE")
+    }
+
     Products.findProductByOwner(_id, (err, product) => {
+
       if (err) throw err;
       console.log(product);
       response.render("profile", {
         user: userInfo,
         productInfo: product,
+        isSeller: isSeller,
       });
     });
   });

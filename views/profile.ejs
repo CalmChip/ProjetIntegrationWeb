@@ -56,15 +56,20 @@
     ></a>
 </nav>
 
-<!-- IF IS SELLER SEULEMENT !!!! -->
+
 <div class="text-center bg-dark text-white" style="padding: 15px;">
   <div class="text-center">
     <div class="d-flex justify-content-between">
       <p style="width: 7%;"></p>
       <h1><i class="fas fa-list"></i> Your Products </h1>
+      <% if(isSeller == true) { %>   
       <p class="my-auto"><a class="btn btn-danger btn-sm" href="/">Your Chats</a></p>
+      <% } else { %>
+      <p style="width: 7%;"></p>
+      <% } %>
+
     </div>
-   
+    <% if(productInfo.length > 0) { %>
    </div>
          <p><%- include('./partiels/messages.ejs') %></p>
  
@@ -103,7 +108,8 @@
             <% }) %>
           </tbody>
          </table>
-    
-         
-     
      </div>
+     <% } else { %>
+      <h1>You don't sell any products</h1>
+    <% } %>
+
