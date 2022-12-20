@@ -306,3 +306,11 @@ label {
 }
 
 /**end page cart**/
+
+/** profile **/
+.overflow {
+  white-space: nowrap; 
+  max-width: 19em; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
