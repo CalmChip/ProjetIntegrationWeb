@@ -314,3 +314,20 @@ label {
   overflow: hidden;
   text-overflow: ellipsis; 
 }
+
+/**checkout***/
+
+ .Testing {
+    display: flex;
+    flex-direction: row;
+  }
+  .cardNumber {
+    width: 43rem;
+    margin-right: 10px;
+  }
+  .smallBox {
+    max-width: 40em;
+    width: 12rem;
+  }
+
+/**end checkout**/
