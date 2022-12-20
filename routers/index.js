@@ -116,8 +116,8 @@ router.post("/products", isAuthorized, isSeller, (request, response) => {
 });
 
 // Router to filter by search bar
-router.get("/search", (req, res) => {
-  const search = req.body;
+router.get("/search/:filter", (req, res) => {
+  const search = req.params.filter;
   console.log("Test search bar: ", search);
   Products.findProductByNameAscending(
     search,
@@ -153,7 +153,8 @@ router.get("/products", isAuthorized, isSeller, (request, response) =>
 
 //Router for page about us
 router.get("/aboutUs", (request, response) =>
-  response.render("aboutUs", { user: request.user }));
+  response.render("aboutUs", { user: request.user })
+);
 
 /**
  * @param {string} path le nom du fichier a supprimer
