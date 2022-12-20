@@ -30,14 +30,6 @@ router.post("/login", (request, response, next) => {
   })(request, response, next);
 });
 
-// Router Page de profile Usager
-router.get("/profile", isAuthorized, (request, response) => {
-  console.log(request.user);
-  response.render("profile", {
-    user: request.user,
-  });
-});
-
 // Router that gets a product by its ID and renders its info on the page
 router.get("/modify/:_id", isAuthorized, (request, response) => {
   Users.getUserById(request.params._id, (err, userInfo) => {
@@ -211,12 +203,14 @@ router.post("/admin/:id", isAuthorized, (request, response) => {
 
 router.get("/profile", isAuthorized, (request, response) => {
   const _id = request.user._id;
-  Users.findById(_id, (err, user) => {
+  Users.findById(_id, (err, userInfo) => {
+    console.log(userInfo);
     if (err) throw err;
     Products.findProductByOwner(_id, (err, product) => {
       if (err) throw err;
+      console.log(product);
       response.render("profile", {
-        userInfo: user,
+        user: userInfo,
         productInfo: product,
       });
     });
