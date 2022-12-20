@@ -115,6 +115,16 @@ router.post("/products", isAuthorized, isSeller, (request, response) => {
   }
 });
 
+//Router to delete product
+router.delete("/products/:id", (req, res) => {
+  const _id = req.params.id;
+  Products.deleteProduct(req.params.id, (err, product) => {
+    if (err) throw err;
+    req.flash("success_msg", "Product deleted successfully");
+    res.redirect("/users/profile");
+  });
+});
+
 // Router to filter by search bar
 router.get("/search/:filter", (req, res) => {
   const search = req.params.filter;
