@@ -123,9 +123,7 @@ router.get("/search/:filter", (req, res) => {
     search,
     (err, allProducts) => {
       if (err) throw err;
-      res.render("accueil", {
-        products: allProducts,
-      });
+      res.json(allProducts);
     },
     25
   );
@@ -138,9 +136,7 @@ router.get("/filters/:filter", (req, res) => {
     (err, allProducts) => {
       console.log("Test type filter: ", allProducts);
       if (err) throw err;
-      res.render("accueil", {
-        products: allProducts,
-      });
+      res.json(allProducts);
     },
     25
   );

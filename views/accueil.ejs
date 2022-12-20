@@ -169,6 +169,7 @@
 <script>
   function reloadPage(data) {
     let pageContent = "";
+    console.log(data);
     for (i in data) {
       pageContent = `<div style="min-width: 310px; height: 230px; margin: 20px">
       <a
@@ -240,16 +241,19 @@
       });
   }
   function filterByCategory(filter) {
+    console.log("test filter", filter);
     fetch(`http://127.0.0.1:8000/filters/${filter}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => {
-        response.json();
+      .then((res3) => {
+        res3.json();
+        console.log("Test response: ", res3);
       })
       .then((data) => {
+        console.log("Test data", data);
         reloadPage(data);
       });
   }
