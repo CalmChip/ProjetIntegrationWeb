@@ -34,7 +34,7 @@ module.exports = {
   isSeller: function (requete, reponse, next) {
     if (requete.isAuthenticated()) {
       const rolesUser = requete.user.roles;
-      const gestion = rolesUser.find((role) => role == "vendeur");
+      const gestion = rolesUser.find((role) => role == "seller");
       if (gestion) {
         return next();
       } else {
