@@ -112,11 +112,20 @@
       <p class="text-center"><b>Product categories :</b></p>
       <hr />
       <% if(typeof products !='undefined' ) { %> <% products.forEach(
-      function(product) { %>
+      function(product) { %> <% let toReplace = product.type; %> <% let
+      classJQuery = toReplace.replace(/\s/g, ""); %>
       <div style="align-items: left">
         <form>
           <input type="checkbox" id="product" name="product" value="type" />
-          <label for="product" class="filter"><%= product.type%></label><br />
+          <label for="<%= classJQuery %>" class="<%= classJQuery %>"
+            ><%= product.type%></label
+          ><br />
+          <script>
+            $(".<%= classJQuery%>").click(function () {
+              let filter = $(".<%= classJQuery%>").html();
+              filterByCategory(filter);
+            });
+          </script>
         </form>
       </div>
       <% }) %> <% } %>
@@ -243,8 +252,4 @@
         reloadPage(data);
       });
   }
-  $(".filter").click(function () {
-    let filter = $(".filter").html();
-    filterByCategory(filter);
-  });
 </script>
