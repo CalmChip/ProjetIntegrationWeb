@@ -83,6 +83,7 @@
                <th>Type</th>
                <th>Description</th>
                <th>Prix</th>
+               <th>Modifier</th>
                <th>Supprimer</th>
              </tr>
             </thead>
@@ -102,8 +103,10 @@
                <td class="align-middle"><%= product.type %></td>
                <td class="align-middle overflow"><%= product.desc %></td>  
                <td class="align-middle" style="white-space: nowrap"><%= product.price %> $</td>
+               <td class="align-middle"><a class="btn btn-primary" href ="/modify/<%= product._id %>"> Modifier</a></td>
                <td class="align-middle"><a class="btn btn-secondary" onclick="deleteProduct('<%= product._id %>')">supprimer</a></td>
                
+
              </tr>
             <% }) %>
           </tbody>

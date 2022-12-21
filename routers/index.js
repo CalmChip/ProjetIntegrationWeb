@@ -59,12 +59,64 @@ router.get("/details/:id", (request, response) => {
 
 // Router that gets a product by its ID and renders its info on the page
 router.get("/modify/:id", isAuthorized, isSeller, (request, response) => {
-  Products.getProductByID(request.params._id, (err, product) => {
+  Products.getProductByID(request.params.id, (err, product) => {
     if (err) throw err;
-    response.render("PageModifierProduitIci", {
+    response.render("modifyProducts", {
       productInfo: product,
     });
   });
+});
+
+// Router that modify a products
+router.post("/modify/:id", isAuthorized, isSeller, (request, response) => {
+  const { originalname, destination, filename, size, path, mimetype } =
+    request.files[0];
+  const MAXFILESIZE = 2 * 1024 * 1024; //2mb = 2 * 1024mb * 1024 kilobytes
+  //Image permise
+  const mimetypePermis = [
+    "image/jpg",
+    "image/png",
+    "image/jpeg",
+    "image/gif",
+    "image/ico",
+    "image/webp",
+  ];
+  const { productName, type, price, desc } = request.body;
+  let errors = [];
+  if (size > MAXFILESIZE) {
+    erreurs.push({ msg: "Image size exceeded" });
+  } else {
+    if (!mimetypePermis.includes(mimetype)) {
+      erreurs.push({ msg: "Filetype not allowed" });
+    }
+  }
+  if (!productName || !type || !price || !desc) {
+    erreurs.push({ msg: "Fill the form completely" });
+  }
+  if (errors.length > 0) {
+    deletePicture(path);
+    response.render("produtcs", {
+      productName,
+      type,
+      price,
+      desc,
+    });
+  } else {
+    let newProduct = {
+      productName: productName,
+      type: type,
+      price: price,
+      desc: desc,
+      owner: request.user._id,
+      seller: request.user.name,
+      productPicture: keepPicture(path, filename),
+    };
+    Products.modifyProduct(newProduct, (err, product) => {
+      if (err) throw err;
+      request.flash("succes_msg", "Product modified successfully");
+      response.redirect("/");
+    });
+  }
 });
 // Router to post product into the DB
 // To add Multer to keep p.roundedicutres in MongoDB add isAuthorized, isSeller after testing

@@ -9,7 +9,7 @@
               >Ajouter au Cart</a>
           </p>
         <div class="d-flex">
-                <div style="margin-bottom: 2.5%;  margin-left: 20px;"><h1 class="text-start" style="position: absolute; margin-top: -56px;"><%= product.productName %></h1>
+                <div style="margin-bottom: 2.5%;  margin-left: 20px;"><h1 class="text-start overflow" style="position: absolute; margin-top: -56px; width: 10em;"><%= product.productName %></h1>
                     <% if (typeof product.productPicture != "undefined") { %>
                         <img
                             style="min-height: 12rem; min-width: 12rem;"
@@ -43,6 +43,7 @@
     </div>
  
 </div>
+
 <script>
     function addToCart(id) {
     console.log(id);
