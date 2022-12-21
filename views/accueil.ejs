@@ -119,13 +119,24 @@
       classJQuery = toReplace.replace(/\s/g, ""); compt++; %>
       <div style="align-items: left">
         <form>
-          <input type="checkbox" id="product" name="product" value="type" />
+          <fieldset class="<%= classJQuery %>">
+              <input type="checkbox" id="<%= classJQuery %>" name="product" value="type" />
           <label for="<%= classJQuery %>" class="<%= classJQuery %>"
             ><%= tempType[compt]%></label
           ><br />
+          </fieldset>
+          
+
+          
           <script>
-            $(".<%= classJQuery%>").click(function () {
-              let filter = $(".<%= classJQuery%>").html();
+            $("fieldset.<%= classJQuery %>").click(function() {
+                let filter = this.className
+                filterByCategory(filter);
+            });
+            $("label.<%= classJQuery%>").click(function () {
+
+        
+              let filter = this.className
               filterByCategory(filter);
             });
           </script>
@@ -182,6 +193,7 @@
   function reloadPage(data) {
     let pageContent = "";
     console.log(data);
+    $(`input`).prop( "checked", false )
     data.forEach(function (products) {
       pageContent += `<div style="min-width: 310px; height: 230px; margin: 20px">
       <a
