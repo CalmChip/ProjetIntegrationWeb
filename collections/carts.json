@@ -1,0 +1,221 @@
+[{
+  "_id": {
+    "$oid": "639cb93a95d84f71a8b25271"
+  },
+  "owner": "4.2701836594387020.7575065372173384",
+  "items": [
+    {
+      "itemId": "63a07295bb8fff9d2d831e08",
+      "name": "Souris jeu optique",
+      "quantity": 1,
+      "price": 130.19,
+      "productPicture": "eeea50f451550e07d1ce01795c85812b",
+      "_id": {
+        "$oid": "63a34688ae8a79576a89f4e4"
+      }
+    }
+  ],
+  "bill": 130.19,
+  "__v": 16
+},{
+  "_id": {
+    "$oid": "639cda0a8778d90afc4fa881"
+  },
+  "owner": "639910ca62d82f77e941983b",
+  "items": [
+    {
+      "itemId": "639cd8308778d90afc4fa800",
+      "name": "Razor Mouse",
+      "quantity": 1,
+      "price": 39.99,
+      "productPicture": "8bbe29cda094103433f85a7d896f9347",
+      "_id": {
+        "$oid": "639cda0a8778d90afc4fa882"
+      }
+    },
+    {
+      "itemId": "639cd8bb8778d90afc4fa816",
+      "name": "Gaming Chair",
+      "quantity": 1,
+      "price": 199.99,
+      "productPicture": "61120246d550934455241eca4bba5d62",
+      "_id": {
+        "$oid": "639cda0f8778d90afc4fa897"
+      }
+    },
+    {
+      "itemId": "639cb743a5eabef72be38789",
+      "name": "Razor Keyboard",
+      "quantity": 1,
+      "price": 199.99,
+      "productPicture": "c745d79eaf9cb340e8936faafa111ccb",
+      "_id": {
+        "$oid": "639cda128778d90afc4fa89e"
+      }
+    }
+  ],
+  "bill": 439.97,
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "639cdd7d8a946f3536103201"
+  },
+  "owner": "6394ccfee4fde944e6f86df4",
+  "items": [
+    {
+      "itemId": "63a0e8ae4099193bf125c138",
+      "name": "Casque d'écoute Sony",
+      "quantity": 1,
+      "price": 130.49,
+      "productPicture": "fec6f2ea67d6d5517e79c15a473c7fa4",
+      "_id": {
+        "$oid": "63a326badc0eaa82c7793617"
+      }
+    }
+  ],
+  "bill": 130.49,
+  "__v": 58
+},{
+  "_id": {
+    "$oid": "639ce5608a946f3536103445"
+  },
+  "owner": "kenobiObiwan",
+  "items": [
+    {
+      "itemId": "63a21ec77f2e26f667de0a33",
+      "name": "Razor Mouse",
+      "quantity": 1,
+      "price": 39.99,
+      "productPicture": "8bbe29cda094103433f85a7d896f9347",
+      "_id": {
+        "$oid": "63a328c0af6a0702f7eb8c4b"
+      }
+    },
+    {
+      "itemId": "63a1e8f81e96e2b830a47813",
+      "name": "Oculus Quest",
+      "quantity": 1,
+      "price": 999.99,
+      "productPicture": "f090aa9ef0e78393a5090fb924318035",
+      "_id": {
+        "$oid": "63a328c3af6a0702f7eb8c50"
+      }
+    },
+    {
+      "itemId": "63a33eabb2555d0832eeeb09",
+      "name": "Microphone Streamer Sandberg",
+      "quantity": 1,
+      "price": 105.99,
+      "productPicture": "1517dc111238aa1cf5acf2eb5df18ebf",
+      "_id": {
+        "$oid": "63a3453959f625df844ead62"
+      }
+    },
+    {
+      "itemId": "63a33ad4bef0bbae46c2c19e",
+      "name": "Nintendo Switch – OLED Model",
+      "quantity": 1,
+      "price": 499.99,
+      "productPicture": "d41e045564020b6ea770f60019800255",
+      "_id": {
+        "$oid": "63a3453b59f625df844ead69"
+      }
+    }
+  ],
+  "bill": 1645.96,
+  "__v": 27
+},{
+  "_id": {
+    "$oid": "639cedb0b1c2b381b2ddb2a0"
+  },
+  "owner": "7.8366831108152711.5405274050315665",
+  "items": [],
+  "bill": 0,
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "639d067ab1c2b381b2ddb5dc"
+  },
+  "owner": "63910df42c38a3676e6cd0d5",
+  "items": [
+    {
+      "itemId": "639cb743a5eabef72be38789",
+      "name": "Razor Keyboard",
+      "quantity": 1,
+      "price": 199.99,
+      "productPicture": "c745d79eaf9cb340e8936faafa111ccb",
+      "_id": {
+        "$oid": "639d067ab1c2b381b2ddb5dd"
+      }
+    },
+    {
+      "itemId": "639cd8308778d90afc4fa800",
+      "name": "Razor Mouse",
+      "quantity": 1,
+      "price": 39.99,
+      "productPicture": "8bbe29cda094103433f85a7d896f9347",
+      "_id": {
+        "$oid": "639d08eeb1c2b381b2ddb629"
+      }
+    },
+    {
+      "itemId": "639cd8bb8778d90afc4fa816",
+      "name": "Gaming Chair",
+      "quantity": 1,
+      "price": 199.99,
+      "productPicture": "61120246d550934455241eca4bba5d62",
+      "_id": {
+        "$oid": "639e96e3c2fb7219cddd4085"
+      }
+    }
+  ],
+  "bill": 439.97,
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "639d1ec217520172680c3b3a"
+  },
+  "owner": "63923c9f8868628846fb243c",
+  "items": [
+    {
+      "itemId": "639cd8bb8778d90afc4fa816",
+      "name": "Gaming Chair",
+      "quantity": 1,
+      "price": 199.99,
+      "productPicture": "61120246d550934455241eca4bba5d62",
+      "_id": {
+        "$oid": "639d1ec217520172680c3b3b"
+      }
+    },
+    {
+      "itemId": "639cb743a5eabef72be38789",
+      "name": "Razor Keyboard",
+      "quantity": 2,
+      "price": 199.99,
+      "productPicture": "c745d79eaf9cb340e8936faafa111ccb",
+      "_id": {
+        "$oid": "639d1ec417520172680c3b41"
+      }
+    },
+    {
+      "itemId": "639cd8308778d90afc4fa800",
+      "name": "Razor Mouse",
+      "quantity": 1,
+      "price": 39.99,
+      "productPicture": "8bbe29cda094103433f85a7d896f9347",
+      "_id": {
+        "$oid": "639d1ec617520172680c3b48"
+      }
+    }
+  ],
+  "bill": 639.96,
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "63a0ce18bdd305591aaff0f0"
+  },
+  "owner": "63a0cc751be64eb75870e167",
+  "items": [],
+  "bill": 0,
+  "__v": 3
+}]

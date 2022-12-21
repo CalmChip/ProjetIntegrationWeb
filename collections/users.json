@@ -1,0 +1,201 @@
+[{
+  "_id": {
+    "$oid": "639110bd31df27d6232c4916"
+  },
+  "name": "bob",
+  "email": "bobo@gmail.com",
+  "password": "$2a$10$j6Dtj2lP6VTWugceExZPn.2oz/VRNuWH5pKzvyJAuwepvI1Kd3s3e",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "__v": 0,
+  "verified": true
+},{
+  "_id": {
+    "$oid": "63923c9f8868628846fb243c"
+  },
+  "name": "jb",
+  "email": "jbtest@gmail.com",
+  "password": "$2a$10$srHrOswWK8ov/65ToQEALOFOLB0ay97BilEFR0vBDyCMEX4QGvH6m",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "__v": 0,
+  "verified": true
+},{
+  "_id": {
+    "$oid": "6394ccfee4fde944e6f86df4"
+  },
+  "name": "novais",
+  "email": "testnova@gmail.com",
+  "password": "$2a$10$t8FOu2YECIKt7mmzT5.MrOAeMN.7JrxjLdQ3NE7QktuA1dj0cyRZe",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "__v": 0,
+  "verified": true
+},{
+  "_id": {
+    "$oid": "639910ca62d82f77e941983b"
+  },
+  "name": "testeur",
+  "email": "testeur@gmail.com",
+  "password": "$2a$10$Mnkmfkfs3iLkGOn8/Qfy/u/3NSjIYcp83wwIlUx4wL4QOh8X9OWnm",
+  "roles": [
+    "user"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6399ce2c60c02282dfaab0fd"
+  },
+  "name": "jbtest2",
+  "email": "test2@gmail.com",
+  "password": "$2a$10$8wWzzf3fVZzeWSEEFNTXQOCLOcQeEA3yf1guvpxgUtvNgvFlzdbba",
+  "roles": [
+    "user"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a0cc751be64eb75870e167"
+  },
+  "name": "Remi Laf",
+  "email": "remilaframboise@gmail.com",
+  "password": "$2a$10$0fgNA1AVT3/lOFhHaE5MbOLtO0AAg7aMgLA8E66O9bl8vkyFTbkYu",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a0ccaef8f046bc4982a3a1"
+  },
+  "name": "jbseller",
+  "email": "sellerjb@gmail.com",
+  "password": "$2a$10$c1dcT0PGFFMXPk6kVWzXWuYN4ojOXC5dG37smj4OGzcLAJTCzwVnG",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1d7d992341e0f4b2b9710"
+  },
+  "name": "Raph",
+  "email": "meta@gmail.com",
+  "password": "$2a$10$6J.H5MixOT6INemYJWRHzuoQaXeqHO.Nkrn3hPSG75Rw0TY8Cj4pi",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a21b80eb0d386f0b6d0cfa"
+  },
+  "name": "testboy",
+  "email": "testboy@gg",
+  "password": "$2a$10$4QqXAZa5Ne6708qFXR4Bu.pm.pViMkQK2UutWcUWdkYmbvmL4YfMG",
+  "roles": [
+    "user"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a22186be48e2aa5e4719b6"
+  },
+  "name": "Raph2",
+  "email": "meta2@gmail.com",
+  "password": "$2a$10$yv7DvRCluizKEKDSFG55Kel0QkO6KXPokklsVcr6SaaNcwshCWVUO",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a33e39b2555d0832eeeaf4"
+  },
+  "name": "Bonjour",
+  "email": "bonjour@gmail.com",
+  "password": "$2a$10$41wjzMGOa5uFIWwHWf81h.o4hSrsUpz2ojPcMPV0vMc335rksiXHu",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a3427e975a04d38896b103"
+  },
+  "name": "newguy",
+  "email": "newguy@gmail.com",
+  "password": "$2a$10$spdDNxNFVi9BYOlB0ndLROFCnJzg2jd2A5ot5cVi9o0oeUKsorQhG",
+  "roles": [
+    "user"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a34af4eccbe416d0babcf7"
+  },
+  "name": "nonvendeur",
+  "email": "nosell@gmail.com",
+  "password": "$2a$10$9RTRbnwaGerxWHSJkFqlKOYpLs5sGHn/U.zgm2Gl1Vdt0ABgnx69G",
+  "roles": [
+    "user"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a34c09eccbe416d0babd93"
+  },
+  "name": "Alain",
+  "email": "alain@gmail.com",
+  "password": "$2a$10$M5E3tiihv5OYM8yOmHxBsOciYVVCmEh9rzLCgUgDj9VFKfzsbo9Im",
+  "roles": [
+    "user",
+    "admin",
+    "seller"
+  ],
+  "cart": [],
+  "verified": false,
+  "__v": 0
+}]

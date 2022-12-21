@@ -1,0 +1,157 @@
+[{
+  "_id": {
+    "$oid": "639cd8bb8778d90afc4fa816"
+  },
+  "productName": "Gaming Chair",
+  "type": "Chair",
+  "price": 199.99,
+  "desc": "An amazing brand new gaming chair",
+  "owner": "639910ca62d82f77e941983b",
+  "seller": "testeur",
+  "productPicture": "61120246d550934455241eca4bba5d62",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a07295bb8fff9d2d831e08"
+  },
+  "productName": "Souris jeu optique",
+  "type": "Souris et claviers",
+  "price": 130.19,
+  "desc": "Dotée d'un design ergonomique, cette souris offre un contrôle précis des actions pour de meilleures séances de jeu.",
+  "owner": "6394ccfee4fde944e6f86df4",
+  "seller": "novais",
+  "productPicture": "eeea50f451550e07d1ce01795c85812b",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a0e8ae4099193bf125c138"
+  },
+  "productName": "Casque d'écoute Sony",
+  "type": "casque",
+  "price": 130.49,
+  "desc": "Aucun bruit ne vous dérangera avec ce casque d'écoute Bluetooth à suppression du bruit WH-CH710N de Sony.",
+  "owner": "6394ccfee4fde944e6f86df4",
+  "seller": "novais",
+  "productPicture": "fec6f2ea67d6d5517e79c15a473c7fa4",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a0e9184099193bf125c162"
+  },
+  "productName": "Liseuse numérique Kobo",
+  "type": "Liseuses",
+  "price": 200.49,
+  "desc": "Conçue pour les amateurs de lecture et les minimalistes de la technologie, la liseuse numérique de 7 po Libra 2 de Kobo a une énorme mémoire de 32 Go qui vous permet de stocker jusqu'à 24 000 livres numériques.",
+  "owner": "6394ccfee4fde944e6f86df4",
+  "seller": "novais",
+  "productPicture": "c94876e287ef2bec1b6c77ea1f1701c0",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a0eb484099193bf125c19b"
+  },
+  "productName": "Surface Laptop ",
+  "type": "Ordinateurs",
+  "price": 2350.44,
+  "desc": "Laissez libre cours à votre imagination avec le puissant et très polyvalent portable Surface Laptop de Microsoft.",
+  "owner": "6394ccfee4fde944e6f86df4",
+  "seller": "novais",
+  "productPicture": "6c4e8c8f7d9a83ca7e9e21f1de3f21ca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1e8661e96e2b830a47800"
+  },
+  "productName": "MS-M31 Cup",
+  "type": "Shaker",
+  "price": 49.99,
+  "desc": "Limited Edition Mobile Suit Gundam Shaker, for your gamer beverages.",
+  "owner": "63a0cc751be64eb75870e167",
+  "seller": "Remi Laf",
+  "productPicture": "e9f0c6eccf4800ff9dd4ae29aed70982",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1e8f81e96e2b830a47813"
+  },
+  "productName": "Oculus Quest",
+  "type": "VR Headset",
+  "price": 999.99,
+  "desc": "Deep dive into the world of gaming like never before.",
+  "owner": "63a0cc751be64eb75870e167",
+  "seller": "Remi Laf",
+  "productPicture": "f090aa9ef0e78393a5090fb924318035",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a21ec77f2e26f667de0a33"
+  },
+  "productName": "Razor Mouse",
+  "type": "Mouse",
+  "price": 39.99,
+  "desc": "Razor mouse, Brand new",
+  "owner": "63923c9f8868628846fb243c",
+  "seller": "jb",
+  "productPicture": "8bbe29cda094103433f85a7d896f9347",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a21f527f2e26f667de0a34"
+  },
+  "productName": "Razor Keyboard",
+  "type": "Keyboard",
+  "price": 199.99,
+  "desc": "Razor Keyboard, Amazing Keyboard Brand new",
+  "owner": "63923c9f8868628846fb243c",
+  "seller": "jb",
+  "productPicture": "c745d79eaf9cb340e8936faafa111ccb",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a33ad4bef0bbae46c2c19e"
+  },
+  "productName": "Nintendo Switch – OLED Model",
+  "type": "Nintendo",
+  "price": 499.99,
+  "desc": "7-inch OLED screen - Enjoy vivid colors and crisp contrast with a screen that makes colors pop\r\nWired LAN port - Use the dock’s LAN port when playing in TV mode for a wired internet connection\r\n64 GB internal storage - Save games to your system with 64 GB of internal storage\r\nEnhanced audio – Enjoy enhanced sound from the system’s onboard speakers when playing in Handheld and Tabletop modes.\r\nWide adjustable stand – Freely angle the system’s wide, adjustable stand for comfortable viewing in Tabletop mode. Nintendo Switch – OLED Model supports all Joy-Con controllers and Nintendo Switch software",
+  "owner": "63a1d7d992341e0f4b2b9710",
+  "seller": "Raph",
+  "productPicture": "d41e045564020b6ea770f60019800255",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a33eabb2555d0832eeeb09"
+  },
+  "productName": "Microphone Streamer Sandberg",
+  "type": "Microphone",
+  "price": 105.99,
+  "desc": "A great Microphone for streamer! microphone usb. ",
+  "owner": "63a33e39b2555d0832eeeaf4",
+  "seller": "Bonjour",
+  "productPicture": "1517dc111238aa1cf5acf2eb5df18ebf",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a347fd59f625df844eada0"
+  },
+  "productName": "produit",
+  "type": "info",
+  "price": 400,
+  "desc": "ahhahahha ",
+  "owner": "6394ccfee4fde944e6f86df4",
+  "seller": "novais",
+  "productPicture": "11df5a1d8b15c5dfb6d262bb736ff50a",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a34b4beccbe416d0babd46"
+  },
+  "productName": "Testing Testing",
+  "type": "Chair",
+  "price": 12.12,
+  "desc": "123123",
+  "owner": "63923c9f8868628846fb243c",
+  "seller": "jb",
+  "productPicture": "06a119e25c4964d9416b085cf784efbb",
+  "__v": 0
+}]
