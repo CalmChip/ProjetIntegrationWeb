@@ -102,7 +102,7 @@
                <td class="align-middle"><%= product.type %></td>
                <td class="align-middle overflow"><%= product.desc %></td>  
                <td class="align-middle" style="white-space: nowrap"><%= product.price %> $</td>
-               <td class="align-middle"><a class="btn btn-secondary" href="/products/supprimer/<%= product.id %>">supprimer</a></td>
+               <td class="align-middle"><a class="btn btn-secondary" onclick="deleteProduct('<%= product._id %>')">supprimer</a></td>
                
              </tr>
             <% }) %>
@@ -114,4 +114,15 @@
       <h1 style="font-style: italic; text-decoration: underline; margin-top: 30px;">You don't sell any products</h1>
     <% } %>
 </div>
+<script>
+  function deleteProduct(id) {
+    fetch(`http://127.0.0.1:8000/products/${id}`, {
+      method: 'DELETE',
+    })
+    .then(() => {
+      alert("Item deleted successfully");
+      window.location.reload();
+    })
+  }
+</script>
 
