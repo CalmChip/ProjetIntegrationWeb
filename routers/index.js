@@ -144,7 +144,6 @@ router.get("/filters/:filter", (req, res) => {
   Products.findProductByCategorieAscending(
     filter,
     (err, allProducts) => {
-      console.log("Test type filter: ", allProducts);
       if (err) throw err;
       res.json(allProducts);
     },
