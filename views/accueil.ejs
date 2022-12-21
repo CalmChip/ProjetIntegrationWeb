@@ -170,10 +170,10 @@
   function reloadPage(data) {
     let pageContent = "";
     console.log(data);
-    for (i in data) {
-      pageContent = `<div style="min-width: 310px; height: 230px; margin: 20px">
+    data.forEach(function (products) {
+      pageContent += `<div style="min-width: 310px; height: 230px; margin: 20px">
       <a
-        href="/details/${data._id}"
+        href="/details/${products._id}"
         style="text-decoration: none; color: black"
       >
         <div
@@ -185,19 +185,19 @@
           "
         >
           <div>
-            <h5 class="text-center">${data.productName}</h5>
+            <h5 class="text-center">${products.productName}</h5>
             <img
-              src="/pictures/${data.productPicture}"
+              src="/pictures/${products.productPicture}"
               alt="Product Picture"
             />
 
             <div class="product-info">
-              <h6>${data.price}$</h6>
+              <h6>${products.price}$</h6>
               <p>
                 <a
                   class="btn btn-default bg-dark text-white"
                   role="button"
-                  onclick="addToCart('${data._id}')"
+                  onclick="addToCart('${products._id}')"
                   >Cart</a>
               </p>
             </div>
@@ -205,7 +205,7 @@
         </div>
       </a>
     </div>`;
-    }
+    });
     $("#reload").html(pageContent);
   }
   function addToCart(id) {
@@ -224,34 +224,20 @@
       });
   }
   function searchBar() {
-    console.log("I GOT CALLED");
-    let search = document.getElementById("search").value;
-    console.log("Searched:", search);
-    fetch(`http://127.0.0.1:8000/search/${search}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        response.json();
-      })
+    let initialValue = document.getElementById("search").value;
+    let search = initialValue.replace(/\s/g, "");
+    const url = `http://127.0.0.1:8000/search/${search}`;
+    fetch(url)
+      .then((reponse) => reponse.json())
       .then((data) => {
+        console.log("Test data", data);
         reloadPage(data);
       });
   }
   function filterByCategory(filter) {
-    console.log("test filter", filter);
-    fetch(`http://127.0.0.1:8000/filters/${filter}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res3) => {
-        res3.json();
-        console.log("Test response: ", res3);
-      })
+    const url = `http://127.0.0.1:8000/filters/${filter}`;
+    fetch(url)
+      .then((reponse) => reponse.json())
       .then((data) => {
         console.log("Test data", data);
         reloadPage(data);
