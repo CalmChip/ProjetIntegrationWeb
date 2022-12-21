@@ -26,8 +26,12 @@
                     <p><strong>Seller: </strong><%= product.seller %></p>
                 </div></div>
                 <p class="container" style="margin-left: 10px;"><strong>Description:</strong><br> <%= product.desc %></p>
-                <!-- Boutton qui redirect pour communiquer avec le vendeur -->
-                <p class="text-center" style="margin-top: 2%; font-size: 20px;"><strong >Support: </strong><a href="#" style="margin-top:10px; color: rgb(9, 9, 138);">Contact seller about this product</a></p> 
+                 <!-- Boutton qui redirect pour communiquer avec le vendeur -->
+                 <% if (typeof user == "undefined") { %>
+                    <p class="text-center" style="margin-top: 2%; font-size: 20px;"><strong >Support: </strong><a href="/users/login" style="margin-top:10px; color: rgb(9, 9, 138);">Sign In to contact seller about this product</a></p> 
+                    <% } else { %>
+                    <p class="text-center" style="margin-top: 2%; font-size: 20px;"><strong >Support: </strong><a href="/chats/<%=product._id%>/<%=user._id%>" style="margin-top:10px; color: rgb(9, 9, 138);">Contact seller about this product</a></p> 
+                    <% } %>
         </div>
          
     </div>

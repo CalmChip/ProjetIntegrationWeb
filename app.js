@@ -8,6 +8,18 @@ const session = require("express-session");
 const passport = require("passport");
 const multer = require("multer");
 const upload = multer({ dest: "./uploads/" });
+const http = require("http");
+const socketio = require("socket.io");
+const server = http.createServer(app);
+const io = socketio(server);
+const Chat = require("./models/chats");
+const Products = require("./models/products");
+const {
+  userJoin,
+  getCurrentUser,
+  formatMessage,
+  userLeave,
+} = require("./scripts/users");
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, "./uploads/");
@@ -56,6 +68,7 @@ app.use((requete, reponse, next) => {
 app.use("/", require("./routers/index"));
 app.use("/users", require("./routers/users"));
 app.use("/carts", require("./routers/carts"));
+app.use("/chats", require("./routers/chats"));
 
 //Statique route
 app.use("/css", express.static("./styles"));
@@ -78,5 +91,56 @@ db.on("open", () => {
   console.log(`Connected to the Database`);
 });
 
+const botName = "Support Bot";
+
+// Run when clients connect
+io.on("connection", (socket) => {
+  console.log("New WS Connection...");
+  socket.on("joinRoom", ({ username, room }) => {
+    const user = userJoin(socket.id, username, room);
+
+    socket.join(user.room);
+
+    // Welcome current user
+    socket.emit("message", formatMessage(botName, "Welcome to Chat!"));
+
+    // When a user connects / To Everyone but the client that's connecting
+    socket.broadcast
+      .to(user.room)
+      .emit(
+        "message",
+        formatMessage(botName, `${user.username} has join the chat`)
+      );
+  });
+
+  // Listen for chatMessage
+  socket.on("chatMessage", (msg) => {
+    const user = getCurrentUser(socket.id);
+
+    io.to(user.room).emit("message", formatMessage(user.username, msg));
+
+    //save chat to the database
+    let chatMessage = new Chat({
+      message: msg,
+      sender: user.username,
+      to: user.room,
+    });
+
+    chatMessage.save();
+  });
+
+  // When a user disconnects
+  socket.on("disconnect", () => {
+    const user = userLeave(socket.id);
+
+    if (user) {
+      io.to(user.room).emit(
+        "message",
+        formatMessage(botName, `${user.username} has left the chat`)
+      );
+    }
+  });
+});
+
 //create server et affiche a la console le port
-app.listen(PORT, console.log(`Web démarré sur port : ${PORT}`));
+server.listen(PORT, console.log(`Web démarré sur port : ${PORT}`));

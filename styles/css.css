@@ -169,7 +169,7 @@ body {
   flex-direction: column;
   font-family: "Arial";
   font-size: 1.25rem;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0;
   max-width: 600px;
   padding: 0.5rem 1.5rem;
 }
@@ -177,10 +177,14 @@ body {
 .imessage p {
   border-radius: 1.15rem;
   line-height: 1.25;
-  max-width: 75%;
-  padding: 0.5rem .875rem;
+  max-width: 100%;
+  padding: 0.3rem .675rem;
   position: relative;
   word-wrap: break-word;
+}
+
+.chatText {
+  text-align: left;
 }
 
 .imessage p::before,
@@ -191,64 +195,34 @@ body {
   position: absolute;
 }
 
-p.from-me {
-  align-self: flex-end;
-  background-color: #248bf5;
-  color: #fff; 
-}
-
-p.from-me::before {
-  border-bottom-left-radius: 0.8rem 0.7rem;
-  border-right: 1rem solid #248bf5;
-  right: -0.35rem;
-  transform: translate(0, -0.1rem);
-}
-
-p.from-me::after {
-  background-color: #fff;
-  border-bottom-left-radius: 0.5rem;
-  right: -40px;
-  transform:translate(-30px, -2px);
-  width: 10px;
-}
-
-p[class^="from-"] {
-  margin: 0.5rem 0;
-}
-
-p.from-them {
-  align-items: flex-start;
-  background-color: #e5e5ea;
-  color: #000;
-}
-
-p.from-them:before {
-  border-bottom-right-radius: 0.8rem 0.7rem;
-  border-left: 1rem solid #e5e5ea;
-  left: -0.35rem;
-  transform: translate(0, -0.1rem);
-}
-
-p.from-them::after {
-  background-color: #fff;
-  border-bottom-right-radius: 0.5rem;
-  left: 20px;
-  transform: translate(-30px, -2px);
-  width: 10px;
-}
 .inputChat {
   display: block;
   border: 2px solid rgb(59, 138, 212);
   height: 60px;
 }
-.message {
-  border: solid grey;
+.chat-messages {
+	padding: 10px;
+	max-height: 500px;
+	overflow-y: scroll;
 }
-.message:focus {
-  border: 5px solid #00d4ff;
+
+.chat-messages .message {
+	margin-bottom: 5px;
+	background-color: lightblue;
+	border-radius: 5px;
+	overflow-wrap: break-word;
 }
-.message:focus + .iconMessage {
-  color: #00d4ff;
+
+.chat-messages .message .meta {
+	font-size: 15px;
+	font-weight: bold;
+	color: var(--dark-color-b);
+	opacity: 0.7;
+	margin-bottom: 3px;
+}
+
+.chat-messages .message .meta span {
+	color: #777;
 }
 .iconMessage{
   position: absolute;

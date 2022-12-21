@@ -49,7 +49,10 @@ router.get("/index.html", (request, response) => {
 router.get("/details/:id", (request, response) => {
   Products.findById(request.params.id, (err, product) => {
     if (err) throw err;
-    response.render("details.ejs", { product });
+    response.render("details.ejs", {
+      user: request.user,
+      product,
+    });
     /* console.log("voici le produit", product); */
   });
 });
