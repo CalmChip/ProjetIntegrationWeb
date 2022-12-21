@@ -111,14 +111,17 @@
     <div>
       <p class="text-center"><b>Product categories :</b></p>
       <hr />
-      <% if(typeof products !='undefined' ) { %> <% products.forEach(
-      function(product) { %> <% let toReplace = product.type; %> <% let
-      classJQuery = toReplace.replace(/\s/g, ""); %>
+      <% if(typeof products !='undefined' ) { %> <% let tempType =
+      (function(tempType) { for (let i = products.length; i--;) if
+      (tempType.indexOf(products[i].type) < 0) tempType.push(products[i].type);
+      return tempType; })([]); console.log(tempType); let compt = -1;%> <%
+      tempType.forEach( function(type) { %> <% let toReplace = type; %> <% let
+      classJQuery = toReplace.replace(/\s/g, ""); compt++; %>
       <div style="align-items: left">
         <form>
           <input type="checkbox" id="product" name="product" value="type" />
           <label for="<%= classJQuery %>" class="<%= classJQuery %>"
-            ><%= product.type%></label
+            ><%= tempType[compt]%></label
           ><br />
           <script>
             $(".<%= classJQuery%>").click(function () {
